@@ -1,3 +1,4 @@
+import 'package:chatt_app/config/theme/app_theme.dart';
 import 'package:chatt_app/presentation/screens/auth/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -14,9 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Messenger App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+      theme: AppTheme.lightTheme,
       home: LoginScreen(),
     );
   }
