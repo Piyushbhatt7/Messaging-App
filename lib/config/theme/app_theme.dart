@@ -29,10 +29,9 @@ class AppTheme {
         borderRadius: BorderRadius.circular(24),
         borderSide: BorderSide.none,
       ),
-
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(24),
-        borderSide: BorderSide.none,
+        borderSide: BorderSide(color: primaryColor),
       ),
     ),
 
