@@ -1,3 +1,4 @@
+import 'package:chatt_app/core/common/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -8,6 +9,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +37,19 @@ class _LoginScreenState extends State<LoginScreen> {
               ?.copyWith(color: Colors.grey
               )    
               ),
+                   // email
+              CustomTextField(
+                controller: emailController, 
+                hintText: "Email",
+                prefixIcon: Icon(Icons.email_outlined),
+                ),
+                   // password
+                 CustomTextField(
+                controller: passwordController, 
+                hintText: "Password",
+                suffixIcon: Icon(Icons.password_outlined),
+                obscureText: true,
+                ),
             ],
           )
         ),
