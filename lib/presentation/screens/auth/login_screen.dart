@@ -23,6 +23,17 @@ class _LoginScreenState extends State<LoginScreen> {
               ?.copyWith(fontWeight: FontWeight.bold),
               
               ),
+
+              const SizedBox(height: 10.0,),
+
+               Text(
+                "Sign in to continue", 
+              style: Theme.of(context)
+              .textTheme
+              .bodyLarge
+              ?.copyWith(color: Colors.grey
+              )    
+              ),
             ],
           )
         ),
