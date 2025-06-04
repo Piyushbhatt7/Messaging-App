@@ -13,6 +13,12 @@ class AppTheme {
       secondary: Color(0xffF7CFD8),
       surface: Colors.white,
       onSurface: Colors.black,
+      tertiary: Color(0xFF7CBEC2),
+      onPrimary: Colors.black87,
+    ),
+
+    appBarTheme: const AppBarTheme(
+      
     )
   )
 }
