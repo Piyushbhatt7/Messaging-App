@@ -11,8 +11,14 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("FlutterSync"),
+      body: SafeArea(
+        child: Form(
+          child: Column(
+            children: [
+              Text("Welcome Back"),
+            ],
+          )
+        ),
       ),
     );
   }
