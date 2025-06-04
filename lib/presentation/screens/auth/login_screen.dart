@@ -15,7 +15,14 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Form(
           child: Column(
             children: [
-              Text("Welcome Back"),
+              const SizedBox(height: 30.0,),
+              Text("Welcome Back", 
+              style: Theme.of(context)
+              .textTheme
+              .headlineMedium
+              ?.copyWith(fontWeight: FontWeight.bold),
+              
+              ),
             ],
           )
         ),
