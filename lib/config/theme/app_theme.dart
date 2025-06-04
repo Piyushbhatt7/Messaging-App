@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
 
-  static const primaryColor = Color(0XFFFFA8DADC);
+  static const primaryColor = Color(0xff5F99AE);
 
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
@@ -20,6 +20,10 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: primaryColor.withOpacity(0.1),
+      contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(24),
+      )
     ),
 
     appBarTheme: const AppBarTheme(
