@@ -17,6 +17,11 @@ class AppTheme {
       onPrimary: Colors.black87,
     ),
 
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: primaryColor.withOpacity(0.1),
+    ),
+
     appBarTheme: const AppBarTheme(
       backgroundColor: Colors.white,
       elevation: 0,

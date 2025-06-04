@@ -41,13 +41,13 @@ class _LoginScreenState extends State<LoginScreen> {
               CustomTextField(
                 controller: emailController, 
                 hintText: "Email",
-                prefixIcon: Icon(Icons.email_outlined),
+                prefixIcon: Icon(Icons.email),
                 ),
                    // password
                  CustomTextField(
                 controller: passwordController, 
                 hintText: "Password",
-                suffixIcon: Icon(Icons.password_outlined),
+                suffixIcon: Icon(Icons.visibility),
                 obscureText: true,
                 ),
             ],
