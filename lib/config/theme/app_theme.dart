@@ -18,7 +18,17 @@ class AppTheme {
     ),
 
     appBarTheme: const AppBarTheme(
-      
+      backgroundColor: Colors.white,
+      elevation: 0,
+      centerTitle: false,
+      titleTextStyle: TextStyle(
+        color: Colors.black,
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+      ),
+      iconTheme: IconThemeData(
+        color: Colors.black
+      )
     )
-  )
+  );
 }
