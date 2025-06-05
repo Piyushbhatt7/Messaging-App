@@ -15,51 +15,55 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Form(
-          child: Column(
-            children: [
-              const SizedBox(height: 30.0,),
-              Text(
-                "Welcome Back", 
-              style: Theme.of(context)
-              .textTheme
-              .headlineMedium
-              ?.copyWith(fontWeight: FontWeight.bold),
-              
-              ),
-
-              const SizedBox(height: 10.0,),
-
-               Text(
-                "Sign in to continue", 
-              style: Theme.of(context)
-              .textTheme
-              .bodyLarge
-              ?.copyWith(color: Colors.grey
-              )    
-              ),
-
-               const SizedBox(height: 16.0,),
-                   // email
-              CustomTextField(
-                controller: emailController, 
-                hintText: "Email",
-                prefixIcon: Icon(Icons.email_outlined),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Form(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 30.0,),
+                Text(
+                  "Welcome Back", 
+                style: Theme.of(context)
+                .textTheme
+                .headlineMedium
+                ?.copyWith(fontWeight: FontWeight.bold),
+                
                 ),
-
-                const SizedBox(height: 16.0,),
-                   // password
-                 CustomTextField(
-                controller: passwordController, 
-                hintText: "Password",
-                prefixIcon: const Icon(Icons.lock_outline),
-                suffixIcon: Icon(Icons.visibility),
-                obscureText: true,
+          
+                const SizedBox(height: 10.0,),
+          
+                 Text(
+                  "Sign in to continue", 
+                style: Theme.of(context)
+                .textTheme
+                .bodyLarge
+                ?.copyWith(color: Colors.grey
+                )    
                 ),
-
+          
                  const SizedBox(height: 16.0,),
-            ],
-          )
+                     // email
+                CustomTextField(
+                  controller: emailController, 
+                  hintText: "Email",
+                  prefixIcon: Icon(Icons.email_outlined),
+                  ),
+          
+                  const SizedBox(height: 16.0,),
+                     // password
+                   CustomTextField(
+                  controller: passwordController, 
+                  hintText: "Password",
+                  prefixIcon: const Icon(Icons.lock_outline),
+                  suffixIcon: Icon(Icons.visibility),
+                  obscureText: true,
+                  ),
+          
+                   const SizedBox(height: 16.0,),
+              ],
+            )
+          ),
         ),
       ),
     );
