@@ -69,11 +69,15 @@ class _LoginScreenState extends State<LoginScreen> {
                    }, text: "Login",
                    ),
 
-                   Text(
-                    "Sign in to continue",
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: Colors.grey,
+                   RichText(
+                    text:  TextSpan(
+                      text:  "Don't have an account?",
+                      style: TextStyle(
+                        color: Colors.grey
+                      )
                     ),
+                  
+                   
                    )
               ],
             )
