@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   prefixIcon: Icon(Icons.email_outlined),
                   ),
           
-                  const SizedBox(height: 16.0,),
+                  const SizedBox(height: 14.0,),
                      // password
                    CustomTextField(
                   controller: passwordController, 
@@ -62,10 +62,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
           
                    const SizedBox(height: 16.0,),
-                   CustomButton(onPressed: ()
+                   CustomButton(
+                    onPressed: ()
                    {
-                    
-                   })
+                     
+                   }, text: "Login",)
               ],
             )
           ),
