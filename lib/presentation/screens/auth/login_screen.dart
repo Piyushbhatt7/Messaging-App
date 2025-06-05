@@ -47,6 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                  CustomTextField(
                 controller: passwordController, 
                 hintText: "Password",
+                prefixIcon: const Icon(Icons.lock),
                 suffixIcon: Icon(Icons.visibility),
                 obscureText: true,
                 ),
