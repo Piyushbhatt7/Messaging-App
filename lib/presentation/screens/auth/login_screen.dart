@@ -1,5 +1,6 @@
 import 'package:chatt_app/core/common/custom_button.dart';
 import 'package:chatt_app/core/common/custom_text_field.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -12,6 +13,15 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,14 +97,14 @@ class _LoginScreenState extends State<LoginScreen> {
                             ?.copyWith(
                               color: Theme.of(context)
                               .primaryColor, 
-                              fontWeight: FontWeight.bold
-                              ),
-                            
-                          )
+                              fontWeight: FontWeight.bold,
+                              ),     
+                              recognizer: TapGestureRecognizer(
+                                
+                              ) 
+                          ),
                         ]
-                      ),
-                                       
-                     
+                      ),                              
                      ),
                    )
               ],
