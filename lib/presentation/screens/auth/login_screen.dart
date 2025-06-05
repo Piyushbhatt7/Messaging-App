@@ -74,7 +74,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       text:  "Don't have an account?",
                       style: TextStyle(
                         color: Colors.grey
-                      )
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "SignUp",
+                          style: TextStyle(
+                            color: Theme.of(context).textTheme.bodyMedium.p
+                          )
+                        )
+                      ]
                     ),
                   
                    
