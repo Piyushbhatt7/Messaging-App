@@ -1,3 +1,4 @@
+import 'package:chatt_app/core/common/custom_button.dart';
 import 'package:chatt_app/core/common/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -61,6 +62,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
           
                    const SizedBox(height: 16.0,),
+                   CustomButton(onPressed: ()
+                   {
+                    
+                   })
               ],
             )
           ),
