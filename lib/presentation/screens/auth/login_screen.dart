@@ -70,7 +70,8 @@ class _LoginScreenState extends State<LoginScreen> {
                    ),
 
                    Text(
-                    "Sign in to continue"
+                    "Sign in to continue",
+                    style: Theme.of(context),
                    )
               ],
             )
