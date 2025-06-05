@@ -38,6 +38,8 @@ class _LoginScreenState extends State<LoginScreen> {
               ?.copyWith(color: Colors.grey
               )    
               ),
+
+               const SizedBox(height: 16.0,),
                    // email
               CustomTextField(
                 controller: emailController, 
@@ -45,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 prefixIcon: Icon(Icons.email_outlined),
                 ),
 
-                const SizedBox(height: 10.0,),
+                const SizedBox(height: 16.0,),
                    // password
                  CustomTextField(
                 controller: passwordController, 
