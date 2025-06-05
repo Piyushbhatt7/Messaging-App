@@ -56,6 +56,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 suffixIcon: Icon(Icons.visibility),
                 obscureText: true,
                 ),
+
+                 const SizedBox(height: 16.0,),
             ],
           )
         ),
