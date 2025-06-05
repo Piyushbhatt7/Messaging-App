@@ -1,5 +1,6 @@
 import 'package:chatt_app/core/common/custom_button.dart';
 import 'package:chatt_app/core/common/custom_text_field.dart';
+import 'package:chatt_app/presentation/screens/auth/signup_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -99,9 +100,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               .primaryColor, 
                               fontWeight: FontWeight.bold,
                               ),     
-                              recognizer: TapGestureRecognizer(
-                                
-                              ) 
+                              recognizer: TapGestureRecognizer()..onTap = () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> SignupScreen()));
+                              }
                           ),
                         ]
                       ),                              
