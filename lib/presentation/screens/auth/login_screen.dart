@@ -76,14 +76,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       text:  TextSpan(
                         text:  "Don't have an account?",
                         style: TextStyle(
-                          color: Colors.grey
+                          color: Colors.grey[600]
                         ),
                         children: [
                           TextSpan(
                             text: "SignUp",
-                            style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                            )
+                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold),
+                            
                           )
                         ]
                       ),
