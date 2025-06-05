@@ -61,12 +61,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   obscureText: true,
                   ),
           
-                   const SizedBox(height: 16.0,),
+                   const SizedBox(height: 30.0,),
                    CustomButton(
                     onPressed: ()
                    {
                      
-                   }, text: "Login",)
+                   }, text: "Login",
+                   ),
+
+                   Text(
+                    "Sign in to continue"
+                   )
               ],
             )
           ),
