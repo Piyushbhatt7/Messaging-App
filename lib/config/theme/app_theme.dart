@@ -33,6 +33,11 @@ class AppTheme {
         borderRadius: BorderRadius.circular(24),
         borderSide: BorderSide(color: primaryColor),
       ),
+
+      hintStyle: TextStyle(
+        color: Colors.grey[600],
+        
+      )
     ),
 
     appBarTheme: const AppBarTheme(
@@ -46,6 +51,11 @@ class AppTheme {
       ),
       iconTheme: IconThemeData(
         color: Colors.black
+      )
+    ),
+    textTheme: const TextTheme(
+      titleLarge: TextStyle(
+        fontSize: 18.0, // 36.52
       )
     )
   );
