@@ -19,7 +19,8 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             children: [
               const SizedBox(height: 30.0,),
-              Text("Welcome Back", 
+              Text(
+                "Welcome Back", 
               style: Theme.of(context)
               .textTheme
               .headlineMedium
@@ -41,13 +42,15 @@ class _LoginScreenState extends State<LoginScreen> {
               CustomTextField(
                 controller: emailController, 
                 hintText: "Email",
-                prefixIcon: Icon(Icons.email),
+                prefixIcon: Icon(Icons.email_outlined),
                 ),
+
+                const SizedBox(height: 10.0,),
                    // password
                  CustomTextField(
                 controller: passwordController, 
                 hintText: "Password",
-                prefixIcon: const Icon(Icons.lock),
+                prefixIcon: const Icon(Icons.lock_outline),
                 suffixIcon: Icon(Icons.visibility),
                 obscureText: true,
                 ),
