@@ -74,14 +74,21 @@ class _LoginScreenState extends State<LoginScreen> {
                    Center(
                      child: RichText(
                       text:  TextSpan(
-                        text:  "Don't have an account?",
+                        text:  "Don't have an account? ",
                         style: TextStyle(
                           color: Colors.grey[600]
                         ),
+              
                         children: [
                           TextSpan(
                             text: "SignUp",
-                            style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Theme.of(context).primaryColor, fontWeight: FontWeight.bold),
+                            style: Theme.of(context)
+                            .textTheme.bodyLarge
+                            ?.copyWith(
+                              color: Theme.of(context)
+                              .primaryColor, 
+                              fontWeight: FontWeight.bold
+                              ),
                             
                           )
                         ]
