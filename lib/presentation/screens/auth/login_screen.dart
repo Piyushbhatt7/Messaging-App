@@ -101,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               fontWeight: FontWeight.bold,
                               ),     
                               recognizer: TapGestureRecognizer()..onTap = () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> SignupScreen()));
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=> SignupScreen()));// 56:10
                               }
                           ),
                         ]

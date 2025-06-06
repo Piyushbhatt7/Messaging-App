@@ -28,7 +28,14 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return SafeArea(
+      child: Scaffold(
+        body: Form(child: Column(
+          children: [
+            
+          ],
+        ))
+      ),
     );
   }
 }
