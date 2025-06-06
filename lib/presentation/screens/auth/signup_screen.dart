@@ -12,11 +12,20 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  bool _isPasswordVisible = false;
+
+  final _nameFocus = FocusNode();
+  final _usernameFocus = FocusNode();
+  final _emailFocus = FocusNode();
+  final _phoneFocus = FocusNode();
+  final _passwordFocus = FocusNode();
   //final TextEditingController passwordController = TextEditingController();
 
   @override
@@ -35,6 +44,7 @@ class _SignupScreenState extends State<SignupScreen> {
       child: Scaffold(
         appBar: AppBar(),
         body: Form(
+          key: _formKey,
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
@@ -100,41 +110,35 @@ class _SignupScreenState extends State<SignupScreen> {
 
                 const SizedBox(height: 30.0),
 
-                CustomButton(onPressed: ()
-                {
-                  
-                },
-                text: "Create Account",
-                ),
+                CustomButton(onPressed: () {}, text: "Create Account"),
 
-                RichText(text: TextSpan(
-                  text: "Don't have an account? ",
-                  style: TextStyle(
-                    color: Colors.grey[600],
+                const SizedBox(height: 20),
+
+                Center(
+                  child: RichText(
+                    text: TextSpan(
+                      text: "Already have an account?  ",
+                      style: TextStyle(color: Colors.grey[600]),
+
+                      children: [
+                        TextSpan(
+                          text: "Login",
+                          style: Theme.of(
+                            context,
+                          ).textTheme.bodyLarge?.copyWith(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          recognizer:
+                              TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.pop(context);
+                                },
+                        ),
+                      ],
+                    ),
                   ),
-
-                  children: [
-                    TextSpan(
-                      text: "Login",
-                      style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge
-                      ?.copyWith(
-                        color: Theme.of(context).primaryColor,
-                        fontWeight: FontWeight.bold
-                      ),
-                      recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        Navigator.push(
-                          context, MaterialPageRoute(
-                            builder: (context) => const LoginScreen()
-                            )
-                            );
-                      }
-                    )
-                  ]
-                ))
-
+                ),
               ],
             ),
           ),
