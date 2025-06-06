@@ -62,8 +62,10 @@ class UserModel {
       fullName: data["fullName"], 
       email: data["email"], 
       phoneNumber: data["phoneNumber"], 
-      fmcToken: data["fmcToken"]
-      )
+      fmcToken: data["fmcToken"],
+      lastseen: data["lastSeen"],
+      createdAt: data["createdAt"]
+      );
   }
 
   Map<String, dynamic> toMap () {
