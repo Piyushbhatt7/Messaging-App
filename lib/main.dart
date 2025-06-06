@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: ,
       debugShowCheckedModeBanner: false,
       title: 'Messenger App',
       theme: AppTheme.lightTheme,
