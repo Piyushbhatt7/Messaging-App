@@ -8,7 +8,6 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-
   final TextEditingController emailController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
@@ -30,11 +29,21 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Form(child: Column(
-          children: [
+        body: Form(
+          child: SingleChildScrollView(
             
-          ],
-        ))
+            child: Column(
+              children: [
+                Text(
+                  "Create an Account",
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
