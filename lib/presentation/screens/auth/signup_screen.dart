@@ -1,4 +1,7 @@
+import 'package:chatt_app/core/common/custom_button.dart';
 import 'package:chatt_app/core/common/custom_text_field.dart';
+import 'package:chatt_app/presentation/screens/auth/login_screen.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -30,6 +33,7 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(),
         body: Form(
           child: SingleChildScrollView(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -43,7 +47,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   ),
                 ),
 
-                const SizedBox(height: 10.0),
+                const SizedBox(height: 8.0),
 
                 Text(
                   "Please fill the details to continue",
@@ -90,11 +94,46 @@ class _SignupScreenState extends State<SignupScreen> {
                   controller: passwordController,
                   hintText: "Password",
                   prefixIcon: Icon(Icons.lock_outline),
+                  suffixIcon: Icon(Icons.visibility),
+                  obscureText: true,
                 ),
 
-                const SizedBox(height: 16.0),
+                const SizedBox(height: 30.0),
 
-                
+                CustomButton(onPressed: ()
+                {
+                  
+                },
+                text: "Create Account",
+                ),
+
+                RichText(text: TextSpan(
+                  text: "Don't have an account? ",
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                  ),
+
+                  children: [
+                    TextSpan(
+                      text: "Login",
+                      style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge
+                      ?.copyWith(
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.bold
+                      ),
+                      recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        Navigator.push(
+                          context, MaterialPageRoute(
+                            builder: (context) => const LoginScreen()
+                            )
+                            );
+                      }
+                    )
+                  ]
+                ))
 
               ],
             ),
