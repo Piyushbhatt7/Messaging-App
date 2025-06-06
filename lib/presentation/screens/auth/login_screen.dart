@@ -15,14 +15,43 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  final _emailFocus = FocusNode();
+  final _passwordFocus = FocusNode();
+
   @override
   void dispose() {
     // TODO: implement dispose
     emailController.dispose();
     passwordController.dispose();
-    super.dispose();
 
+    _emailFocus.dispose();
+    _passwordFocus.dispose();
+
+    super.dispose();
   }
+
+  String? _validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return "Please enter your email address";
+    }
+
+    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    if (!emailRegex.hasMatch(value)) {
+      return 'Please enter a valid email address (e.g, example@gmail.com)';
+    }
+    return null;
+  }
+
+  String? _validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return "Please enter your password";
+    }
+
+    if (value.length < 6) {
+      return 'Password must be at least 6 characters long';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,84 +62,83 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 30.0,),
+                const SizedBox(height: 30.0),
                 Text(
-                  "Welcome Back", 
-                style: Theme.of(context)
-                .textTheme
-                .headlineMedium
-                ?.copyWith(fontWeight: FontWeight.bold),
-                
-                ),
-                      
-                const SizedBox(height: 10.0,),
-                      
-                 Text(
-                  "Sign in to continue", 
-                style: Theme.of(context)
-                .textTheme
-                .bodyLarge
-                ?.copyWith(color: Colors.grey
-                )    
-                ),
-                      
-                 const SizedBox(height: 30.0,),
-                     // email
-                CustomTextField(
-                  controller: emailController, 
-                  hintText: "Email",
-                  prefixIcon: Icon(Icons.email_outlined),
+                  "Welcome Back",
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
                   ),
-                      
-                  const SizedBox(height: 14.0,),
-                     // password
-                   CustomTextField(
-                  controller: passwordController, 
+                ),
+
+                const SizedBox(height: 10.0),
+
+                Text(
+                  "Sign in to continue",
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge?.copyWith(color: Colors.grey),
+                ),
+
+                const SizedBox(height: 30.0),
+                // email
+                CustomTextField(
+                  controller: emailController,
+                  hintText: "Email",
+                  focusNode: _emailFocus,
+                  validator: _validateEmail,
+                  prefixIcon: Icon(Icons.email_outlined),
+                ),
+
+                const SizedBox(height: 14.0),
+                // password
+                CustomTextField(
+                  controller: passwordController,
                   hintText: "Password",
+                  focusNode: _passwordFocus,
+                  validator: _validatePassword,
                   prefixIcon: const Icon(Icons.lock_outline),
                   suffixIcon: Icon(Icons.visibility),
                   obscureText: true,
-                  ),
-                      
-                   const SizedBox(height: 30.0,),
-                   CustomButton(
-                    onPressed: ()
-                   {
-                     
-                   }, text: "Login",
-                   ),
-            
-                   const SizedBox(height: 20.0,),
-            
-                   Center(
-                     child: RichText(
-                      text:  TextSpan(
-                        text:  "Don't have an account? ",
-                        style: TextStyle(
-                          color: Colors.grey[600]
-                        ),
-              
-                        children: [
-                          TextSpan(
-                            text: "SignUp",
-                            style: Theme.of(context)
-                            .textTheme.bodyLarge
-                            ?.copyWith(
-                              color: Theme.of(context)
-                              .primaryColor, 
-                              fontWeight: FontWeight.bold,
-                              ),     
-                              recognizer: TapGestureRecognizer()..onTap = () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=> SignupScreen()));// 56:10
-                              }
+                ),
+
+                const SizedBox(height: 30.0),
+                CustomButton(onPressed: () {}, text: "Login"),
+
+                const SizedBox(height: 20.0),
+
+                Center(
+                  child: RichText(
+                    text: TextSpan(
+                      text: "Don't have an account? ",
+                      style: TextStyle(color: Colors.grey[600]),
+
+                      children: [
+                        TextSpan(
+                          text: "SignUp",
+                          style: Theme.of(
+                            context,
+                          ).textTheme.bodyLarge?.copyWith(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.bold,
                           ),
-                        ]
-                      ),                              
-                     ),
-                   )
+                          recognizer:
+                              TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => SignupScreen(),
+                                    ),
+                                  ); // 56:10
+                                },
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
-          )
+          ),
         ),
       ),
     );
