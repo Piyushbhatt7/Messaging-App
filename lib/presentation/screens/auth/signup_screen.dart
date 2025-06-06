@@ -179,8 +179,14 @@ class _SignupScreenState extends State<SignupScreen> {
                   focusNode: _passwordFocus,
                   validator: _validatePassword,
                   prefixIcon: Icon(Icons.lock_outline),
-                  suffixIcon: Icon(Icons.visibility),
-                  obscureText: true,
+                  suffixIcon: IconButton(onPressed: (){
+                    setState(() {
+                      
+                    });
+                  }, 
+                  icon: Icon(Icons.visibility)
+                  ),
+                  obscureText: !_isPasswordVisible,
                 ),
 
                 const SizedBox(height: 30.0),
