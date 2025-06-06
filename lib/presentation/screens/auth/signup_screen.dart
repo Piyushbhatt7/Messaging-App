@@ -181,7 +181,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   prefixIcon: Icon(Icons.lock_outline),
                   suffixIcon: IconButton(onPressed: (){
                     setState(() {
-                      
+                      _isPasswordVisible = !_isPasswordVisible;
                     });
                   }, 
                   icon: Icon(Icons.visibility)
