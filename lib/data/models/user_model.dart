@@ -53,6 +53,11 @@ class UserModel {
     );
   }
 
+  factory UserModel.fromFirestore(DocumentSnapshot doc)
+  {
+    
+  }
+
   Map<String, dynamic> toMap () {
     return {
       'username': username,
