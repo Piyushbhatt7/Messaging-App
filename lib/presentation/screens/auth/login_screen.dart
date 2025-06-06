@@ -108,7 +108,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       _isPasswordVisible = !_isPasswordVisible;
                     });
                   }, 
-                  icon: Icon(Icons.visibility)
+                  icon: Icon(
+                  _isPasswordVisible
+                  ? Icons.visibility_off
+                  :  Icons.visibility
+                    )
                   ),
                   obscureText: !_isPasswordVisible,
                 ),

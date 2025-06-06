@@ -22,11 +22,10 @@ class _SignupScreenState extends State<SignupScreen> {
   bool _isPasswordVisible = false;
 
   final _nameFocus = FocusNode();
-  final _usernameFocus = FocusNode();  // 1:20:23
+  final _usernameFocus = FocusNode(); // 1:20:23
   final _emailFocus = FocusNode();
   final _phoneFocus = FocusNode();
   final _passwordFocus = FocusNode();
-
 
   @override
   void dispose() {
@@ -45,60 +44,48 @@ class _SignupScreenState extends State<SignupScreen> {
     super.dispose();
   }
 
-  String? _validateName(String? value)
-  {
-    if(value == null || value.isEmpty)
-    {
+  String? _validateName(String? value) {
+    if (value == null || value.isEmpty) {
       return "Please enter your full name";
     }
   }
 
-  String? _validateUserName(String? value)
-  {
-    if(value == null || value.isEmpty)
-    {
+  String? _validateUserName(String? value) {
+    if (value == null || value.isEmpty) {
       return "Please enter a username";
     }
   }
 
-  String? _validateEmail(String? value)
-  {
-    if(value == null || value.isEmpty)
-    {
+  String? _validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
       return "Please enter your email address";
     }
 
     final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
-    if(!emailRegex.hasMatch(value)) {
+    if (!emailRegex.hasMatch(value)) {
       return 'Please enter a valid email address (e.g, example@gmail.com)';
     }
     return null;
   }
 
-  String? _validatePhone(String? value)
-  {
-    if(value == null || value.isEmpty)
-    {
+  String? _validatePhone(String? value) {
+    if (value == null || value.isEmpty) {
       return "Please enter your phone no.";
     }
 
     final phoneRegex = RegExp(r'^\+?[\d\s-]{10,}$');
-    if(!phoneRegex.hasMatch(value))
-    {
+    if (!phoneRegex.hasMatch(value)) {
       return 'Please enter a valid phone number (e.g., +91 9357598)';
     }
     return null;
   }
 
-  String? _validatePassword(String? value)
-  {
-    if(value == null || value.isEmpty)
-    {
+  String? _validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
       return "Please enter your password";
     }
 
-    if(value.length < 6)
-    {
+    if (value.length < 6) {
       return 'Password must be at least 6 characters long';
     }
   }
@@ -179,25 +166,30 @@ class _SignupScreenState extends State<SignupScreen> {
                   focusNode: _passwordFocus,
                   validator: _validatePassword,
                   prefixIcon: Icon(Icons.lock_outline),
-                  suffixIcon: IconButton(onPressed: (){
-                    setState(() {
-                      _isPasswordVisible = !_isPasswordVisible;
-                    });
-                  }, 
-                  icon: Icon(Icons.visibility)
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        _isPasswordVisible = !_isPasswordVisible;
+                      });
+                    },
+                    icon: Icon(
+                    _isPasswordVisible
+                    ? Icons.visibility_off 
+                    :  Icons.visibility
+                    ),
                   ),
                   obscureText: !_isPasswordVisible,
                 ),
 
                 const SizedBox(height: 30.0),
 
-                CustomButton(onPressed: () {
-                  FocusScope.of(context).unfocus();
-                  if(_formKey.currentState?.validate() ?? false)
-                  {
-
-                  }
-                }, text: "Create Account"),
+                CustomButton(
+                  onPressed: () {
+                    FocusScope.of(context).unfocus();
+                    if (_formKey.currentState?.validate() ?? false) {}
+                  },
+                  text: "Create Account",
+                ),
 
                 const SizedBox(height: 20),
 
