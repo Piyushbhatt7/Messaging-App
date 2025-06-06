@@ -27,9 +27,9 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Form(
+        child: Form(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -42,9 +42,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ?.copyWith(fontWeight: FontWeight.bold),
                 
                 ),
-          
+                      
                 const SizedBox(height: 10.0,),
-          
+                      
                  Text(
                   "Sign in to continue", 
                 style: Theme.of(context)
@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ?.copyWith(color: Colors.grey
                 )    
                 ),
-          
+                      
                  const SizedBox(height: 30.0,),
                      // email
                 CustomTextField(
@@ -61,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   hintText: "Email",
                   prefixIcon: Icon(Icons.email_outlined),
                   ),
-          
+                      
                   const SizedBox(height: 14.0,),
                      // password
                    CustomTextField(
@@ -71,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   suffixIcon: Icon(Icons.visibility),
                   obscureText: true,
                   ),
-          
+                      
                    const SizedBox(height: 30.0,),
                    CustomButton(
                     onPressed: ()
@@ -79,9 +79,9 @@ class _LoginScreenState extends State<LoginScreen> {
                      
                    }, text: "Login",
                    ),
-
+            
                    const SizedBox(height: 20.0,),
-
+            
                    Center(
                      child: RichText(
                       text:  TextSpan(
@@ -109,8 +109,8 @@ class _LoginScreenState extends State<LoginScreen> {
                      ),
                    )
               ],
-            )
-          ),
+            ),
+          )
         ),
       ),
     );
