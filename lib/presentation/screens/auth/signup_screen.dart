@@ -85,8 +85,9 @@ class _SignupScreenState extends State<SignupScreen> {
     final phoneRegex = RegExp(r'^\+?[\d\s-]{10,}$');
     if(!phoneRegex.hasMatch(value))
     {
-      return 'Please enter a valid phone number (e.g., +91 9345757598)';
+      return 'Please enter a valid phone number (e.g., +91 9357598)';
     }
+    return null;
   }
 
   String? _validatePassword(String? value)
