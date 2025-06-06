@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Messenger App',
       theme: AppTheme.lightTheme,
-      home: SignupScreen(),
+      home: LoginScreen(),
     );
   }
 }
