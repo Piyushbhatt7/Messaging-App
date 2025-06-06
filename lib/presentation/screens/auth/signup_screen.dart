@@ -22,7 +22,7 @@ class _SignupScreenState extends State<SignupScreen> {
   bool _isPasswordVisible = false;
 
   final _nameFocus = FocusNode();
-  final _usernameFocus = FocusNode();
+  final _usernameFocus = FocusNode();  // 1:20:23
   final _emailFocus = FocusNode();
   final _phoneFocus = FocusNode();
   final _passwordFocus = FocusNode();
