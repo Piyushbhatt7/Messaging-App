@@ -203,7 +203,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         TextSpan(
                           text: "Login",
                           style: Theme.of(
-                            context,
+                            context, 
                           ).textTheme.bodyLarge?.copyWith(
                             color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
