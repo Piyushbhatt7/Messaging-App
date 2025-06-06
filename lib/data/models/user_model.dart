@@ -55,7 +55,15 @@ class UserModel {
 
   Map<String, dynamic> toMap () {
     return {
-      ''
-    }
+      'username': username,
+      'email': email,
+      'fullName': fullName,
+      'phoneNumber': phoneNumber,
+      'isOnline': isOnline,
+      'lastSeen': lastseen,
+      'createdAt': createdAt,
+      'blockedUsers': blockedUsers,
+      'fmcToken': fmcToken,
+    };
   }
 }
