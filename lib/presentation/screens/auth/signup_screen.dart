@@ -65,7 +65,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 CustomTextField(
                   controller: usernameController,
                   hintText: "Username",
-                  prefixIcon: Icon(Icons.person_2_outlined),
+                  prefixIcon: Icon(Icons.alternate_email_outlined),
                 ),
 
                 const SizedBox(height: 16.0),
@@ -73,7 +73,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 CustomTextField(
                   controller: emailController,
                   hintText: "Email",
-                  prefixIcon: Icon(Icons.person_2_outlined),
+                  prefixIcon: Icon(Icons.email_outlined),
                 ),
 
                 const SizedBox(height: 16.0),
@@ -81,7 +81,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 CustomTextField(
                   controller: phoneController,
                   hintText: "Phone no.",
-                  prefixIcon: Icon(Icons.person_2_outlined),
+                  prefixIcon: Icon(Icons.phone_outlined),
                 ),
 
                 const SizedBox(height: 16.0),
@@ -89,10 +89,12 @@ class _SignupScreenState extends State<SignupScreen> {
                 CustomTextField(
                   controller: passwordController,
                   hintText: "Password",
-                  prefixIcon: Icon(Icons.person_2_outlined),
+                  prefixIcon: Icon(Icons.lock_outline),
                 ),
 
                 const SizedBox(height: 16.0),
+
+                
 
               ],
             ),
