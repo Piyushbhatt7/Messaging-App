@@ -105,7 +105,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
 
                 const SizedBox(height: 30.0),
-                CustomButton(onPressed: () {}, text: "Login"),
+                CustomButton(onPressed: () {
+                  FocusScope.of(context).unfocus();
+                  if(_formKey.currentState?.validate() ?? false)
+                  {
+                    
+                  }
+                }, text: "Login"),
 
                 const SizedBox(height: 20.0),
 
