@@ -41,7 +41,48 @@ class _SignupScreenState extends State<SignupScreen> {
     _emailFocus.dispose();
     _phoneFocus.dispose();
     _passwordFocus.dispose();
+
     super.dispose();
+  }
+
+  String? _validateName(String? value)
+  {
+    if(value == null || value.isEmpty)
+    {
+      return "Please enter your full name";
+    }
+  }
+
+  String? _validateUserName(String? value)
+  {
+    if(value == null || value.isEmpty)
+    {
+      return "Please enter a username";
+    }
+  }
+
+  String? _validateEmail(String? value)
+  {
+    if(value == null || value.isEmpty)
+    {
+      return "Please enter your email";
+    }
+  }
+
+  String? _validatePhone(String? value)
+  {
+    if(value == null || value.isEmpty)
+    {
+      return "Please enter your phone no.";
+    }
+  }
+
+  String? _validaPassword(String? value)
+  {
+    if(value == null || value.isEmpty)
+    {
+      return "Please enter your password";
+    }
   }
 
   @override
@@ -76,7 +117,9 @@ class _SignupScreenState extends State<SignupScreen> {
 
                 CustomTextField(
                   controller: nameController,
+                  focusNode: _nameFocus,
                   hintText: "Full Name",
+                  validator: _validateName,
                   prefixIcon: Icon(Icons.person_2_outlined),
                 ),
 
@@ -116,7 +159,13 @@ class _SignupScreenState extends State<SignupScreen> {
 
                 const SizedBox(height: 30.0),
 
-                CustomButton(onPressed: () {}, text: "Create Account"),
+                CustomButton(onPressed: () {
+                  FocusScope.of(context).unfocus();
+                  if(_formKey.currentState?.validate() ?? false)
+                  {
+
+                  }
+                }, text: "Create Account"),
 
                 const SizedBox(height: 20),
 
