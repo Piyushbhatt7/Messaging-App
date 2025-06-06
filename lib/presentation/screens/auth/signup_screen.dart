@@ -77,7 +77,7 @@ class _SignupScreenState extends State<SignupScreen> {
     }
   }
 
-  String? _validaPassword(String? value)
+  String? _validatePassword(String? value)
   {
     if(value == null || value.isEmpty)
     {
@@ -128,6 +128,8 @@ class _SignupScreenState extends State<SignupScreen> {
                 CustomTextField(
                   controller: usernameController,
                   hintText: "Username",
+                  focusNode: _usernameFocus,
+                  validator: _validateUserName,
                   prefixIcon: Icon(Icons.alternate_email_outlined),
                 ),
 
@@ -136,6 +138,8 @@ class _SignupScreenState extends State<SignupScreen> {
                 CustomTextField(
                   controller: emailController,
                   hintText: "Email",
+                  focusNode: _emailFocus,
+                  validator: _validateEmail,
                   prefixIcon: Icon(Icons.email_outlined),
                 ),
 
@@ -144,6 +148,8 @@ class _SignupScreenState extends State<SignupScreen> {
                 CustomTextField(
                   controller: phoneController,
                   hintText: "Phone no.",
+                  focusNode: _phoneFocus,
+                  validator: _validatePhone,
                   prefixIcon: Icon(Icons.phone_outlined),
                 ),
 
@@ -152,6 +158,8 @@ class _SignupScreenState extends State<SignupScreen> {
                 CustomTextField(
                   controller: passwordController,
                   hintText: "Password",
+                  focusNode: _passwordFocus,
+                  validator: _validatePassword,
                   prefixIcon: Icon(Icons.lock_outline),
                   suffixIcon: Icon(Icons.visibility),
                   obscureText: true,
