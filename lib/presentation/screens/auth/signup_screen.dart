@@ -26,7 +26,7 @@ class _SignupScreenState extends State<SignupScreen> {
   final _emailFocus = FocusNode();
   final _phoneFocus = FocusNode();
   final _passwordFocus = FocusNode();
-  //final TextEditingController passwordController = TextEditingController();
+
 
   @override
   void dispose() {
@@ -35,6 +35,12 @@ class _SignupScreenState extends State<SignupScreen> {
     usernameController.dispose();
     phoneController.dispose();
     passwordController.dispose();
+
+    _nameFocus.dispose();
+    _usernameFocus.dispose();
+    _emailFocus.dispose();
+    _phoneFocus.dispose();
+    _passwordFocus.dispose();
     super.dispose();
   }
 
