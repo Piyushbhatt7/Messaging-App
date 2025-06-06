@@ -60,9 +60,9 @@ class UserModel {
       uid: doc.id, 
       username: data["username"], 
       fullName: data["fullName"], 
-      email: email, 
-      phoneNumber: phoneNumber, 
-      fmcToken: fmcToken
+      email: data["email"], 
+      phoneNumber: data["phoneNumber"], 
+      fmcToken: data["fmcToken"]
       )
   }
 
