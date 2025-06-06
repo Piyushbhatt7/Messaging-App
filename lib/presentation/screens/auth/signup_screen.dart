@@ -1,3 +1,4 @@
+import 'package:chatt_app/core/common/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -31,8 +32,9 @@ class _SignupScreenState extends State<SignupScreen> {
       child: Scaffold(
         body: Form(
           child: SingleChildScrollView(
-            
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "Create an Account",
@@ -40,6 +42,58 @@ class _SignupScreenState extends State<SignupScreen> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+
+                const SizedBox(height: 10.0),
+
+                Text(
+                  "Please fill the details to continue",
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge?.copyWith(color: Colors.grey),
+                ),
+
+                const SizedBox(height: 30.0),
+
+                CustomTextField(
+                  controller: nameController,
+                  hintText: "Full Name",
+                  prefixIcon: Icon(Icons.person_2_outlined),
+                ),
+
+                const SizedBox(height: 16.0),
+
+                CustomTextField(
+                  controller: usernameController,
+                  hintText: "Username",
+                  prefixIcon: Icon(Icons.person_2_outlined),
+                ),
+
+                const SizedBox(height: 16.0),
+
+                CustomTextField(
+                  controller: emailController,
+                  hintText: "Email",
+                  prefixIcon: Icon(Icons.person_2_outlined),
+                ),
+
+                const SizedBox(height: 16.0),
+
+                CustomTextField(
+                  controller: phoneController,
+                  hintText: "Phone no.",
+                  prefixIcon: Icon(Icons.person_2_outlined),
+                ),
+
+                const SizedBox(height: 16.0),
+
+                CustomTextField(
+                  controller: passwordController,
+                  hintText: "Password",
+                  prefixIcon: Icon(Icons.person_2_outlined),
+                ),
+
+                const SizedBox(height: 16.0),
+
               ],
             ),
           ),
