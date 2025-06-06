@@ -52,4 +52,10 @@ class UserModel {
       blockedUsers: blockedUsers ?? List.from(this.blockedUsers),
     );
   }
+
+  Map<String, dynamic> toMap () {
+    return {
+      ''
+    }
+  }
 }
