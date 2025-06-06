@@ -24,6 +24,32 @@ class UserModel {
     Timestamp? createdAt,
     required this.fmcToken,
     this.blockedUsers = const [],
-  }) : lastseen = lastseen ?? Timestamp.now(),
-       createdAt = createdAt ?? Timestamp.now();
+  })  : lastseen = lastseen ?? Timestamp.now(),
+        createdAt = createdAt ?? Timestamp.now();
+
+  UserModel copyWith({
+    String? uid,
+    String? username,
+    String? fullName,
+    String? email,
+    String? phoneNumber,
+    bool? isOnline,
+    Timestamp? lastseen,
+    Timestamp? createdAt,
+    String? fmcToken,
+    List<String>? blockedUsers,
+  }) {
+    return UserModel(
+      uid: uid ?? this.uid,
+      username: username ?? this.username,
+      fullName: fullName ?? this.fullName,
+      email: email ?? this.email,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      isOnline: isOnline ?? this.isOnline,
+      lastseen: lastseen ?? this.lastseen,
+      createdAt: createdAt ?? this.createdAt,
+      fmcToken: fmcToken ?? this.fmcToken,
+      blockedUsers: blockedUsers ?? List.from(this.blockedUsers),
+    );
+  }
 }
