@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   hintText: "Email",
                   focusNode: _emailFocus,
                   validator: _validateEmail,
-                  prefixIcon: Icon(Icons.email_outlined),
+                  prefixIcon: Icon(Icons.email_outlined), // 1:20
                 ),
 
                 const SizedBox(height: 14.0),
