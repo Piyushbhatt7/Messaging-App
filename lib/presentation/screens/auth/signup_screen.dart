@@ -65,8 +65,14 @@ class _SignupScreenState extends State<SignupScreen> {
   {
     if(value == null || value.isEmpty)
     {
-      return "Please enter your email";
+      return "Please enter your email address";
     }
+
+    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    if(!emailRegex.hasMatch(value)) {
+      return 'Please enter a valid email address (e.g, example@gmail.com)';
+    }
+    return null;
   }
 
   String? _validatePhone(String? value)
@@ -82,6 +88,11 @@ class _SignupScreenState extends State<SignupScreen> {
     if(value == null || value.isEmpty)
     {
       return "Please enter your password";
+    }
+
+    if(value.length < 6)
+    {
+      return 'Password must be at least 6 characters long';
     }
   }
 
