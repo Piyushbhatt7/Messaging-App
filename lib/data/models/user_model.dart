@@ -64,7 +64,8 @@ class UserModel {
       phoneNumber: data["phoneNumber"], 
       fmcToken: data["fmcToken"],
       lastseen: data["lastSeen"],
-      createdAt: data["createdAt"]
+      createdAt: data["createdAt"],
+      blockedUsers: data["blockedUsers"],
       );
   }
 
