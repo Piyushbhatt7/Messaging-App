@@ -19,10 +19,11 @@ class UserModel {
     required this.fullName,
     required this.email,
     required this.phoneNumber,
-    required this.isOnline,
-    required this.lastseen,
-    required this.createdAt,
+    this.isOnline = false,
+    Timestamp? lastseen,
+    Timestamp? createdAt,
     required this.fmcToken,
-    required this.blockedUsers,
-  });
+    this.blockedUsers = const [],
+  }) : lastseen = lastseen ?? Timestamp.now(),
+       createdAt = createdAt ?? Timestamp.now();
 }
