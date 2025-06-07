@@ -27,7 +27,7 @@ class AuthRepository extends BaseRepository{
 
             // create a auser model and sav in db firestore
 
-            final userModel = UserModel(
+            final user = UserModel(
                 uid: userCredential.user!.uid, 
                 username: username, 
                 fullName: fullName, 
@@ -35,10 +35,12 @@ class AuthRepository extends BaseRepository{
                 phoneNumber: phoneNumber, 
             );
 
-            await saveUserData(userModel);   
+            await saveUserData(user);  
+            return user; 
     }
     catch(e) {
         log(e.toString());
+        rethrow;
     }
  }
 
@@ -47,7 +49,7 @@ class AuthRepository extends BaseRepository{
     try {
       await firestore.collection("users").doc(user.uid).set(user.toMap());
     } catch (e) {
-      print(e); 
+      throw "Failed to save user data"; 
     }
  }
 }
