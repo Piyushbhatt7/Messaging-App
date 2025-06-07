@@ -10,7 +10,7 @@ class UserModel {
   final bool isOnline;
   final Timestamp lastseen;
   final Timestamp createdAt;
-  final String fmcToken;
+  final String? fmcToken;
   final List<String> blockedUsers;
 
   UserModel({
@@ -22,7 +22,7 @@ class UserModel {
     this.isOnline = false,
     Timestamp? lastseen,
     Timestamp? createdAt,
-    required this.fmcToken,
+    this.fmcToken,
     this.blockedUsers = const [],
   })  : lastseen = lastseen ?? Timestamp.now(),
         createdAt = createdAt ?? Timestamp.now();
