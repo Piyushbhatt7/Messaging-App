@@ -1,7 +1,6 @@
 import 'dart:developer';
 import 'package:chatt_app/data/models/user_model.dart';
 import 'package:chatt_app/data/services/base_repository.dart';
-import 'package:flutter/widgets.dart';
 
 class AuthRepository extends BaseRepository{
   
@@ -33,7 +32,7 @@ class AuthRepository extends BaseRepository{
                 username: username, 
                 fullName: fullName, 
                 email: email, 
-                phoneNumber: phoneNumber, 
+                phoneNumber: formattedPhoneNumber, 
             );
 
             await saveUserData(user);  
