@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:chatt_app/data/models/user_model.dart';
 import 'package:chatt_app/data/services/base_repository.dart';
+import 'package:flutter/widgets.dart';
 
 class AuthRepository extends BaseRepository{
   
@@ -57,7 +58,8 @@ class AuthRepository extends BaseRepository{
             {
                 throw "User not found";
             }
- 
+        final userData = await getUserData(userCredential.user!.uid);
+        return userData;
     }
     catch(e) {
         log(e.toString());
