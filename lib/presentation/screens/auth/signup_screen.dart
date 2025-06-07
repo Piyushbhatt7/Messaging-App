@@ -107,8 +107,11 @@ class _SignupScreenState extends State<SignupScreen> {
       }
       catch(e)
       {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString()))); 
       }
+    }
+    else{
+      print("form validation failed");
     }
    }
 
@@ -206,7 +209,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 const SizedBox(height: 30.0),
 
                 CustomButton(
-                  onPressed: () {},
+                  onPressed: handleSignUp,
                   text: "Create Account",
                 ),
 
