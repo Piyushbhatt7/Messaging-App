@@ -5,6 +5,17 @@ class AuthRepository extends BaseRepository{
   
  Future<UserModel> signup({
 
-  required String //2:18
- })
+  required String fullName,
+  required String userName,
+  required String email,
+  required String phoneNumber,
+
+ }) async {
+    try{
+
+    }
+    catch(e) {
+        
+    }
+ }
 }
