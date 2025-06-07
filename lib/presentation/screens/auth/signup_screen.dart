@@ -1,5 +1,7 @@
 import 'package:chatt_app/core/common/custom_button.dart';
 import 'package:chatt_app/core/common/custom_text_field.dart';
+import 'package:chatt_app/data/repository/auth_repository.dart';
+import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/presentation/screens/auth/login_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -89,6 +91,26 @@ class _SignupScreenState extends State<SignupScreen> {
       return 'Password must be at least 6 characters long';
     }
   }
+
+   Future<void> handleSignUp() async {
+
+    FocusScope.of(context).unfocus();
+    if (_formKey.currentState?.validate() ?? false) {
+      try{
+        getIt<AuthRepository>().signUp(
+          fullName: nameController.text, 
+          username: usernameController.text, 
+          email: emailController.text, 
+          phoneNumber: phoneController.text, 
+          password: passwordController.text
+          );
+      }
+      catch(e)
+      {
+
+      }
+    }
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -184,10 +206,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 const SizedBox(height: 30.0),
 
                 CustomButton(
-                  onPressed: () {
-                    FocusScope.of(context).unfocus();
-                    if (_formKey.currentState?.validate() ?? false) {}
-                  },
+                  onPressed: () {},
                   text: "Create Account",
                 ),
 
