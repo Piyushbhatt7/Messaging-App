@@ -1,5 +1,6 @@
 import 'package:chatt_app/data/models/user_model.dart';
 import 'package:chatt_app/data/services/base_repository.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthRepository extends BaseRepository{
   
@@ -12,10 +13,10 @@ class AuthRepository extends BaseRepository{
 
  }) async {
     try{
-
+        final userCredential = await 
     }
     catch(e) {
-        
+
     }
  }
 }
