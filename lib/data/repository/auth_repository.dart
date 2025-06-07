@@ -15,6 +15,8 @@ class AuthRepository extends BaseRepository{
 
  }) async {
     try{
+
+        final formattedPhoneNumber = phoneNumber.replaceAll(RegExp(r'\s+'), "".trim());
         final userCredential = await auth.createUserWithEmailAndPassword(
             email: email, 
             password: password
@@ -50,6 +52,7 @@ class AuthRepository extends BaseRepository{
 
  }) async {
     try{
+
         final userCredential = await auth.signInWithEmailAndPassword(
             email: email, 
             password: password
