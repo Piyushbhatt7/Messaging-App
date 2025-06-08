@@ -2,10 +2,12 @@ import 'package:chatt_app/core/common/custom_button.dart';
 import 'package:chatt_app/core/common/custom_text_field.dart';
 import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/logic/cubits/auth/auth_cubit.dart';
+import 'package:chatt_app/logic/cubits/auth/auth_state.dart';
 import 'package:chatt_app/presentation/screens/auth/signup_screen.dart';
 import 'package:chatt_app/router/app_router.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -82,104 +84,106 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Form(
-          key: _formKey,
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 30.0),
-                Text(
-                  "Welcome Back",
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-
-                const SizedBox(height: 10.0),
-
-                Text(
-                  "Sign in to continue",
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodyLarge?.copyWith(color: Colors.grey),
-                ),
-
-                const SizedBox(height: 30.0),
-                // email
-                CustomTextField(
-                  controller: emailController,
-                  hintText: "Email",
-                  focusNode: _emailFocus,
-                  validator: _validateEmail,
-                  prefixIcon: Icon(Icons.email_outlined), // 1:20
-                ),
-
-                const SizedBox(height: 14.0),
-                // password
-                CustomTextField(
-                  controller: passwordController,
-                  hintText: "Password",
-                  focusNode: _passwordFocus,
-                  validator: _validatePassword,
-                  prefixIcon: const Icon(Icons.lock_outline),
-                  suffixIcon: IconButton(onPressed: ()
-                  {
-                    setState(() {
-                      _isPasswordVisible = !_isPasswordVisible;
-                    });
-                  }, 
-                  icon: Icon(
-                  _isPasswordVisible
-                  ? Icons.visibility_off
-                  :  Icons.visibility
-                    )
-                  ),
-                  obscureText: !_isPasswordVisible,
-                ),
-
-                const SizedBox(height: 30.0),
-                CustomButton(onPressed: handleSignIn,
-                 text: "Login"
-                 ),
-
-                const SizedBox(height: 20.0),
-
-                Center(
-                  child: RichText(
-                    text: TextSpan(
-                      text: "Don't have an account? ",
-                      style: TextStyle(color: Colors.grey[600]),
-
-                      children: [
-                        TextSpan(
-                          text: "SignUp",
-                          style: Theme.of(
-                            context,
-                          ).textTheme.bodyLarge?.copyWith(
-                            color: Theme.of(context).primaryColor,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          recognizer:
-                              TapGestureRecognizer()
-                                ..onTap = () {
-                                  // Navigator.push(
-                                  //   context,
-                                  //   MaterialPageRoute(
-                                  //     builder: (context) => SignupScreen(),
-                                  //   ),
-                                  // ); // 56:10
-                                  getIt<AppRouter>().push(const SignupScreen());
-                                },
-                        ),
-                      ],
+    return BlocListener<AuthCubit, AuthState>(
+      child: Scaffold(
+        body: SafeArea(
+          child: Form(
+            key: _formKey,
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 30.0),
+                  Text(
+                    "Welcome Back",
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                ),
-              ],
+      
+                  const SizedBox(height: 10.0),
+      
+                  Text(
+                    "Sign in to continue",
+                    style: Theme.of(
+                      context,
+                    ).textTheme.bodyLarge?.copyWith(color: Colors.grey),
+                  ),
+      
+                  const SizedBox(height: 30.0),
+                  // email
+                  CustomTextField(
+                    controller: emailController,
+                    hintText: "Email",
+                    focusNode: _emailFocus,
+                    validator: _validateEmail,
+                    prefixIcon: Icon(Icons.email_outlined), // 1:20
+                  ),
+      
+                  const SizedBox(height: 14.0),
+                  // password
+                  CustomTextField(
+                    controller: passwordController,
+                    hintText: "Password",
+                    focusNode: _passwordFocus,
+                    validator: _validatePassword,
+                    prefixIcon: const Icon(Icons.lock_outline),
+                    suffixIcon: IconButton(onPressed: ()
+                    {
+                      setState(() {
+                        _isPasswordVisible = !_isPasswordVisible;
+                      });
+                    }, 
+                    icon: Icon(
+                    _isPasswordVisible
+                    ? Icons.visibility_off
+                    :  Icons.visibility
+                      )
+                    ),
+                    obscureText: !_isPasswordVisible,
+                  ),
+      
+                  const SizedBox(height: 30.0),
+                  CustomButton(onPressed: handleSignIn,
+                   text: "Login"
+                   ),
+      
+                  const SizedBox(height: 20.0),
+      
+                  Center(
+                    child: RichText(
+                      text: TextSpan(
+                        text: "Don't have an account? ",
+                        style: TextStyle(color: Colors.grey[600]),
+      
+                        children: [
+                          TextSpan(
+                            text: "SignUp",
+                            style: Theme.of(
+                              context,
+                            ).textTheme.bodyLarge?.copyWith(
+                              color: Theme.of(context).primaryColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            recognizer:
+                                TapGestureRecognizer()
+                                  ..onTap = () {
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(
+                                    //     builder: (context) => SignupScreen(),
+                                    //   ),
+                                    // ); // 56:10
+                                    getIt<AppRouter>().push(const SignupScreen());
+                                  },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
