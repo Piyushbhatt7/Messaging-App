@@ -46,6 +46,8 @@ class AuthCubit extends Cubit<AuthState> {
         email: email, 
         password: password
         );
+
+        emit(state.copyWith(status: AuthStatus.authenticated, user: user));
     } catch (e) {
       
     }
