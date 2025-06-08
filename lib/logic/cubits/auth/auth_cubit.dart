@@ -19,6 +19,6 @@ class AuthCubit extends Cubit<AuthState>{
         }
 
     void _init() {
-        
+        emit(state.copyWith(status: ))
     }
 }
