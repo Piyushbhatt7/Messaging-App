@@ -1,5 +1,6 @@
 import 'package:chatt_app/core/common/custom_button.dart';
 import 'package:chatt_app/core/common/custom_text_field.dart';
+import 'package:chatt_app/core/utils/ui_utils.dart';
 import 'package:chatt_app/data/repository/auth_repository.dart';
 import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/logic/cubits/auth/auth_cubit.dart';
@@ -123,7 +124,7 @@ class _SignupScreenState extends State<SignupScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: BlocConsumer<AuthCubit, AuthState>(
-      //bloc: getIt<AuthCubit>(),
+      bloc: getIt<AuthCubit>(),
       // listenWhen: (previous, current) {
       //   return previous.status!= current.status ||
       //    previous.error!= current.error;
@@ -132,6 +133,13 @@ class _SignupScreenState extends State<SignupScreen> {
         if(state.status == AuthStatus.authenticated)
         {
           getIt<AppRouter>().pushAndRemoveUntil(const HomeScreen()); // 3:25
+        }
+
+        else if(state.status == AuthStatus.error && state.error != null)
+        {
+          UiUtils.showSnackBar(
+            context, message: state.error!
+          );
         }
       },
         builder:(context, state) {
