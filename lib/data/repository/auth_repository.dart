@@ -77,8 +77,9 @@ class AuthRepository extends BaseRepository{
 
   try {
     final methods = await auth.fetchSignInMethodsForEmail(email);
+    return methods.isNotEmpty;
   } catch (e) {
-    
+    print("Error checking email: $e",);
   }
  }
 
