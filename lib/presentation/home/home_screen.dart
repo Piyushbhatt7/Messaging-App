@@ -16,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
     appBar: AppBar(
+      title: Text("Chats"),
       actions: [
         InkWell(
           onTap: () async{
@@ -27,6 +28,12 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
       body: Center(
         child: Text("Home screen"),
+      ),
+
+      floatingActionButton: FloatingActionButton(onPressed: () {
+
+      },
+      backgroundColor: Theme.of(context).colorScheme.primary,
       ),
     );
   }
