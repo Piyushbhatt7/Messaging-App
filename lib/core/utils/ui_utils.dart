@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 class UiUtils {
   static void showSnackBar(BuildContext context, {
      required String message,
-     bool isError = false,
+     bool isError = false, 
      Duration duration = const Duration(seconds: 2),
   }) {
     ScaffoldMessenger.of(context).removeCurrentSnackBar();
