@@ -85,7 +85,7 @@ Future<void> signUp({
   Future<void> signOut() async {
     try {
       await _authRepository.signOut();
-      emit(state.copyWith());
+      emit(state.copyWith(status: AuthStatus.unauthenticated, user: null));
     } catch (e) {
       
     }
