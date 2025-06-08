@@ -1,5 +1,6 @@
 import 'package:chatt_app/core/common/custom_button.dart';
 import 'package:chatt_app/core/common/custom_text_field.dart';
+import 'package:chatt_app/core/utils/ui_utils.dart';
 import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/logic/cubits/auth/auth_cubit.dart';
 import 'package:chatt_app/logic/cubits/auth/auth_state.dart';
@@ -68,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
     FocusScope.of(context).unfocus();
     if (_formKey.currentState?.validate() ?? false) {
       try{
-        getIt<AuthCubit>().signIn(
+      await  getIt<AuthCubit>().signIn(
           email: emailController.text, 
           password: passwordController.text
           );
@@ -85,19 +86,24 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AuthCubit, AuthState>(
-      bloc: getIt<AuthCubit>(),
-      listenWhen: (previous, current) {
-        return previous.status!= current.status ||
-         previous.error!= current.error;
-      },
-      listener: (context, state) {
-        if(state.status == AuthStatus.authenticated)
-        {
-          getIt<AppRouter>().pushAndRemoveUntil(const HomeScreen());
-        }
-      },
-      child: Scaffold(
+    return BlocConsumer<AuthCubit, AuthState>(
+    bloc: getIt<AuthCubit>(),
+    listener: (context, state) {
+      if(state.status == AuthStatus.authenticated)
+      {
+        getIt<AppRouter>().pushAndRemoveUntil(const HomeScreen()); // 3:25
+      }
+    
+      else if(state.status == AuthStatus.error && state.error != null)
+      {
+        UiUtils.showSnackBar(
+          context, message: state.error!
+        );
+      }
+    },
+      builder:(context, state) {
+    
+      return Scaffold(
         body: SafeArea(
           child: Form(
             key: _formKey,
@@ -199,7 +205,8 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         ),
-      ),
+      );
+      }
     );
   }
 }
