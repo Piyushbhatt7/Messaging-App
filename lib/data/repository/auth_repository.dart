@@ -82,6 +82,11 @@ class AuthRepository extends BaseRepository{
     }
  }
 
+  
+  Future<void> signOut ()async {
+
+    await auth.signOut();
+  }
 
   Future<UserModel> getUserData(String uid) async{
 
