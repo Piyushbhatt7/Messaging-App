@@ -25,7 +25,7 @@ class AuthRepository extends BaseRepository {
         throw "An account with the same email already exists";
       }
 
-      final phoneNumberExists = await checkPhoneExists(phoneNumber);
+      final phoneNumberExists = await checkPhoneExists(formattedPhoneNumber);
 
       if (phoneNumberExists) {
         throw "An account with the same phone number already exists";
