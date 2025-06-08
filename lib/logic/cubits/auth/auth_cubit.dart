@@ -28,8 +28,9 @@ class AuthCubit extends Cubit<AuthState>{
             {
                 try {
                   final userData = await _authRepository.getUserData(user.uid);
+                  emit(state.copyWith(status: AuthStatus.authenticated));
                 } catch (e) {
-                  
+                  emit(state.copyWith(status: AuthStatus.error, error: e.toString()));
                 }
             }
         })
