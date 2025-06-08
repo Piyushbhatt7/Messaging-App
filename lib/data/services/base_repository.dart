@@ -9,4 +9,5 @@ abstract class BaseRepository {
 
   String get uid => currentUser?.uid ?? "";
   bool get isAuthentiicated => currentUser != null;
+  
 }
