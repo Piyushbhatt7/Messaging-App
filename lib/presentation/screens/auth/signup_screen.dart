@@ -131,7 +131,7 @@ class _SignupScreenState extends State<SignupScreen> {
       listener: (context, state) {
         if(state.status == AuthStatus.authenticated)
         {
-          getIt<AppRouter>().pushAndRemoveUntil(const HomeScreen());
+          getIt<AppRouter>().pushAndRemoveUntil(const HomeScreen()); // 3:25
         }
       },
         child: Scaffold(
