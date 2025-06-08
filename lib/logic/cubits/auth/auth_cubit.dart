@@ -82,4 +82,13 @@ Future<void> signUp({
     }
   }
 
+  Future<void> signOut() async {
+    try {
+      await _authRepository.signOut();
+      emit(state.copyWith());
+    } catch (e) {
+      
+    }
+  }
+
 }
