@@ -89,6 +89,12 @@ class _LoginScreenState extends State<LoginScreen> {
         return previous.status!= current.status ||
          previous.error!= current.error;
       },
+      listener: (context, state) {
+        if(state.status == AuthStatus.authenticated)
+        {
+          getIt<AppRouter>().push
+        }
+      },
       child: Scaffold(
         body: SafeArea(
           child: Form(
