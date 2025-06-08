@@ -76,10 +76,14 @@ class AuthRepository extends BaseRepository{
  Future<bool> checkEmailExists(String email) async{
 
   try {
+
     final methods = await auth.fetchSignInMethodsForEmail(email);
     return methods.isNotEmpty;
+
   } catch (e) {
+    
     print("Error checking email: $e",);
+    return false;
   }
  }
 
