@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:chatt_app/data/repository/auth_repository.dart';
+import 'package:chatt_app/logic/cubits/auth/auth_cubit.dart' as _authRepository;
 import 'package:chatt_app/logic/cubits/auth/auth_state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,7 +35,7 @@ class AuthCubit extends Cubit<AuthState> {
     });
   }
 
-  Future<void> SignIn({
+  Future<void> signIn({
 
     required String email,
     required String password,
@@ -55,7 +56,7 @@ class AuthCubit extends Cubit<AuthState> {
 }
 
 
-Future<void> SignUp({
+Future<void> signUp({
 
     required String email,
     required String username,
@@ -66,9 +67,13 @@ Future<void> SignUp({
     try {
       emit(state.copyWith(status: AuthStatus.loading));
 
-      final user = await _authRepository.signIn(
+      final user = await _authRepository.signUp(
         email: email, 
-        password: password
+        username: username,
+        fullName: fullName,
+        phoneNumber: phoneNumber,
+        password: password 
+        
         );
 
         emit(state.copyWith(status: AuthStatus.authenticated, user: user));
