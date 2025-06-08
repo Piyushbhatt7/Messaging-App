@@ -3,6 +3,7 @@ import 'package:chatt_app/core/common/custom_text_field.dart';
 import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/logic/cubits/auth/auth_cubit.dart';
 import 'package:chatt_app/logic/cubits/auth/auth_state.dart';
+import 'package:chatt_app/presentation/home/home_screen.dart';
 import 'package:chatt_app/presentation/screens/auth/signup_screen.dart';
 import 'package:chatt_app/router/app_router.dart';
 import 'package:flutter/gestures.dart';
@@ -92,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
       listener: (context, state) {
         if(state.status == AuthStatus.authenticated)
         {
-          getIt<AppRouter>().push
+          getIt<AppRouter>().pushAndRemoveUntil(const HomeScreen());
         }
       },
       child: Scaffold(
