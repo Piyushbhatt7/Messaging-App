@@ -20,5 +20,18 @@ class AuthCubit extends Cubit<AuthState>{
 
     void _init() {
         emit(state.copyWith(status: AuthStatus.initial));
+
+        _authStateSubscription = _authRepository.authStateChanges.listen((user)
+        async{
+
+            if(user!=null)
+            {
+                try {
+                  final userData = await _authRepository.getUserData(user.uid);
+                } catch (e) {
+                  
+                }
+            }
+        })
     }
 }
