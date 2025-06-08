@@ -16,8 +16,8 @@ class _HomeScreenState extends State<HomeScreen> {
     appBar: AppBar(
       actions: [
         InkWell(
-          onTap: () {
-            getIt<AuthCubit>().signOut();
+          onTap: () async{
+           await getIt<AuthCubit>().signOut();
           },
           child: Icon(Icons.logout))
       ],
