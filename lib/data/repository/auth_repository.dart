@@ -83,7 +83,8 @@ class AuthRepository extends BaseRepository {
         RegExp(r'\s+'),
         "".trim(),
       );
-      return methods.isNotEmpty;
+
+      final querySnapshot = await firestore.collection("users").where("phoneNumber");
     } catch (e) {
       print("Error checking email: $e");
       return false;
