@@ -11,7 +11,14 @@ class AuthCubit extends Cubit<AuthState>{
     StreamSubscription<User?>? _authStateSubscription;
 
     AuthCubit({
-        required this._authRepository,
-        this._authStateSubscription,
-    })
+        required AuthRepository authRepository,
+
+    }): _authRepository = authRepository, super( 
+        const AuthState()) {
+        _init();
+        }
+
+    void _init() {
+        
+    }
 }

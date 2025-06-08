@@ -1,12 +1,25 @@
 import 'package:chatt_app/data/models/user_model.dart';
 import 'package:equatable/equatable.dart';
 
-enum AuthStatus { initial, loading, authenticated, unauthenticated, error }
+
+enum AuthStatus {
+  initial,
+  loading,
+  authenticated,
+  unauthenticated,
+  error,
+}
 
 class AuthState extends Equatable {
   final AuthStatus status;
   final UserModel? user;
-  final String error;
+  final String? error;
+  const AuthState({
+    this.status = AuthStatus.initial,
+    this.user,
+    this.error,
+  });
+
   AuthState copyWith({
     AuthStatus? status,
     UserModel? user,
@@ -21,10 +34,4 @@ class AuthState extends Equatable {
 
   @override
   List<Object?> get props => [status, user, error];
-  AuthState({
-    this.status = AuthStatus.initial, 
-    this.user, 
-    required this.error
-
-    });
 }
