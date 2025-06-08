@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 
 class UserModel {
   final String uid;
@@ -58,12 +59,12 @@ class UserModel {
     final data = doc.data() as Map<String, dynamic>;
     return UserModel(
       uid: doc.id, 
-      username: data["username"], 
+      username: data["username"] ?? "", 
       fullName: data["fullName"] ?? "", 
-      email: data["email"], 
-      phoneNumber: data["phoneNumber"], 
+      email: data["email"] ?? "", 
+      phoneNumber: data["phoneNumber"] ?? "", 
       fmcToken: data["fmcToken"],
-      lastseen: data["lastSeen"],
+      lastseen: data["lastSeen"]?? TimeOfDay.now(),
       createdAt: data["createdAt"],
       blockedUsers: List<String>.from(data["blockedUsers"]),
       );
