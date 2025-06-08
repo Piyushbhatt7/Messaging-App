@@ -65,7 +65,7 @@ class UserModel {
       phoneNumber: data["phoneNumber"] ?? "", 
       fmcToken: data["fmcToken"],
       lastseen: data["lastSeen"]?? TimeOfDay.now(),
-      createdAt: data["createdAt"],
+      createdAt: data["createdAt"]?? Timestamp.now(),
       blockedUsers: List<String>.from(data["blockedUsers"]),
       );
   }
