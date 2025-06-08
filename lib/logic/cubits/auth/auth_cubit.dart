@@ -33,4 +33,16 @@ class AuthCubit extends Cubit<AuthState> {
       }
     });
   }
+
+  Future<void> SignIn({
+
+    required String email,
+    required String password,
+  }) async{
+    try {
+      emit(state.copyWith(status: ))
+    } catch (e) {
+      
+    }
+  }
 }
