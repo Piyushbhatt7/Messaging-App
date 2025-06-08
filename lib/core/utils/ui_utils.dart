@@ -12,8 +12,17 @@ class UiUtils {
     ScaffoldMessenger.of(context).removeCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(
-        
-      ))
-    )
+        message,
+        style: TextStyle(
+          color: Colors.white,
+        ),
+
+      ),
+      backgroundColor: isError? Colors.red : Colors.blueAccent,
+      duration: duration,
+      behavior: SnackBarBehavior.floating,
+      margin: EdgeInsets.all(16),
+      )
+    );
   }
 }
