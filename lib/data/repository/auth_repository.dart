@@ -19,6 +19,14 @@ class AuthRepository extends BaseRepository {
         RegExp(r'\s+'),
         "".trim(),
       );
+
+      final emailExists = await checkEmailExists(email);
+      if (emailExists) {
+        throw "An account with the same email already exists";
+      }
+
+      
+
       final userCredential = await auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
