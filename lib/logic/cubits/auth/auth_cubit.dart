@@ -40,7 +40,12 @@ class AuthCubit extends Cubit<AuthState> {
     required String password,
   }) async{
     try {
-      emit(state.copyWith(status: ))
+      emit(state.copyWith(status: AuthStatus.loading));
+
+      final user = await _authRepository.signIn(
+        email: email, 
+        password: password
+        );
     } catch (e) {
       
     }
