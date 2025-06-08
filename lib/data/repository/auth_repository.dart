@@ -73,6 +73,15 @@ class AuthRepository extends BaseRepository{
     }
  }
 
+ Future<bool> checkEmailExists(String email) async{
+
+  try {
+    final methods = await auth.fetchSignInMethodsForEmail(email);
+  } catch (e) {
+    
+  }
+ }
+
  Future<void> saveUserData(UserModel user) async{
 
     try {
