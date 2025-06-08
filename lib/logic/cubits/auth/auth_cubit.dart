@@ -53,7 +53,7 @@ class AuthCubit extends Cubit<AuthState> {
       emit(state.copyWith(status: AuthStatus.error, error: e.toString()));
     }
   }
-}
+
 
 
 Future<void> signUp({
@@ -81,4 +81,5 @@ Future<void> signUp({
       emit(state.copyWith(status: AuthStatus.error, error: e.toString()));
     }
   }
+
 }
