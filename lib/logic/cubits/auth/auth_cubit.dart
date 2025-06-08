@@ -53,3 +53,27 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 }
+
+
+Future<void> SignUp({
+
+    required String email,
+    required String username,
+    required String fullName,
+    required String phoneNumber,
+    required String password,
+  }) async{
+    try {
+      emit(state.copyWith(status: AuthStatus.loading));
+
+      final user = await _authRepository.signIn(
+        email: email, 
+        password: password
+        );
+
+        emit(state.copyWith(status: AuthStatus.authenticated, user: user));
+    } catch (e) {
+      emit(state.copyWith(status: AuthStatus.error, error: e.toString()));
+    }
+  }
+}
