@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
       },
       backgroundColor: Theme.of(context).colorScheme.primary,
-      child: Icon(Icons.message_rounded, color: Colors.white,),
+      child: Icon(Icons.chat_rounded, color: Colors.white,),
       ),
     );
   }
