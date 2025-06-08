@@ -84,7 +84,8 @@ class AuthRepository extends BaseRepository {
         "".trim(),
       );
 
-      final querySnapshot = await firestore.collection("users").where("phoneNumber");
+      final querySnapshot = await firestore.collection("users").where("phoneNumber", isEqualTo: formattedPhoneNumber).get();
+      return querySnapshot.docs.isNotEmpty;
     } catch (e) {
       print("Error checking email: $e");
       return false;
