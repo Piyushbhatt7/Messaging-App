@@ -122,19 +122,21 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocListener<AuthCubit, AuthState>(
-      bloc: getIt<AuthCubit>(),
-      listenWhen: (previous, current) {
-        return previous.status!= current.status ||
-         previous.error!= current.error;
-      },
+      child: BlocConsumer<AuthCubit, AuthState>(
+      //bloc: getIt<AuthCubit>(),
+      // listenWhen: (previous, current) {
+      //   return previous.status!= current.status ||
+      //    previous.error!= current.error;
+      // },
       listener: (context, state) {
         if(state.status == AuthStatus.authenticated)
         {
           getIt<AppRouter>().pushAndRemoveUntil(const HomeScreen()); // 3:25
         }
       },
-        child: Scaffold(
+        builder:(context, state) {
+
+        return Scaffold(
           appBar: AppBar(),
           body: Form(
             key: _formKey,
@@ -260,7 +262,8 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
             ),
           ),
-        ),
+        );
+        }
       ),
     );
   }
