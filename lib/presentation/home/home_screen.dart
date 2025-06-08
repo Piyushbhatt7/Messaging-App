@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
         InkWell(
           onTap: () async{
            await getIt<AuthCubit>().signOut();
-           getIt<AppRouter>().pushAndRemoveUntil(LoginScreen());
+           getIt<AppRouter>().pushAndRemoveUntil(const LoginScreen());
           },
           child: Icon(Icons.logout))
       ],
