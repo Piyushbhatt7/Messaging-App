@@ -87,7 +87,7 @@ Future<void> signUp({
       await _authRepository.signOut();
       emit(state.copyWith(status: AuthStatus.unauthenticated, user: null));
     } catch (e) {
-      
+      emit(state.copyWith(status: AuthStatus.error, error: e.toString()));
     }
   }
 
