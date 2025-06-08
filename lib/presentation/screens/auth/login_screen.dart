@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
 
-  Future<void> handleSignUp() async {
+  Future<void> handleSignIn() async {
 
     FocusScope.of(context).unfocus();
     if (_formKey.currentState?.validate() ?? false) {
@@ -142,13 +142,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
 
                 const SizedBox(height: 30.0),
-                CustomButton(onPressed: () {
-                  FocusScope.of(context).unfocus();
-                  if(_formKey.currentState?.validate() ?? false)
-                  {
-
-                  }
-                }, text: "Login"),
+                CustomButton(onPressed: handleSignIn,
+                 text: "Login"
+                 ),
 
                 const SizedBox(height: 20.0),
 
