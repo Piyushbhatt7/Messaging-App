@@ -1,6 +1,7 @@
 import 'package:chatt_app/core/common/custom_button.dart';
 import 'package:chatt_app/core/common/custom_text_field.dart';
 import 'package:chatt_app/data/services/service_locator.dart';
+import 'package:chatt_app/logic/cubits/auth/auth_cubit.dart';
 import 'package:chatt_app/presentation/screens/auth/signup_screen.dart';
 import 'package:chatt_app/router/app_router.dart';
 import 'package:flutter/gestures.dart';
@@ -57,6 +58,27 @@ class _LoginScreenState extends State<LoginScreen> {
       return 'Password must be at least 6 characters long';
     }
   }
+
+
+  Future<void> handleSignUp() async {
+
+    FocusScope.of(context).unfocus();
+    if (_formKey.currentState?.validate() ?? false) {
+      try{
+        getIt<AuthCubit>().signIn(
+          email: emailController.text, 
+          password: passwordController.text
+          );
+      }
+      catch(e)
+      {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString()))); 
+      }
+    }
+    else{
+      print("form validation failed");
+    }
+   }
 
   @override
   Widget build(BuildContext context) {
