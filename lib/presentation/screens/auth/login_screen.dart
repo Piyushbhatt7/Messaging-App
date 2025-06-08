@@ -86,6 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<AuthCubit, AuthState>(
+      bloc: getIt<AuthCubit>(),
       listenWhen: (previous, current) {
         return previous.status!= current.status ||
          previous.error!= current.error;
