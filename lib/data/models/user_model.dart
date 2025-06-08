@@ -59,13 +59,13 @@ class UserModel {
     return UserModel(
       uid: doc.id, 
       username: data["username"], 
-      fullName: data["fullName"], 
+      fullName: data["fullName"] ?? "", 
       email: data["email"], 
       phoneNumber: data["phoneNumber"], 
       fmcToken: data["fmcToken"],
       lastseen: data["lastSeen"],
       createdAt: data["createdAt"],
-      blockedUsers: data["blockedUsers"],
+      blockedUsers: List<String>.from(data["blockedUsers"]),
       );
   }
 
