@@ -51,11 +51,12 @@ class ContactRepository extends BaseRepository{
         'name': contact['name'],
         'phoneNumber': contact['phoneNumber'],
       };
-      });
+      }).toList();
 
-
+      return matchedContacts;
     } catch (e) {
-      
+      print("Erro getting registered users");
+      return [];
     }
   }
 }
