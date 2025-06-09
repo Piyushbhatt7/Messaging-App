@@ -69,7 +69,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 {
                   final contact = contacts[index];
                   return ListTile(
-                    leading: ,
+                    leading: CircleAvatar(
+                      backgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
+                    ),
                   );
                 });
               }
