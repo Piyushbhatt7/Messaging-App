@@ -11,6 +11,11 @@ class ChatRepository extends BaseRepository{
      // abcd // xyz
      final roomId = users.join("_");
 
-     final roomDoc = await _chatTooms
+     final roomDoc = await _chatTooms.doc(roomId).get();
+
+     if(roomDoc.exists)
+     {
+      return ChatRoomModel.fromFirestore(roomDoc);
+     }
   }
 }
