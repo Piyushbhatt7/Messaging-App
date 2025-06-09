@@ -71,6 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   return ListTile(
                     leading: CircleAvatar(
                       backgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
+                      child: Text(contact["name"][0].toUperCase()),
                     ),
                   );
                 });
