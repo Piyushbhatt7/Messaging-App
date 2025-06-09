@@ -28,8 +28,13 @@ class ChatRepository extends BaseRepository {
             as Map<String, dynamic>;
 
     final participantsName = {
-      currentUserId: currentUserData['fullName'].toString() ?? "",
-      otherUserData: otherUserData['fullName'].toString() ?? "",
+      currentUserId: currentUserData['fullName']?.toString() ?? "",
+      otherUserId: otherUserData['fullName']?.toString() ?? "",
     };
+
+    final newRoom = ChatRoomModel(id: roomId, participants: users, participantsName: participantsName, lastReadTime: {
+      currentUserId: Timestamp.now(),
+      otherUserId: Timestamp.now(),
+    });
   }
 }
