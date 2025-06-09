@@ -24,7 +24,12 @@ class ChatRepository extends BaseRepository {
             as Map<String, dynamic>;
 
     final otherUserData =
-        (await firestore.collection("users").doc(currentUserId).get()).data()
+        (await firestore.collection("users").doc(otherUserId).get()).data()
             as Map<String, dynamic>;
+
+    final participantsName = {
+      currentUserId: currentUserData['fullName'].toString() ?? "",
+      
+    }
   }
 }
