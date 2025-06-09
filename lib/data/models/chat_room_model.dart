@@ -18,7 +18,7 @@ class ChatRoomModel {
     this.lastMessage,
     this.lastMessageSenderId,
     this.lastMessageTime,
-    Map<String, String>? lastReadTime,
+    Map<String, Timestamp>? lastReadTime,
     Map<String, String>? participantsName,
     required this.isTyping,
     required this.isTypingUserId,
