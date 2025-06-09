@@ -38,7 +38,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
             FutureBuilder<List<Map<String, dynamic>>>(
               future: _contactRepository.getRegisteredContacts(), 
-              builder: builder
+              builder: (context, snapshot)
+              {
+                
+              }
               )
           ],
         ),
