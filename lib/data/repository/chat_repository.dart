@@ -6,7 +6,7 @@ class ChatRepository extends BaseRepository{
 
   CollectionReference get _chatTooms => firestore.collection("chatRooms");
 
-  Future<ChatRoomModel> getOrCreateChatRoom() async{
-    
+  Future<ChatRoomModel> getOrCreateChatRoom(String currentUserId, String otherUserId) async{
+
   }
 }
