@@ -3,7 +3,7 @@ import 'package:chatt_app/data/services/base_repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ChatRepository extends BaseRepository {
-  CollectionReference get _chatTooms => firestore.collection("chatRooms");
+  CollectionReference get _chatRooms => firestore.collection("chatRooms");
 
   Future<ChatRoomModel> getOrCreateChatRoom(
     String currentUserId,
@@ -13,7 +13,7 @@ class ChatRepository extends BaseRepository {
     // abcd // xyz
     final roomId = users.join("_");
 
-    final roomDoc = await _chatTooms.doc(roomId).get();
+    final roomDoc = await _chatRooms.doc(roomId).get();
 
     if (roomDoc.exists) {
       return ChatRoomModel.fromFirestore(roomDoc);
@@ -36,5 +36,8 @@ class ChatRepository extends BaseRepository {
       currentUserId: Timestamp.now(),
       otherUserId: Timestamp.now(),
     });
+
+    await _chatRooms.doc(roomId).set(newRoom.toMap());
+    return newRoom;
   }
 }
