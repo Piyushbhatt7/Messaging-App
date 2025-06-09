@@ -36,48 +36,50 @@ class _HomeScreenState extends State<HomeScreen> {
               fontWeight: FontWeight.bold,
             ),),
 
-            FutureBuilder<List<Map<String, dynamic>>>(
-              future: _contactRepository.getRegisteredContacts(), 
-              builder: (context, snapshot)
-              {
-                if(snapshot.hasError)
+            Expanded(
+              child: FutureBuilder<List<Map<String, dynamic>>>(
+                future: _contactRepository.getRegisteredContacts(), 
+                builder: (context, snapshot)
                 {
-                  return Center(
-                    child: Text("Error: ${snapshot.error}"),
-                  );
+                  if(snapshot.hasError)
+                  {
+                    return Center(
+                      child: Text("Error: ${snapshot.error}"),
+                    );
+                  }
+              
+                  if(!snapshot.hasData){
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+              
+                  final contacts = snapshot.data!;
+              
+                  if(contacts.isEmpty)
+                  {
+                    return const Center(
+                      child: Text(
+                        "No contacts found"
+                      ),
+                    );
+                  }
+                  return ListView.builder(
+                    itemCount: contacts.length,
+                    itemBuilder: (context, index)
+                  {
+                    final contact = contacts[index];
+                    return ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
+                        child: Text(contact["name"][0].toUperCase()),
+                      ),
+                      title: Text(contact["name"]),
+                    );
+                  });
                 }
-
-                if(!snapshot.hasData){
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
-
-                final contacts = snapshot.data!;
-
-                if(contacts.isEmpty)
-                {
-                  return const Center(
-                    child: Text(
-                      "No contacts found"
-                    ),
-                  );
-                }
-                return ListView.builder(
-                  itemCount: contacts.length,
-                  itemBuilder: (context, index)
-                {
-                  final contact = contacts[index];
-                  return ListTile(
-                    leading: CircleAvatar(
-                      backgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
-                      child: Text(contact["name"][0].toUperCase()),
-                    ),
-                    title: Text(contact["name"]),
-                  );
-                });
-              }
-              )
+                ),
+            )
           ],
         ),
       );
