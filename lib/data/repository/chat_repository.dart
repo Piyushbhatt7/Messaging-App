@@ -29,7 +29,7 @@ class ChatRepository extends BaseRepository {
 
     final participantsName = {
       currentUserId: currentUserData['fullName'].toString() ?? "",
-      
-    }
+      otherUserData: otherUserData['fullName'].toString() ?? "",
+    };
   }
 }
