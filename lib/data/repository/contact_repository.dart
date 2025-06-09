@@ -42,7 +42,16 @@ class ContactRepository extends BaseRepository{
       {
         final phoneNumber = contact['phoneNumber'];
         return registeredUsers.any((user) => user.phoneNumber == phoneNumber && user.uid != currentUserId);
+      }).map((contact)
+      {
+        final registeredUser = registeredUsers.firstWhere((user)=> user.phoneNumber == contact["phoneNumber"]);
       });
+
+      return {
+        'id': registeredUser.uid,
+        'name': contacts['name'],
+        'phoneNumber': contacts['phoneNumber'];
+      }
     } catch (e) {
       
     }
