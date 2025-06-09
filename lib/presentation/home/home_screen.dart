@@ -27,7 +27,14 @@ class _HomeScreenState extends State<HomeScreen> {
   {
     showModalBottomSheet(context: context, builder: (context)
     {
-      return Container();
+      return Container(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+            Text("Contacts")
+          ],
+        ),
+      );
     });
   }
 
