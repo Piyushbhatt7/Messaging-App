@@ -25,7 +25,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _showContctList(BuildContext context) // 4:26
   {
-    
+    showModalBottomSheet(context: context, builder: (context)
+    {
+      
+    })
   }
 
   @override
