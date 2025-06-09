@@ -18,6 +18,6 @@ class ChatRepository extends BaseRepository{
       return ChatRoomModel.fromFirestore(roomDoc);
      }
 
-     final currentUserData = (await firestore.collection("users").doc(currentUserId).get()).data() as ;
+     final currentUserData = (await firestore.collection("users").doc(currentUserId).get()).data() as Map<String, dynamic>;
   }
 }
