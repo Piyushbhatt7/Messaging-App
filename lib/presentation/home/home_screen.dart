@@ -1,3 +1,4 @@
+import 'package:chatt_app/data/repository/contact_repository.dart';
 import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/logic/cubits/auth/auth_cubit.dart';
 import 'package:chatt_app/presentation/screens/auth/login_screen.dart';
@@ -13,7 +14,20 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  
+  late final ContactRepository _contactRepository;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _contactRepository = getIt<ContactRepository>();
+  }
+
+  void _showContctList(BuildContext context)
+  {
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
