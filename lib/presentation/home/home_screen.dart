@@ -40,7 +40,12 @@ class _HomeScreenState extends State<HomeScreen> {
               future: _contactRepository.getRegisteredContacts(), 
               builder: (context, snapshot)
               {
-                
+                if(snapshot.hasError)
+                {
+                  return Center(
+                    child: Text("Error: ${snapshot.error}"),
+                  )
+                }
               }
               )
           ],
