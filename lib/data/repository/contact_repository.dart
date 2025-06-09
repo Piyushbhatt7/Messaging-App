@@ -41,8 +41,8 @@ class ContactRepository extends BaseRepository{
       final matchedContacts = phoneNumbers.where((contact)
       {
         final phoneNumber = contact['phoneNumber'];
-        return registeredUsers.any((user) => user.phoneNumber == phoneNumber && )
-      })
+        return registeredUsers.any((user) => user.phoneNumber == phoneNumber && user.uid != currentUserId);
+      });
     } catch (e) {
       
     }
