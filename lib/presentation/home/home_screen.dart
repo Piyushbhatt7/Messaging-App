@@ -52,6 +52,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: CircularProgressIndicator(),
                   );
                 }
+
+                final contacts = snapshot.data!;
+
+                if(contacts.isEmpty)
+                {
+                  return const Center(
+                    child: Text(
+                      "No contacts found"
+                    ),
+                  );
+                }
               }
               )
           ],
