@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _contactRepository = getIt<ContactRepository>();
   }
 
-  void _showContctList(BuildContext context)
+  void _showContctList(BuildContext context) // 4:26
   {
     
   }
