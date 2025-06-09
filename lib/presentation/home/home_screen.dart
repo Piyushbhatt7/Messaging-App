@@ -34,7 +34,9 @@ class _HomeScreenState extends State<HomeScreen> {
             Text("Contacts", style: TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold,
-            ),)
+            ),),
+
+            FutureBuilder<List<Map<String, dynamic>>>(future: future, builder: builder)
           ],
         ),
       );
