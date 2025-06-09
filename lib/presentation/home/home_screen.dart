@@ -46,6 +46,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Text("Error: ${snapshot.error}"),
                   );
                 }
+
+                if(!snapshot.hasData){
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
               }
               )
           ],
