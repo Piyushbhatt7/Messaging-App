@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
 
       floatingActionButton: FloatingActionButton(onPressed: () {
-
+        _showContctList(context);
       },
       backgroundColor: Theme.of(context).colorScheme.primary,
       child: Icon(Icons.chat_rounded, color: Colors.white,),
