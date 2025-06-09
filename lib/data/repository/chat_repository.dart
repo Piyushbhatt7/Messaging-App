@@ -10,5 +10,7 @@ class ChatRepository extends BaseRepository{
      final users = [currentUserId, otherUserId]..sort();
      // abcd // xyz
      final roomId = users.join("_");
+
+     final roomDoc = await _chatTooms
   }
 }
