@@ -45,13 +45,15 @@ class ContactRepository extends BaseRepository{
       }).map((contact)
       {
         final registeredUser = registeredUsers.firstWhere((user)=> user.phoneNumber == contact["phoneNumber"]);
+
+        return {
+        'id': registeredUser.uid,
+        'name': contact['name'],
+        'phoneNumber': contact['phoneNumber'],
+      };
       });
 
-      return {
-        'id': registeredUser.uid,
-        'name': contacts['name'],
-        'phoneNumber': contacts['phoneNumber'];
-      }
+
     } catch (e) {
       
     }
