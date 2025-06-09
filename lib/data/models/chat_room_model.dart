@@ -20,8 +20,9 @@ class ChatRoomModel {
     this.lastMessageTime,
     Map<String, Timestamp>? lastReadTime,
     Map<String, String>? participantsName,
-    required this.isTyping,
-    required this.isTypingUserId,
-    required this.isCallActive,
-  });
+    this.isTyping = false,
+    this.isTypingUserId,
+    this.isCallActive = false,
+  })  : lastReadTime = lastReadTime ?? {},
+        participantsName = participantsName ?? {};
 }
