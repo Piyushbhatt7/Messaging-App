@@ -21,8 +21,8 @@ class ChatMessage {
     required this.senderId,
     required this.receiverId,
     required this.content,
-    required this.type,
-    required this.status,
+    this.type = MessageType.text,
+    this.status = MessageStatus.sent,
     required this.timestamp,
     required this.readBy,
   });
