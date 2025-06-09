@@ -75,6 +75,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Text(contact["name"][0].toUperCase()),
                       ),
                       title: Text(contact["name"]),
+                      onTap: () {
+                        
+                      },
                     );
                   });
                 }
