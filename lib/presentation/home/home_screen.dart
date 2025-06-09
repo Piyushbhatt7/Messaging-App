@@ -36,7 +36,10 @@ class _HomeScreenState extends State<HomeScreen> {
               fontWeight: FontWeight.bold,
             ),),
 
-            FutureBuilder<List<Map<String, dynamic>>>(future: future, builder: builder)
+            FutureBuilder<List<Map<String, dynamic>>>(
+              future: _contactRepository.getRegisteredContacts(), 
+              builder: builder
+              )
           ],
         ),
       );
