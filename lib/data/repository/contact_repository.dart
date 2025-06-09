@@ -1,3 +1,4 @@
+import 'package:chatt_app/data/models/user_model.dart';
 import 'package:chatt_app/data/services/base_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
@@ -30,6 +31,10 @@ class ContactRepository extends BaseRepository{
     }).toList();
 
       // get all users from firestore
+
+      final userSnapshot = await firestore.collection("users").get();
+
+      final registeredUsers = userSnapshot.docs.map((doc) => UserModel.fromFirestore(doc)).toList();
 
       // match contacts with registered users
     } catch (e) {
