@@ -32,7 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             Text("Contacts", style: TextStyle(
-              
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
             ),)
           ],
         ),
