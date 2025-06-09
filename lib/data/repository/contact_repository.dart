@@ -37,6 +37,12 @@ class ContactRepository extends BaseRepository{
       final registeredUsers = userSnapshot.docs.map((doc) => UserModel.fromFirestore(doc)).toList();
 
       // match contacts with registered users
+
+      final matchedContacts = phoneNumbers.where((contact)
+      {
+        final phoneNumber = contact['phoneNumber'];
+        return registeredUsers.any((user) => user.phoneNumber == phoneNumber && )
+      })
     } catch (e) {
       
     }
