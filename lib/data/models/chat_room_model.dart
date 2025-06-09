@@ -23,6 +23,20 @@ class ChatRoomModel {
     this.isTyping = false,
     this.isTypingUserId,
     this.isCallActive = false,
-  })  : lastReadTime = lastReadTime ?? {},
-        participantsName = participantsName ?? {};
+  }) : lastReadTime = lastReadTime ?? {},
+       participantsName = participantsName ?? {};
+
+       Map<String, dynamic> toMap () {
+    return {
+      'participants': participants,
+      'lastMessage': lastMessage,
+      'lastMessageSenderId': lastMessageSenderId,
+      'lastMessageTime': lastMessageTime,
+      'lastReadTime': lastReadTime,
+      'participantsName': participantsName,
+      'isTyping': isTyping,
+      'isTypingUserId': isTypingUserId,
+      'isCallActive': isCallActive,
+    };
+  }
 }
