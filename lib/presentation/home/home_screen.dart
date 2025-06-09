@@ -31,7 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
-            Text("Contacts")
+            Text("Contacts", style: TextStyle(
+              
+            ),)
           ],
         ),
       );
