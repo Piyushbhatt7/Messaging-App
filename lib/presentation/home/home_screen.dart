@@ -67,7 +67,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemCount: contacts.length,
                   itemBuilder: (context, index)
                 {
-                  return null;
+                  final contact = contacts[index];
+                  return ListTile(
+                    leading: ,
+                  );
                 });
               }
               )
