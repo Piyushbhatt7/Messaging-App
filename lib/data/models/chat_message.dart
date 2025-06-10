@@ -43,4 +43,17 @@ class ChatMessage {
       );
   }
 
+  Map<String, dynamic> toMap() {
+    return {
+      "chatRoomId" : chatRoomId,
+      "senderId": senderId,
+      "receiverId" : receiverId,
+      "content": content,
+      "type": type,
+      "status": status,
+      "timestamp": timestamp,
+      "readBy": readBy,
+    };
+  }
+
 }
