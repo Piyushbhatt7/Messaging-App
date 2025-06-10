@@ -66,7 +66,7 @@ class MessageBubble extends StatelessWidget {
     return Align(
       alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
-        margin: EdgeInsets.only(left: isMe ? 64 : 8),
+        margin: EdgeInsets.only(left: isMe ? 64 : 8, right: isMe ? 8 : 64, bottom: 4),
         child: Column(
           children: [
             Text(message.content),
