@@ -24,8 +24,10 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
               backgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
               child: Text(widget.receiverName[0].toUpperCase()),
             ),
-            SizedBox(width: 20.0),
-            Column(children: [Text(widget.receiverName)]),
+            SizedBox(width: 12.0),
+            Column(children: [Text(widget.receiverName),
+            Text("Online", style: TextStyle(color: Colors.green),)
+            ]),
           ],
         ),
       ),
