@@ -26,7 +26,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
             ),
             SizedBox(width: 12.0),
             Column(children: [Text(widget.receiverName),
-            Text("Online", style: TextStyle(color: Colors.green),)
+            Text("Online", style: TextStyle(color: Colors.green, fontSize: 12),)
             ]),
           ],
         ),
