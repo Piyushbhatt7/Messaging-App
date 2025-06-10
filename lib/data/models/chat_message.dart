@@ -34,12 +34,12 @@ class ChatMessage {
       id: doc.id, 
       chatRoomId: data['chatRoomId'] as String,
       senderId: data['senderId'] as String,
-      receiverId: data['receiverId'],
-      content: data['content'],
+      receiverId: data['receiverId'] as String,
+      content: data['content'] as String,
       type: MessageType.values.firstWhere((e) => e.toString() == data['type'], orElse: () => MessageType.text,),
-
+      status: MessageStatus.values.firstWhere((e) => e.toString() == data['status'], orElse: () => MessageStatus.sent,),
+      timestamp: data['timestamp'] as Timestamp
       );
   }
 
-  messa
 }
