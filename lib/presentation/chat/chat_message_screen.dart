@@ -52,12 +52,23 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
 class MessageBubble extends StatelessWidget {
   final ChatMessage message;
   final bool isMe;
-  final bool showTime;
+ // final bool showTime;
 
-  const MessageBubble({super.key, required this.message, required this.isMe, required this.showTime});
+  const MessageBubble({
+    super.key,
+    required this.message,
+    required this.isMe,
+   // required this.showTime,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Column(
+        children: [
+          
+        ],
+      ),
+    );
   }
 }
