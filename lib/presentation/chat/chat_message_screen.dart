@@ -19,7 +19,13 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
             CircleAvatar(
               backgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
               child: Text(widget.receiverName[0].toUpperCase()),
-            )
+            ),
+
+            Column(children: [
+              Text(
+                widget.receiverName
+              )
+            ],)
           ],
         ),
       ),
