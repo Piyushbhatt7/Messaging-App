@@ -73,7 +73,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     return ListTile(
                       leading: CircleAvatar(
                         backgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
-                        child: Text(contact["name"][0].toUperCase()),
+                        child: Text(contact["name"][0]),
+                                     // child: Text(widget.receiverName[0].toUpperCase()),
+
                       ),
                       title: Text(contact["name"]),
                       onTap: () {
