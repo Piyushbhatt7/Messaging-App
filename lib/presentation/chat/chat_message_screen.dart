@@ -25,11 +25,24 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
               child: Text(widget.receiverName[0].toUpperCase()),
             ),
             SizedBox(width: 12.0),
-            Column(children: [Text(widget.receiverName),
-            Text("Online", style: TextStyle(color: Colors.green, fontSize: 12),)
-            ]),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(widget.receiverName),
+                Text(
+                  "Online",
+                  style: TextStyle(color: Colors.green, fontSize: 12),
+                ),
+              ],
+            ),
           ],
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 15.0),
+            child: Icon(Icons.more_vert),
+          )
+        ],
       ),
     );
   }
