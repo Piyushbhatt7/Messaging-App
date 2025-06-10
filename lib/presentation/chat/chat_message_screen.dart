@@ -42,7 +42,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
           Padding(
             padding: const EdgeInsets.only(right: 15.0),
             child: Icon(Icons.more_vert),
-          )
+          ),
         ],
       ),
     );
@@ -50,8 +50,11 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
 }
 
 class MessageBubble extends StatelessWidget {
-  final ChatMessage message
-  const MessageBubble({super.key});
+  final ChatMessage message;
+  final bool isMe;
+  final bool showTime;
+
+  const MessageBubble({super.key, required this.message, required this.isMe, required this.showTime});
 
   @override
   Widget build(BuildContext context) {
