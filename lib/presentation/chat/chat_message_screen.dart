@@ -14,7 +14,13 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
+        title: Row(
+          children: [
+            CircleAvatar(
+              backgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
+            )
+          ],
+        ),
       ),
     );
   }
