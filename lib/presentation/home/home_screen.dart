@@ -1,6 +1,7 @@
 import 'package:chatt_app/data/repository/contact_repository.dart';
 import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/logic/cubits/auth/auth_cubit.dart';
+import 'package:chatt_app/presentation/chat/chat_message_screen.dart';
 import 'package:chatt_app/presentation/screens/auth/login_screen.dart';
 import 'package:chatt_app/router/app_router.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       title: Text(contact["name"]),
                       onTap: () {
-                        
+                        getIt<AppRouter>().push(ChatMessageScreen(receiverId: contact['id'], receiverName: contact['name']));
                       },
                     );
                   });
