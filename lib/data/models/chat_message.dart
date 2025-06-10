@@ -27,7 +27,7 @@ class ChatMessage {
     required this.readBy,
   });
 
-   factory ChatMessage.fromFirestore(DocumentSnapshot doc)
+  factory ChatMessage.fromFirestore(DocumentSnapshot doc)
   {
     final data = doc.data() as Map<String, dynamic>;
     return ChatMessage(
@@ -56,4 +56,27 @@ class ChatMessage {
     };
   }
 
+  ChatMessage copyWith({
+    String? id,
+    String? chatRoomId,
+    String? senderId,
+    String? receiverId,
+    String? content,
+    MessageType? type,
+    MessageStatus? status,
+    Timestamp? timestamp,
+    List<String>? readBy,
+  }) {
+    return ChatMessage(
+      id: id ?? this.id,
+      chatRoomId: chatRoomId ?? this.chatRoomId,
+      senderId: senderId ?? this.senderId,
+      receiverId: receiverId ?? this.receiverId,
+      content: content ?? this.content,
+      type: type ?? this.type,
+      status: status ?? this.status,
+      timestamp: timestamp ?? this.timestamp,
+      readBy: readBy ?? List<String>.from(this.readBy),
+    );
+  }
 }
