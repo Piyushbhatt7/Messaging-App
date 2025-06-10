@@ -48,9 +48,11 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
 
       body: Column(
         children: [
-          ListView.builder(itemBuilder: (context, index)
+          ListView.builder(
+            itemCount: 4,
+            itemBuilder: (context, index)
           {
-            
+            return MessageBubble(message: Chat, isMe: isMe)
           })
         ],
       ),
