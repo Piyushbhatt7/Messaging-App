@@ -46,7 +46,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
         ], 
       ), 
  
-      body: Column(
+      body: Column( 
         children: [
           ListView.builder(
             itemCount: 4,
