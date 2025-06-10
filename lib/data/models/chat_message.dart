@@ -32,12 +32,14 @@ class ChatMessage {
     final data = doc.data() as Map<String, dynamic>;
     return ChatMessage(
       id: doc.id, 
-      chatRoomId: data['chatRoomId'],
-      senderId: data['senderId'],
+      chatRoomId: data['chatRoomId'] as String,
+      senderId: data['senderId'] as String,
       receiverId: data['receiverId'],
       content: data['content'],
       type: MessageType.values.firstWhere((e) => e.toString() == data['type'], orElse: () => MessageType.text,),
-      
+
       );
   }
+
+  messa
 }
