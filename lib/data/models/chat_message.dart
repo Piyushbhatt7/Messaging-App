@@ -26,4 +26,20 @@ class ChatMessage {
     required this.timestamp,
     required this.readBy,
   });
+
+   factory ChatMessage.fromFirestore(DocumentSnapshot doc)
+  {
+    final data = doc.data() as Map<String, dynamic>;
+    return ChatMessage(
+      uid: doc.id, 
+      username: data["username"] ?? "", 
+      fullName: data["fullName"] ?? "", 
+      email: data["email"] ?? "", 
+      phoneNumber: data["phoneNumber"] ?? "", 
+      fmcToken: data["fmcToken"],
+      lastseen: data["lastSeen"]?? TimeOfDay.now(),
+      createdAt: data["createdAt"]?? Timestamp.now(),
+      blockedUsers: List<String>.from(data["blockedUsers"]),
+      );
+  }
 }
