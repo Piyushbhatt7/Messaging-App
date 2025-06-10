@@ -44,7 +44,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
             child: Icon(Icons.more_vert),
           ),
         ], 
-      ),
+      ), 
  
       body: Column(
         children: [
