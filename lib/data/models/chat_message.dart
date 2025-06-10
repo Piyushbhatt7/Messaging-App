@@ -38,7 +38,8 @@ class ChatMessage {
       content: data['content'] as String,
       type: MessageType.values.firstWhere((e) => e.toString() == data['type'], orElse: () => MessageType.text,),
       status: MessageStatus.values.firstWhere((e) => e.toString() == data['status'], orElse: () => MessageStatus.sent,),
-      timestamp: data['timestamp'] as Timestamp
+      timestamp: data['timestamp'] as Timestamp,
+      readBy: List<String>.from(data['readBy'] ?? [])
       );
   }
 
