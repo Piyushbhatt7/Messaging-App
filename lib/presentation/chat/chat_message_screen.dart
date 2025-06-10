@@ -42,7 +42,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
           Padding(
             padding: const EdgeInsets.only(right: 15.0),
             child: Icon(Icons.more_vert),
-          ),
+          ), 
         ], 
       ), 
  
