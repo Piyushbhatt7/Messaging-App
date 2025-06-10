@@ -66,7 +66,8 @@ class MessageBubble extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          
+          Text(message.content),
+          const Text("22:55 PM"),
         ],
       ),
     );
