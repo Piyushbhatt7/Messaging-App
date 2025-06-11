@@ -97,7 +97,7 @@ class MessageBubble extends StatelessWidget {
           bottom: 4,
         ),
         decoration: BoxDecoration(
-          color: isMe ? Theme.of(context)
+          color: isMe ? Theme.of(context).primaryColor : Theme.of(context).primaryColor.withOpacity(0.1),
         ),
         child: Column(
           children: [Text(message.content), const Text("22:55 PM")],
