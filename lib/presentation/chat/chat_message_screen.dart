@@ -1,4 +1,5 @@
 import 'package:chatt_app/data/models/chat_message.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class ChatMessageScreen extends StatefulWidget {
@@ -48,16 +49,22 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
  
       body: Column( 
         children: [
-          ListView.builder(
-            itemCount: 4,
-            itemBuilder: (context, index)
-          {
-            return MessageBubble(message: ChatMessage(
-              id: "2344545",
-              chatRoomId: "99r8r88r",
-              senderId: 
-            ), isMe: isMe) // 5:28
-          })
+          Expanded(
+            child: ListView.builder(
+              itemCount: 4,
+              itemBuilder: (context, index)
+            {
+              return MessageBubble(message: ChatMessage(
+                id: "2344545",
+                chatRoomId: "99r8r88r",
+                senderId: "64443333",
+                receiverId: "66455yy",
+                content: "Hell this is demo chat",
+                timestamp: Timestamp.now(),
+                readBy: [],
+              ), isMe: true); // 5:28
+            }),
+          )
         ],
       ),
     );
