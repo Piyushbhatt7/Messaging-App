@@ -62,6 +62,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                     content: "Hell this is demo chat",
                     timestamp: Timestamp.now(),
                     readBy: [],
+                    status: MessageStatus.sent,
                   ),
                   isMe: true,
                 ); // 5:28
@@ -110,15 +111,23 @@ class MessageBubble extends StatelessWidget {
               message.content,
               style: TextStyle(color: isMe ? Colors.white : Colors.black),
             ),
-             Row(
+            Row(
               mainAxisSize: MainAxisSize.min,
-               children: [
-                 Text("22:55 PM", style: TextStyle(color: isMe ? Colors.white : Colors.black),),
+              children: [
+                Text(
+                  "22:55 PM",
+                  style: TextStyle(color: isMe ? Colors.white : Colors.black),
+                ),
 
-                 Icon(Icons.done_all)
-               ],
-             ),
-
+                Icon(
+                  Icons.done_all,
+                  color:
+                      message.status == MessageStatus.read
+                          ? Colors.red
+                          : Colors.white70,
+                ),
+              ],
+            ),
           ],
         ),
       ),
