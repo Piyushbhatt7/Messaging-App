@@ -53,7 +53,7 @@ class ChatRepository extends BaseRepository {
   { 
     // batch
  
-    final batch = firestore.batch(); / 5:46            
+    final batch = firestore.batch(); / 5:46             
 
     // get the message sub collection
 
