@@ -43,28 +43,31 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
           Padding(
             padding: const EdgeInsets.only(right: 15.0),
             child: Icon(Icons.more_vert),
-          ), 
-        ],  
-      ), 
- 
-      body: Column( 
+          ),
+        ],
+      ),
+
+      body: Column(
         children: [
           Expanded(
             child: ListView.builder(
               itemCount: 4,
-              itemBuilder: (context, index)
-            {
-              return MessageBubble(message: ChatMessage(
-                id: "2344545",
-                chatRoomId: "99r8r88r",
-                senderId: "64443333",
-                receiverId: "66455yy",
-                content: "Hell this is demo chat",
-                timestamp: Timestamp.now(),
-                readBy: [],
-              ), isMe: true); // 5:28
-            }),
-          )
+              itemBuilder: (context, index) {
+                return MessageBubble(
+                  message: ChatMessage(
+                    id: "2344545",
+                    chatRoomId: "99r8r88r",
+                    senderId: "64443333",
+                    receiverId: "66455yy",
+                    content: "Hell this is demo chat",
+                    timestamp: Timestamp.now(),
+                    readBy: [],
+                  ),
+                  isMe: true,
+                ); // 5:28
+              },
+            ),
+          ),
         ],
       ),
     );
@@ -74,13 +77,13 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
 class MessageBubble extends StatelessWidget {
   final ChatMessage message;
   final bool isMe;
- // final bool showTime;
+  // final bool showTime;
 
   const MessageBubble({
     super.key,
     required this.message,
     required this.isMe,
-   // required this.showTime,
+    // required this.showTime,
   });
 
   @override
@@ -88,12 +91,16 @@ class MessageBubble extends StatelessWidget {
     return Align(
       alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
-        margin: EdgeInsets.only(left: isMe ? 64 : 8, right: isMe ? 8 : 64, bottom: 4),
+        margin: EdgeInsets.only(
+          left: isMe ? 64 : 8,
+          right: isMe ? 8 : 64,
+          bottom: 4,
+        ),
+        decoration: BoxDecoration(
+          color: isMe ? Theme.of(context)
+        ),
         child: Column(
-          children: [
-            Text(message.content),
-            const Text("22:55 PM"),
-          ],
+          children: [Text(message.content), const Text("22:55 PM")],
         ),
       ),
     );
