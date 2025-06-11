@@ -69,6 +69,25 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
               },
             ),
           ),
+
+          Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: "Type of message",
+                        filled: true,
+                        contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        fillColor: Theme.of(context).cardColor
+                      ),
+                    ),
+                  )
+                ],
+              )
+            ],
+          )
         ],
       ),
     );
