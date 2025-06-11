@@ -70,7 +70,8 @@ class ChatRepository extends BaseRepository {
     final message = ChatMessage(id: messageDoc.id, chatRoomId: chatRoomId, senderId: senderId, receiverId: receiverId, content: content, timestamp: Timestamp.now(), readBy: [senderId]);
  
     // message to sub collections
-
+    
+    batch.set(messageDoc, message.toMap());
 
     // update chatroom
   }
