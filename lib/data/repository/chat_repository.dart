@@ -4,7 +4,9 @@ import 'package:chatt_app/data/services/base_repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ChatRepository extends BaseRepository {
+
   CollectionReference get _chatRooms => firestore.collection("chatRooms");
+  CollectionReference getChatRoom
 
   Future<ChatRoomModel> getOrCreateChatRoom(
     String currentUserId,
@@ -53,7 +55,7 @@ class ChatRepository extends BaseRepository {
   { 
     // batch
   
-    final batch = firestore.batch(); / 5:46                   
+    final batch = firestore.batch();                  
 
     // get the message sub collection
 
