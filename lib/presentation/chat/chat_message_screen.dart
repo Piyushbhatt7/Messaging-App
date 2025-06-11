@@ -79,9 +79,11 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                   Expanded(
                     child: TextField(
                       controller: messageController,
+                      keyboardType: TextInputType.multiline,
                       decoration: InputDecoration(
                         hintText: "Type of message",
                         filled: true,
+                        
                         contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                         border: OutlineInputBorder(
                           borderSide: BorderSide.none,
