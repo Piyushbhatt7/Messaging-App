@@ -52,7 +52,9 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
             itemCount: 4,
             itemBuilder: (context, index)
           {
-            return MessageBubble(message: Chat, isMe: isMe) // 5:28
+            return MessageBubble(message: ChatMessage(
+              
+            ), isMe: isMe) // 5:28
           })
         ],
       ),
