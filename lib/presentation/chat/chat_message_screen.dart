@@ -64,7 +64,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                     readBy: [],
                     status: MessageStatus.sent,
                   ),
-                  isMe: true,
+                  isMe: false,
                 ); // 5:28
               },
             ),
@@ -102,10 +102,11 @@ class MessageBubble extends StatelessWidget {
           color:
               isMe
                   ? Theme.of(context).primaryColor
-                  : Theme.of(context).primaryColor.withOpacity(0.1),
+                  : Color(0xffF7CFD8),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
+          crossAxisAlignment: isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
           children: [
             Text(
               message.content,
