@@ -6,7 +6,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class ChatRepository extends BaseRepository {
 
   CollectionReference get _chatRooms => firestore.collection("chatRooms");
-  CollectionReference getChatRoom
+  CollectionReference getChatRoomMessages(String chatRoomId)
+  {
+    return _chatRooms.doc(chatRoomId).collection("messages");
+  }
 
   Future<ChatRoomModel> getOrCreateChatRoom(
     String currentUserId,
