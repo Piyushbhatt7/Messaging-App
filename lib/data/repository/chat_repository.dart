@@ -1,3 +1,4 @@
+import 'package:chatt_app/data/models/chat_message.dart';
 import 'package:chatt_app/data/models/chat_room_model.dart';
 import 'package:chatt_app/data/services/base_repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -39,5 +40,17 @@ class ChatRepository extends BaseRepository {
 
     await _chatRooms.doc(roomId).set(newRoom.toMap());
     return newRoom;
+  }
+
+  Future<void> sendMessage ({
+
+    required String chatRoomId,
+    required String senderId,
+    required String receiverId,
+    required String contect,
+    MessageType type = MessageType.text,
+  }) async
+  {
+    
   }
 }
