@@ -57,7 +57,7 @@ class ChatRepository extends BaseRepository {
 
     // get the message sub collection
 
-    // chat message
+    // chat message 
     
  
     // message to sub collections
