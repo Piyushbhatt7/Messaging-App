@@ -51,6 +51,18 @@ class ChatRepository extends BaseRepository {
     MessageType type = MessageType.text,
   }) async
   {
-    
+    // batch
+
+    final batch = firestore.batch(); / 5:46
+
+    // get the message sub collection
+
+    // chat message
+
+
+    // message to sub collections
+
+
+    // update chatroom
   }
 }
