@@ -72,36 +72,39 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
             ),
           ),
 
-          Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: messageController,
-                      textCapitalization: TextCapitalization.sentences,
-                      keyboardType: TextInputType.multiline,
-                     // maxLines: ,
-                      decoration: InputDecoration(
-                        hintText: "Type of message",
-                        filled: true,
-                        
-                        contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: messageController,
+                        textCapitalization: TextCapitalization.sentences,
+                        keyboardType: TextInputType.multiline,
+                       // maxLines: ,
+                        decoration: InputDecoration(
+                          hintText: "Type of message",
+                          filled: true,
+                          
+                          contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                          ),
+                          fillColor: Theme.of(context).cardColor
                         ),
-                        fillColor: Theme.of(context).cardColor
                       ),
                     ),
-                  ),
-
-                  SizedBox(width: 8.0,),
-                  IconButton(onPressed: (){
-
-                  }, icon: Icon(Icons.send))
-                ],
-              )
-            ],
+            
+                    SizedBox(width: 8.0,),
+                    IconButton(onPressed: (){
+            
+                    }, icon: Icon(Icons.send, color: Theme.of(context).primaryColor,))
+                  ],
+                )
+              ],
+            ),
           )
         ],
       ),
