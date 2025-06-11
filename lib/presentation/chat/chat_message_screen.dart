@@ -110,7 +110,12 @@ class MessageBubble extends StatelessWidget {
               message.content,
               style: TextStyle(color: isMe ? Colors.white : Colors.black),
             ),
-             Text("22:55 PM", style: TextStyle(color: isMe ? Colors.white : Colors.black),),
+             Row(
+               children: [
+                 Text("22:55 PM", style: TextStyle(color: isMe ? Colors.white : Colors.black),),
+               ],
+             ),
+
           ],
         ),
       ),
