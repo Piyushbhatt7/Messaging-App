@@ -50,7 +50,7 @@ class ChatRepository extends BaseRepository {
     required String contect,
     MessageType type = MessageType.text,
   }) async
-  {
+  { 
     // batch
 
     final batch = firestore.batch(); / 5:46
