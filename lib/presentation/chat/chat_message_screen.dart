@@ -53,7 +53,9 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
             itemBuilder: (context, index)
           {
             return MessageBubble(message: ChatMessage(
-              
+              id: "2344545",
+              chatRoomId: "99r8r88r",
+              senderId: 
             ), isMe: isMe) // 5:28
           })
         ],
