@@ -98,11 +98,20 @@ class MessageBubble extends StatelessWidget {
         ),
         padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: BoxDecoration(
-          color: isMe ? Theme.of(context).primaryColor : Theme.of(context).primaryColor.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(16)
+          color:
+              isMe
+                  ? Theme.of(context).primaryColor
+                  : Theme.of(context).primaryColor.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
-          children: [Text(message.content), const Text("22:55 PM")],
+          children: [
+            Text(
+              message.content,
+              style: TextStyle(color: isMe ? Colors.white : Colors.black),
+            ),
+            const Text("22:55 PM"),
+          ],
         ),
       ),
     );
