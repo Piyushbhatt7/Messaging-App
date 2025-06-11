@@ -62,6 +62,9 @@ class ChatRepository extends BaseRepository {
 
     // get the message sub collection
 
+    final messageRef = getChatRoomMessages(chatRoomId);
+    final messageDoc = messageRef.doc();
+
     // chat message  
     
  
