@@ -78,7 +78,7 @@ class ChatRepository extends BaseRepository {
     batch.update(_chatRooms.doc(chatRoomId, ), {
       "lastMessage": content,
       "lastMessageSenderId": senderId,
-      "lastMessageTime": 
+      "lastMessageTime": message.timestamp,
     })
   }
 }
