@@ -79,7 +79,9 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                   Expanded(
                     child: TextField(
                       controller: messageController,
+                      textCapitalization: TextCapitalization.sentences,
                       keyboardType: TextInputType.multiline,
+                     // maxLines: ,
                       decoration: InputDecoration(
                         hintText: "Type of message",
                         filled: true,
