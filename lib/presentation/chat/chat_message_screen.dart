@@ -111,6 +111,7 @@ class MessageBubble extends StatelessWidget {
               style: TextStyle(color: isMe ? Colors.white : Colors.black),
             ),
              Row(
+              mainAxisSize: MainAxisSize.min,
                children: [
                  Text("22:55 PM", style: TextStyle(color: isMe ? Colors.white : Colors.black),),
                ],
