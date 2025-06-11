@@ -93,7 +93,12 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                         fillColor: Theme.of(context).cardColor
                       ),
                     ),
-                  )
+                  ),
+
+                  SizedBox(width: 8.0,),
+                  IconButton(onPressed: (){
+
+                  }, icon: Icon(Icons.send))
                 ],
               )
             ],
