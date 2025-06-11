@@ -80,6 +80,9 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                         hintText: "Type of message",
                         filled: true,
                         contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                        ),
                         fillColor: Theme.of(context).cardColor
                       ),
                     ),
