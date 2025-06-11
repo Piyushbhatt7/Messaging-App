@@ -52,7 +52,7 @@ class ChatRepository extends BaseRepository {
     required String chatRoomId,
     required String senderId,
     required String receiverId,
-    required String contect,
+    required String content,
     MessageType type = MessageType.text,
   }) async
   { 
@@ -67,6 +67,7 @@ class ChatRepository extends BaseRepository {
 
     // chat message  
     
+    final message = ChatMessage(id: messageDoc.id, chatRoomId: chatRoomId, senderId: senderId, receiverId: receiverId, content: content, timestamp: Timestamp.now(), readBy: [senderId]);
  
     // message to sub collections
 
