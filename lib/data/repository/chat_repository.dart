@@ -79,6 +79,8 @@ class ChatRepository extends BaseRepository {
       "lastMessage": content,
       "lastMessageSenderId": senderId,
       "lastMessageTime": message.timestamp,
-    })
+    });
+
+    await batch.commit();
   }
 }
