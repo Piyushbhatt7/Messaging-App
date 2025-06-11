@@ -78,8 +78,14 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
               children: [
                 Row(
                   children: [
+                    
+                Icon(Icons.emoji_emotions),
+                                const SizedBox(width: 8,),
                     Expanded(
                       child: TextField(
+                        onTap: () {
+                          
+                        },
                         controller: messageController,
                         textCapitalization: TextCapitalization.sentences,
                         keyboardType: TextInputType.multiline,
