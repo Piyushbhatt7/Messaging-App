@@ -23,15 +23,17 @@ class ChatState extends Equatable {
     String? error,
     String? receiverId,
     String? chatRoomId,
+    List<ChatMessage>? message,
   }) {
     return ChatState(
       status: status ?? this.status,
       error: error ?? this.error,
       receiverId: receiverId ?? this.receiverId,
       chatRoomId: chatRoomId ?? this.chatRoomId,
+      message: message ?? this.message,
     );
   }
 
   @override
-  List<Object?> get props => [status, error, receiverId, chatRoomId];
+  List<Object?> get props => [status, error, receiverId, chatRoomId, message];
 }
