@@ -94,5 +94,8 @@ class ChatRepository extends BaseRepository {
     await batch.commit();
   }
 
-  Stream<List<ChatMessage>>
+  Stream<List<ChatMessage>> getMessages(String roomId)
+  {
+    
+  }
 }
