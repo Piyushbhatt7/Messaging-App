@@ -62,6 +62,6 @@ class ChatCubit extends Cubit<ChatState> {
     }, onError: (error)
     {
       emit(state.copyWith(error: "Failed to load messages", status: ChatStatus.error));
-    });
+    }); // 6:31
   }
 }
