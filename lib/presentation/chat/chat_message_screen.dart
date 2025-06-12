@@ -29,7 +29,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
     super.initState();
   }
 
-  Future<void> handleSendMessage() async {
+  Future<void> _handleSendMessage() async {
     final messageText = messageController.text.trim();
     messageController.clear();
     await _chatCubit.sendMessage(
@@ -42,6 +42,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
+    messageController.dispose();
   }
 
   @override
@@ -131,7 +132,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
 
                     SizedBox(width: 8.0),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: _handleSendMessage,
                       icon: Icon(
                         Icons.send,
                         color: Theme.of(context).primaryColor,
