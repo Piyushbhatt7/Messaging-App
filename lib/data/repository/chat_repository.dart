@@ -113,17 +113,17 @@ class ChatRepository extends BaseRepository {
               snapshot.docs.map((doc) => ChatMessage.fromFirestore(doc)).toList());
   }
 
-   Stream<List<ChatMessage>> getMoreMessages(
+  Future<Stream<List<ChatMessage>>> getMoreMessages(
     String chatRoomId, {
    required DocumentSnapshot lastDocument,
-  }) {
+  }) async{
     final query = getChatRoomMessages(
       chatRoomId,
-    ).orderBy('timestamp', descending: true).limit(20);
+    ).orderBy('timestamp', descending: true).startAfterDocument(lastDocument)
+    .limit(20);
 
-    if (lastDocument != null) {
-      query = query.startAfterDocument(lastDocument);
-    }
+    final  snapshot = await query.snapshots()
+    
 
     return query
         .snapshots()
