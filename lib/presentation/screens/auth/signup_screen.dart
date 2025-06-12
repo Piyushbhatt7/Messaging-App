@@ -1,7 +1,6 @@
 import 'package:chatt_app/core/common/custom_button.dart';
 import 'package:chatt_app/core/common/custom_text_field.dart';
 import 'package:chatt_app/core/utils/ui_utils.dart';
-import 'package:chatt_app/data/repository/auth_repository.dart';
 import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/logic/cubits/auth/auth_cubit.dart';
 import 'package:chatt_app/logic/cubits/auth/auth_state.dart';
@@ -55,12 +54,14 @@ class _SignupScreenState extends State<SignupScreen> {
     if (value == null || value.isEmpty) {
       return "Please enter your full name";
     }
+    return null;
   }
 
   String? _validateUserName(String? value) {
     if (value == null || value.isEmpty) {
       return "Please enter a username";
     }
+    return null;
   }
 
   String? _validateEmail(String? value) {
@@ -95,6 +96,7 @@ class _SignupScreenState extends State<SignupScreen> {
     if (value.length < 6) {
       return 'Password must be at least 6 characters long';
     }
+    return null;
   }
 
    Future<void> handleSignUp() async {
