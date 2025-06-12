@@ -53,5 +53,12 @@ class ChatCubit extends Cubit<ChatState> {
   void _subscribeToMessages(String chatRoomId)
   {
     _messageSubscription?.cancel(); // 6:20
+    _messageSubscription = _chatRepository.getMessages(chatRoomId).listen((messages)
+    {
+       emit(state.copyWith(
+        message: messages, 
+        error: null,
+       ));
+    });
   }
 }
