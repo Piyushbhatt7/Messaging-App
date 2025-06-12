@@ -110,8 +110,6 @@ class ChatRepository extends BaseRepository {
         .snapshots()
         .map(
           (snapshot) =>
-              snapshot.docs.map((doc) => ChatMessage.fromFirestore(doc)),
-        )
-        .toList();
+              snapshot.docs.map((doc) => ChatMessage.fromFirestore(doc)).toList());
   }
 }
