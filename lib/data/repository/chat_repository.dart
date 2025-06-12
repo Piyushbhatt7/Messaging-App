@@ -117,7 +117,7 @@ class ChatRepository extends BaseRepository {
     String chatRoomId, {
    required DocumentSnapshot lastDocument,
   }) {
-    var query = getChatRoomMessages(
+    final query = getChatRoomMessages(
       chatRoomId,
     ).orderBy('timestamp', descending: true).limit(20);
 
