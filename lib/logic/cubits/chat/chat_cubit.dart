@@ -24,9 +24,25 @@ class ChatCubit extends Cubit<ChatState> {
     }
   }
   Future<void>sendMessage({
-    String content,
-    String receiverId
-  }) {
-    
+
+    required String content,
+    required String receiverId
+  }) async{
+
+    if(state.chatRoomId == null)
+    {
+      return;
+    }
+
+    try {
+      await _chatRepository.sendMessage(
+        chatRoomId: chatRoomId, 
+        senderId: senderId,
+        receiverId: receiverId, 
+        content: content
+        );
+    } catch (e) {
+      
+    }
   }
 }
