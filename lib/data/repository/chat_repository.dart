@@ -113,9 +113,9 @@ class ChatRepository extends BaseRepository {
               snapshot.docs.map((doc) => ChatMessage.fromFirestore(doc)).toList());
   }
 
-   Stream<List<ChatMessage>> getMessages(
+   Stream<List<ChatMessage>> getMoreMessages(
     String chatRoomId, {
-    DocumentSnapshot? lastDocument,
+    DocumentSnapshot lastDocument,
   }) {
     var query = getChatRoomMessages(
       chatRoomId,
