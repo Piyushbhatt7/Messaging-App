@@ -23,4 +23,10 @@ class ChatCubit extends Cubit<ChatState> {
       emit(state.copyWith(status: ChatStatus.error, error: "Failed to create chat room $e"));
     }
   }
+  Future<void>sendMessage({
+    String content,
+    String receiverId
+  }) {
+    
+  }
 }
