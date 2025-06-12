@@ -195,7 +195,7 @@ class MessageBubble extends StatelessWidget {
                 const SizedBox(width: 54,),
 
                 Icon(
-                  Icons.done_all,
+                  Icons.check ,
                   //size: 20,
                   color:
                       message.status == MessageStatus.read
