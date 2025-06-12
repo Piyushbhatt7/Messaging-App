@@ -32,26 +32,27 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Messenger App',
       theme: AppTheme.lightTheme,
-      home: ChatMessageScreen(
-        receiverId: 'sampleReceiverId',
-        receiverName: 'Sample Receiver',
-      ),
-       // BlocBuilder<AuthCubit, AuthState>(
-      //     bloc: getIt<AuthCubit>(),
-      //     builder: (context, state) {
-      //       if (state.status == AuthStatus.initial) {
-      //         return const Scaffold(
-      //           body: Center(child: CircularProgressIndicator()),
-      //         );
-      //       }
-      //       // You can customize the following logic as needed
-      //       // For demonstration, redirect to HomeScreen if authenticated, else LoginScreen
-      //       if (state.status == AuthStatus.authenticated) {
-      //         return const HomeScreen();
-      //       }
-      //         return const LoginScreen();
-      //     },
+      home: 
+      // ChatMessageScreen(
+      //   receiverId: 'sampleReceiverId',
+      //   receiverName: 'Sample Receiver',
       // ),
+       BlocBuilder<AuthCubit, AuthState>(
+          bloc: getIt<AuthCubit>(),
+          builder: (context, state) {
+            if (state.status == AuthStatus.initial) {
+              return const Scaffold(
+                body: Center(child: CircularProgressIndicator()),
+              );
+            }
+            // You can customize the following logic as needed
+            // For demonstration, redirect to HomeScreen if authenticated, else LoginScreen
+            if (state.status == AuthStatus.authenticated) {
+              return const HomeScreen();
+            }
+              return const LoginScreen();
+          },
+      ),
     );
   }
 }
