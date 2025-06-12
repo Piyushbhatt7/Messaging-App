@@ -42,7 +42,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    messageController.dispose();
+
   }
 
   @override
