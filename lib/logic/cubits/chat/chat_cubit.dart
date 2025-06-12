@@ -10,4 +10,15 @@ class ChatCubit extends Cubit<ChatState> {
     required ChatRepository chatRepository,
     required this.currentUserId,
   }) : _chatRepository = chatRepository, super(ChatState());
+
+
+  void enterChat(String reciverId) async{
+    emit(state.copyWith(status: ChatStatus.loading));
+
+    try {
+      final chatRoom = await _chatRepository.getOrCreateChatRoom(currentUserId, otherUserId)
+    } catch (e) {
+      
+    }
+  }
 }
