@@ -30,9 +30,9 @@ class ChatCubit extends Cubit<ChatState> {
   }) async{
 
     if(state.chatRoomId == null)
-    {
+    
       return;
-    }
+    
 
     try {
       await _chatRepository.sendMessage(
