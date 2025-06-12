@@ -115,7 +115,7 @@ class ChatRepository extends BaseRepository {
 
    Stream<List<ChatMessage>> getMoreMessages(
     String chatRoomId, {
-    DocumentSnapshot lastDocument,
+   required DocumentSnapshot lastDocument,
   }) {
     var query = getChatRoomMessages(
       chatRoomId,
