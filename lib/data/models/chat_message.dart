@@ -49,7 +49,7 @@ class ChatMessage {
       "senderId": senderId,
       "receiverId" : receiverId,
       "content": content,
-      "type": type,
+      "type": type.toString(),
       "status": status,
       "timestamp": timestamp,
       "readBy": readBy,
