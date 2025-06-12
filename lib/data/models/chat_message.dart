@@ -50,7 +50,7 @@ class ChatMessage {
       "receiverId" : receiverId,
       "content": content,
       "type": type.toString(),
-      "status": status,
+      "status": status.toString(),
       "timestamp": timestamp,
       "readBy": readBy,
     };
