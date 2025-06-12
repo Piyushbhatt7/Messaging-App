@@ -7,5 +7,6 @@ enum ChatStatus{
 class ChatState extends Equatable{
 
   final ChatStatus status;
-  final 
+  final String? error;
+  final String receiverId;
 }
