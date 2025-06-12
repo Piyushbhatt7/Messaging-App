@@ -1,4 +1,5 @@
 import 'package:chatt_app/data/models/chat_message.dart';
+import 'package:chatt_app/logic/cubits/chat/chat_cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,15 @@ class ChatMessageScreen extends StatefulWidget {
 class _ChatMessageScreenState extends State<ChatMessageScreen> {
 
   final  TextEditingController messageController = TextEditingController();
+  late final ChatCubit _chatCubit;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
