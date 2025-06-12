@@ -4,10 +4,8 @@ import 'package:chatt_app/data/services/base_repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ChatRepository extends BaseRepository {
-
   CollectionReference get _chatRooms => firestore.collection("chatRooms");
-  CollectionReference getChatRoomMessages(String chatRoomId)
-  {
+  CollectionReference getChatRoomMessages(String chatRoomId) {
     return _chatRooms.doc(chatRoomId).collection("messages");
   }
 
@@ -38,44 +36,56 @@ class ChatRepository extends BaseRepository {
       otherUserId: otherUserData['fullName']?.toString() ?? "",
     };
 
-    final newRoom = ChatRoomModel(id: roomId, participants: users, participantsName: participantsName, lastReadTime: {
-      currentUserId: Timestamp.now(),
-      otherUserId: Timestamp.now(),
-    });
+    final newRoom = ChatRoomModel(
+      id: roomId,
+      participants: users,
+      participantsName: participantsName,
+      lastReadTime: {
+        currentUserId: Timestamp.now(),
+        otherUserId: Timestamp.now(),
+      },
+    );
 
     await _chatRooms.doc(roomId).set(newRoom.toMap());
     return newRoom;
   }
 
-  Future<void> sendMessage ({
-
+  Future<void> sendMessage({
     required String chatRoomId,
     required String senderId,
     required String receiverId,
     required String content,
     MessageType type = MessageType.text,
-  }) async
-  { 
+  }) async {
     // batch
-  
-    final batch = firestore.batch();                  
+
+    final batch = firestore.batch();
 
     // get the message sub collection
 
     final messageRef = getChatRoomMessages(chatRoomId);
     final messageDoc = messageRef.doc();
 
-    // chat message  
-    
-    final message = ChatMessage(id: messageDoc.id, chatRoomId: chatRoomId, senderId: senderId, receiverId: receiverId, content: content, timestamp: Timestamp.now(), readBy: [senderId]);
- 
+    // chat message
+
+    final message = ChatMessage(
+      id: messageDoc.id,
+      chatRoomId: chatRoomId,
+      senderId: senderId,
+      receiverId: receiverId,
+      content: content,
+      timestamp: Timestamp.now(),
+      readBy: [senderId],
+      type: 
+    );
+
     // message to sub collections
-    
+
     batch.set(messageDoc, message.toMap());
 
     // update chatroom
 
-    batch.update(_chatRooms.doc(chatRoomId, ), {
+    batch.update(_chatRooms.doc(chatRoomId), {
       "lastMessage": content,
       "lastMessageSenderId": senderId,
       "lastMessageTime": message.timestamp,
