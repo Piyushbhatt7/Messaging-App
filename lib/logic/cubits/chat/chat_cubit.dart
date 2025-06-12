@@ -9,5 +9,5 @@ class ChatCubit extends Cubit<ChatState> {
   ChatCubit({
     required ChatRepository chatRepository,
     required this.currentUserId,
-  }) : _chatRepository = chatRepository;
+  }) : _chatRepository = chatRepository, super(ChatState());
 }
