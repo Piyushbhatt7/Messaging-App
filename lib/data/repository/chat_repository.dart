@@ -76,7 +76,7 @@ class ChatRepository extends BaseRepository {
       content: content,
       timestamp: Timestamp.now(),
       readBy: [senderId],
-      type: 
+      type: type,
     );
 
     // message to sub collections
