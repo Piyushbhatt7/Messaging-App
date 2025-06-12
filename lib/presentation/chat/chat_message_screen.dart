@@ -192,8 +192,11 @@ class MessageBubble extends StatelessWidget {
                   style: TextStyle(color: isMe ? Colors.white : Colors.black),
                 ),
 
+                const SizedBox(width: 54,),
+
                 Icon(
                   Icons.done_all,
+                  
                   color:
                       message.status == MessageStatus.read
                           ? Colors.red
