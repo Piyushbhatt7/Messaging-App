@@ -94,8 +94,8 @@ class ChatRepository extends BaseRepository {
     await batch.commit();
   }
 
-  Stream<List<ChatMessage>> getMessages(String roomId, {DocumentSnapshot? lastDocument})
+  Stream<List<ChatMessage>> getMessages(String chatRoomId, {DocumentSnapshot? lastDocument})
   {
-    var query = getChatRoomMessages()
+    var query = getChatRoomMessages(chatRoomId).orderBy('timeStamp')
   }
 }
