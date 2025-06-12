@@ -18,17 +18,30 @@ class ChatMessageScreen extends StatefulWidget {
 }
 
 class _ChatMessageScreenState extends State<ChatMessageScreen> {
-
-  final  TextEditingController messageController = TextEditingController();
+  final TextEditingController messageController = TextEditingController();
   late final ChatCubit _chatCubit;
 
-  @override 
+  @override
   void initState() {
     _chatCubit = getIt<ChatCubit>();
     _chatCubit.enterChat(widget.receiverId);
     // TODO: implement initState
     super.initState();
-    
+  }
+
+  Future<void> handleSendMessage() async {
+    final messageText = messageController.text.trim();
+    messageController.clear();
+    await _chatCubit.sendMessage(
+      content: messageText,
+      receiverId: widget.receiverId,
+    );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
   }
 
   @override
@@ -91,40 +104,44 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
               children: [
                 Row(
                   children: [
-                    
-                Icon(Icons.emoji_emotions),
-                                const SizedBox(width: 8,),
+                    Icon(Icons.emoji_emotions),
+                    const SizedBox(width: 8),
                     Expanded(
                       child: TextField(
-                        onTap: () {
-                          
-                        },
+                        onTap: () {},
                         controller: messageController,
                         textCapitalization: TextCapitalization.sentences,
                         keyboardType: TextInputType.multiline,
-                       // maxLines: ,
+                        // maxLines: ,
                         decoration: InputDecoration(
                           hintText: "Type of message",
                           filled: true,
-                          
-                          contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+
+                          contentPadding: EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
                           border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                           ),
-                          fillColor: Theme.of(context).cardColor
+                          fillColor: Theme.of(context).cardColor,
                         ),
                       ),
                     ),
-            
-                    SizedBox(width: 8.0,),
-                    IconButton(onPressed: (){
-            
-                    }, icon: Icon(Icons.send, color: Theme.of(context).primaryColor,))
+
+                    SizedBox(width: 8.0),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.send,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
                   ],
-                )
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
@@ -155,14 +172,12 @@ class MessageBubble extends StatelessWidget {
         ),
         padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         decoration: BoxDecoration(
-          color:
-              isMe
-                  ? Theme.of(context).primaryColor
-                  : Color(0xffF7CFD8),
+          color: isMe ? Theme.of(context).primaryColor : Color(0xffF7CFD8),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
-          crossAxisAlignment: isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+          crossAxisAlignment:
+              isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
           children: [
             Text(
               message.content,
