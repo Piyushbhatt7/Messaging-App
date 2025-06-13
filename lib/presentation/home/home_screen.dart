@@ -1,3 +1,4 @@
+import 'package:chatt_app/data/repository/auth_repository.dart';
 import 'package:chatt_app/data/repository/chat_repository.dart';
 import 'package:chatt_app/data/repository/contact_repository.dart';
 import 'package:chatt_app/data/services/service_locator.dart';
@@ -18,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   late final ContactRepository _contactRepository;
   late final ChatRepository _chatRepository;
+  late final String _currentUserId;
 
   @override
   void initState() {
@@ -25,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _contactRepository = getIt<ContactRepository>();
     _chatRepository = getIt<ChatRepository>();
+    _currentUserId = getIt<AuthRepository>().currentUser?.uid ?? "";
   }
 
   void _showContctList(BuildContext context) // 4:26
@@ -109,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Icon(Icons.logout))
       ],
     ),
-      body: StreamBuilder(stream: , builder: builder),
+      body: StreamBuilder(stream: _chatRepository.getChatRooms(userId), builder: builder),
 
       floatingActionButton: FloatingActionButton(onPressed: () {
         _showContctList(context);
