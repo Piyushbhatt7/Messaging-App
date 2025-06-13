@@ -127,6 +127,16 @@ class _HomeScreenState extends State<HomeScreen> {
         if(!snapshot.hasData) {
           return Center(child: CircularProgressIndicator());
         }
+
+      final chats =snapshot.data!; 
+
+      if(chats.isEmpty)
+      {
+        return Center(
+          child: Text("No recent Chats!"),
+        );
+        
+      }
         return ChatListTile(chat: , currentUserId: currentUserId, onTap: onTap)
       }),
 
