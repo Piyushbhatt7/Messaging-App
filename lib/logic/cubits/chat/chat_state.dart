@@ -8,14 +8,14 @@ class ChatState extends Equatable {
   final String? error;
   final String? receiverId;
   final String? chatRoomId;
-  final List<ChatMessage> message;
+  final List<ChatMessage> messages;
 
   ChatState({
     this.status = ChatStatus.initaial,
     this.error,
     this.receiverId,
     this.chatRoomId,
-    this.message = const [],
+    this.messages = const [],
   });
 
   ChatState copyWith({
@@ -30,10 +30,10 @@ class ChatState extends Equatable {
       error: error ?? this.error,
       receiverId: receiverId ?? this.receiverId,
       chatRoomId: chatRoomId ?? this.chatRoomId,
-      message: message ?? this.message,
+      messages: message ?? this.messages,
     );
   }
 
   @override
-  List<Object?> get props => [status, error, receiverId, chatRoomId, message];
+  List<Object?> get props => [status, error, receiverId, chatRoomId, messages];
 }
