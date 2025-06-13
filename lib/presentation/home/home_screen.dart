@@ -135,9 +135,12 @@ class _HomeScreenState extends State<HomeScreen> {
         return Center(
           child: Text("No recent Chats!"),
         );
-        
+
       }
-        return ChatListTile(chat: , currentUserId: currentUserId, onTap: onTap)
+        return ListView.builder(itemBuilder: (context, index)
+        {
+          return ChatListTile(chat: chats[index], currentUserId: currentUserId, onTap: onTap)
+        });
       }),
 
       floatingActionButton: FloatingActionButton(onPressed: () {
