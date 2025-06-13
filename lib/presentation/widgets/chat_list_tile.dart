@@ -26,6 +26,10 @@ class ChatListTile extends StatelessWidget {
         backgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
         child: Text(_getOtherUsername()[0].toUpperCase()),
       ),
+
+      title: Text(_getOtherUsername(), style: TextStyle(
+        fontWeight: FontWeight.bold
+      ),),
     );
   }
 }
