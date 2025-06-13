@@ -79,8 +79,11 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
       ),
 
       body: BlocBuilder<ChatCubit, ChatState>(
-        bloc: ,
-        child: Column(
+        bloc: _chatCubit,
+        builder: (context, state) {
+          
+        
+        return Column(
           children: [
             Expanded(
               child: ListView.builder(
@@ -148,8 +151,10 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
               ),
             ),
           ],
-        ),
+        );
+        }
       ),
+  
     );
   }
 }
