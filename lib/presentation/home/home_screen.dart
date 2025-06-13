@@ -112,7 +112,10 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Icon(Icons.logout))
       ],
     ),
-      body: StreamBuilder(stream: _chatRepository.getChatRooms(_currentUserId), builder: builder),
+      body: StreamBuilder(stream: _chatRepository.getChatRooms(_currentUserId), builder: (context, snapshot)
+      {
+        
+      }),
 
       floatingActionButton: FloatingActionButton(onPressed: () {
         _showContctList(context);
