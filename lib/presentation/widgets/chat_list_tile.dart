@@ -13,11 +13,16 @@ class ChatListTile extends StatelessWidget {
     required this.onTap,
   });
 
+  String _getOtherUsername() {
+    final otherUserId = chat.participants.firstWhere((id) => id != currentUserId);
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: CircleAvatar(
         backgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
+        child: Text(contact["name"][0]),
       ),
     );
   }
