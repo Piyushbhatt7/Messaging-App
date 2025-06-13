@@ -1,3 +1,4 @@
+import 'package:chatt_app/data/repository/chat_repository.dart';
 import 'package:chatt_app/data/repository/contact_repository.dart';
 import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/logic/cubits/auth/auth_cubit.dart';
@@ -16,6 +17,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   late final ContactRepository _contactRepository;
+  late final ChatRepository _chatRepository;
 
   @override
   void initState() {
@@ -106,9 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Icon(Icons.logout))
       ],
     ),
-      body: Center(
-        child: Text("Home screen"),
-      ),
+      body: StreamBuilder(stream: , builder: builder),
 
       floatingActionButton: FloatingActionButton(onPressed: () {
         _showContctList(context);
