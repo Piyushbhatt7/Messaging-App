@@ -98,6 +98,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
           children: [
             Expanded(
               child: ListView.builder(
+                reverse: true,
                 itemCount: state.messages.length,
                 itemBuilder: (context, index) {
                   final message = state.messages[index];
@@ -203,15 +204,15 @@ class MessageBubble extends StatelessWidget {
               children: [
                 Text(
                   "22:55 PM",
-                  style: TextStyle(color: isMe ? Colors.white : Colors.black),
+                  style: TextStyle(color: isMe ? Colors.white70 : Colors.black, fontSize: 12),
                 ),
 
-                const SizedBox(width: 54,),
+            //    const SizedBox(width: 54,),
 
                 Icon(
                   message.status == MessageStatus.read ?
                   Icons.check : Icons.done_all,
-                  //size: 20,
+                  size: 14,
                   color:
                       message.status == MessageStatus.sent
                           ? Colors.lightBlueAccent
