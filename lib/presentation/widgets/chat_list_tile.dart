@@ -48,6 +48,7 @@ class ChatListTile extends StatelessWidget {
         ],
       ),
       trailing: Container(
+        padding: EdgeInsets.all(8.0),
         decoration: BoxDecoration(
           color: Theme.of(context).primaryColor,
           shape: BoxShape.circle,
