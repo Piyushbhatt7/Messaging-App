@@ -101,18 +101,10 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                 itemCount: state.messages.length,
                 itemBuilder: (context, index) {
                   final message = state.messages[index];
+                  final isMe = message.senderId == _chatCubit.currentUserId;
                   return MessageBubble(
-                    message: ChatMessage(
-                      id: "2344545",
-                      chatRoomId: "99r8r88r",
-                      senderId: "64443333",
-                      receiverId: "66455yy",
-                      content: message.content,
-                      timestamp: Timestamp.now(),
-                      readBy: [],
-                      status: MessageStatus.sent,
-                    ),
-                    isMe: false,
+                    message: message,
+                    isMe: isMe,
                   ); // 5:28
                 },
               ),
