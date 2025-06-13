@@ -100,6 +100,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
               child: ListView.builder(
                 itemCount: state.message.length,
                 itemBuilder: (context, index) {
+                  final message = state.message[index].content;
                   return MessageBubble(
                     message: ChatMessage(
                       id: "2344545",
