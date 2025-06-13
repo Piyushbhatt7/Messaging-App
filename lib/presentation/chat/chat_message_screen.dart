@@ -98,16 +98,16 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: state.message.length,
+                itemCount: state.messages.length,
                 itemBuilder: (context, index) {
-                  final message = state.message[index].content;
+                  final message = state.messages[index];
                   return MessageBubble(
                     message: ChatMessage(
                       id: "2344545",
                       chatRoomId: "99r8r88r",
                       senderId: "64443333",
                       receiverId: "66455yy",
-                      content: "Hell this is demo chat",
+                      content: message.content,
                       timestamp: Timestamp.now(),
                       readBy: [],
                       status: MessageStatus.sent,
