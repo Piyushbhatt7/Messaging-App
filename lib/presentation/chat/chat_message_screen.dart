@@ -82,7 +82,11 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
         bloc: _chatCubit,
         builder: (context, state) {
           
-        
+          if(state.status == ChatStatus.loading){
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
         return Column(
           children: [
             Expanded(
