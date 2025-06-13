@@ -14,9 +14,11 @@ class ChatListTile extends StatelessWidget {
   });
 
   String _getOtherUsername() {
-    final otherUserId = chat.participants.firstWhere((id) => id != currentUserId);
+    final otherUserId = chat.participants.firstWhere(
+      (id) => id != currentUserId,
+    );
 
-    return chat.participantsName! [otherUserId] ?? "Unknow";
+    return chat.participantsName![otherUserId] ?? "Unknow";
   }
 
   @override
@@ -27,11 +29,19 @@ class ChatListTile extends StatelessWidget {
         child: Text(_getOtherUsername()[0].toUpperCase()),
       ),
 
-      title: Text(_getOtherUsername(), style: TextStyle(
-        fontWeight: FontWeight.bold
-      ),),
+      title: Text(
+        _getOtherUsername(),
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
 
-      subtitle: Text(chat.lastMessage ?? ""),
+      subtitle: Expanded(
+        child: Text(
+          chat.lastMessage ?? "",
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(color: Colors.grey),
+        ),
+      ),
       trailing: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).primaryColor,
