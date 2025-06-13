@@ -24,7 +24,7 @@ class ChatListTile extends StatelessWidget {
     return ListTile(
       leading: CircleAvatar(
         backgroundColor: Theme.of(context).primaryColor.withOpacity(0.1),
-        child: Text(contact["name"][0]),
+        child: Text(_getOtherUsername()[0].toUpperCase()),
       ),
     );
   }
