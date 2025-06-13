@@ -24,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     super.initState();
     _contactRepository = getIt<ContactRepository>();
+    _chatRepository = getIt<ChatRepository>();
   }
 
   void _showContctList(BuildContext context) // 4:26
