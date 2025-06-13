@@ -87,6 +87,13 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
               child: CircularProgressIndicator(),
             );
           }
+
+          if(state.status == ChatStatus.error)
+          {
+            Center(child: Text(
+              state.error??"Something went wrong"
+            ),);
+          }
         return Column(
           children: [
             Expanded(
