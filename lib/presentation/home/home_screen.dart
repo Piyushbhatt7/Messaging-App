@@ -5,6 +5,7 @@ import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/logic/cubits/auth/auth_cubit.dart';
 import 'package:chatt_app/presentation/chat/chat_message_screen.dart';
 import 'package:chatt_app/presentation/screens/auth/login_screen.dart';
+import 'package:chatt_app/presentation/widgets/chat_list_tile.dart';
 import 'package:chatt_app/router/app_router.dart';
 import 'package:flutter/material.dart';
 
@@ -114,7 +115,19 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
       body: StreamBuilder(stream: _chatRepository.getChatRooms(_currentUserId), builder: (context, snapshot)
       {
-        
+        if(snapshot.hasError) {
+          print(snapshot.error);
+          return Center(
+            child: Text(
+              "error: ${snapshot.error}"
+            ),
+          );
+        }
+
+        if(!snapshot.hasData) {
+          return Center(child: CircularProgressIndicator());
+        }
+        return ChatListTile(chat: , currentUserId: currentUserId, onTap: onTap)
       }),
 
       floatingActionButton: FloatingActionButton(onPressed: () {
