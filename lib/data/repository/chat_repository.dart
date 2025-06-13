@@ -128,6 +128,6 @@ class ChatRepository extends BaseRepository {
 
   Stream<List<ChatRoomModel>> getChatRooms(String userId) async {
 
-    chatRoom
+    return _chatRooms.where("participants", arrayContains: userId).orderBy('lastMessageTime', descending: true).snapshots().map((snapshot)=> snapshot.docs.map((doc) => ChatRoomModel.fromFirestore(doc)));
   }
 }
