@@ -3,6 +3,7 @@ import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/logic/cubits/chat/chat_cubit.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ChatMessageScreen extends StatefulWidget {
   final String receiverId;
@@ -76,74 +77,77 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
         ],
       ),
 
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: 4,
-              itemBuilder: (context, index) {
-                return MessageBubble(
-                  message: ChatMessage(
-                    id: "2344545",
-                    chatRoomId: "99r8r88r",
-                    senderId: "64443333",
-                    receiverId: "66455yy",
-                    content: "Hell this is demo chat",
-                    timestamp: Timestamp.now(),
-                    readBy: [],
-                    status: MessageStatus.sent,
-                  ),
-                  isMe: false,
-                ); // 5:28
-              },
+      body: BlocBuilder(
+        bloc: ,
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: ,
+                itemBuilder: (context, index) {
+                  return MessageBubble(
+                    message: ChatMessage(
+                      id: "2344545",
+                      chatRoomId: "99r8r88r",
+                      senderId: "64443333",
+                      receiverId: "66455yy",
+                      content: "Hell this is demo chat",
+                      timestamp: Timestamp.now(),
+                      readBy: [],
+                      status: MessageStatus.sent,
+                    ),
+                    isMe: false,
+                  ); // 5:28
+                },
+              ),
             ),
-          ),
-
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Icon(Icons.emoji_emotions),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: TextField(
-                        onTap: () {},
-                        controller: messageController,
-                        textCapitalization: TextCapitalization.sentences,
-                        keyboardType: TextInputType.multiline,
-                        // maxLines: ,
-                        decoration: InputDecoration(
-                          hintText: "Type of message",
-                          filled: true,
-
-                          contentPadding: EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
+        
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Icon(Icons.emoji_emotions),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: TextField(
+                          onTap: () {},
+                          controller: messageController,
+                          textCapitalization: TextCapitalization.sentences,
+                          keyboardType: TextInputType.multiline,
+                          // maxLines: ,
+                          decoration: InputDecoration(
+                            hintText: "Type of message",
+                            filled: true,
+        
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 8,
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                            ),
+                            fillColor: Theme.of(context).cardColor,
                           ),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                          ),
-                          fillColor: Theme.of(context).cardColor,
                         ),
                       ),
-                    ),
-
-                    SizedBox(width: 8.0),
-                    IconButton(
-                      onPressed: _handleSendMessage,
-                      icon: Icon(
-                        Icons.send,
-                        color: Theme.of(context).primaryColor,
+        
+                      SizedBox(width: 8.0),
+                      IconButton(
+                        onPressed: _handleSendMessage,
+                        icon: Icon(
+                          Icons.send,
+                          color: Theme.of(context).primaryColor,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
