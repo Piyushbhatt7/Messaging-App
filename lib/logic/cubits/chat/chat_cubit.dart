@@ -22,6 +22,8 @@ class ChatCubit extends Cubit<ChatState> {
     try {
       final chatRoom = await _chatRepository.getOrCreateChatRoom(currentUserId, reciverId);
       emit(state.copyWith(chatRoomId: chatRoom.id, receiverId: reciverId, status: ChatStatus.loaded));
+
+      _sub
       
     } catch (e) {
       emit(state.copyWith(status: ChatStatus.error, error: "Failed to create chat room $e"));
