@@ -1,6 +1,7 @@
 import 'package:chatt_app/data/models/chat_message.dart';
 import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/logic/cubits/chat/chat_cubit.dart';
+import 'package:chatt_app/logic/cubits/chat/chat_state.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -77,7 +78,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
         ],
       ),
 
-      body: BlocBuilder(
+      body: BlocBuilder<ChatCubit, ChatState>(
         bloc: ,
         child: Column(
           children: [
