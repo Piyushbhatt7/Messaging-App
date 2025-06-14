@@ -165,6 +165,8 @@ class ChatRepository extends BaseRepository {
           'readBy': FieldValue.arrayUnion([userId]),
           'status' : MessageStatus.read.toString(),
         });
+
+        await batch.commit();
       }
     } catch (e) {}
   }
