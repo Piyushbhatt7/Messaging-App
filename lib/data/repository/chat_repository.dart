@@ -172,4 +172,8 @@ class ChatRepository extends BaseRepository {
       }
     } catch (e) {}
   }
+
+  Stream<Map<String,dynamic>> getUserOnlineStatus(String userId) {
+    
+  }
 }
