@@ -203,7 +203,7 @@ class MessageBubble extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  "22:55 PM",
+                  daa
                   style: TextStyle(color: isMe ? Colors.white70 : Colors.black, fontSize: 12),
                 ),
 
