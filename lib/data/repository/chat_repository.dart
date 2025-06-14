@@ -147,19 +147,15 @@ class ChatRepository extends BaseRepository {
         .map((snapshot) => snapshot.docs.length);
   }
 
-  Future<void> markMessagesAsRead(String chatRoomId, String userId) async
-  {
+  Future<void> markMessagesAsRead(String chatRoomId, String userId) async {
     try {
-
       final batch = firestore.batch();
 
       // get all unreadmessages where user is receiver
 
-      final unreadMessages = await
-    }
-
-    catch(e) {
-
-    }
+      final unreadMessages = await getChatRoomMessages(chatRoomId)
+          .where("receiverId", isEqualTo: userId)
+          .where('status', isEqualTo: MessageStatus.sent.toString());
+    } catch (e) {}
   }
 }
