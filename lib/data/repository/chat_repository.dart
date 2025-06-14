@@ -186,8 +186,12 @@ class ChatRepository extends BaseRepository {
     });
   }
 
-  Future<void> updateOnlineStatus(String userId, bool isOnline) {
-    
+  Future<void> updateOnlineStatus(String userId, bool isOnline) async{
+
+    await firestore.collection("users").doc(userId).update({
+      'isOnline': isOnline,
+      'lastSeen': Timestamp.now(),
+    });
   }
 
   Stream<Map<String, dynamic>> getTypingStatus(String chatRoomId) {
