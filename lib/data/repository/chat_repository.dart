@@ -153,17 +153,18 @@ class ChatRepository extends BaseRepository {
 
       // get all unreadmessages where user is receiver
 
-      final unreadMessages = await getChatRoomMessages(chatRoomId)
-          .where("receiverId", isEqualTo: userId)
-          .where('status', isEqualTo: MessageStatus.sent.toString()).get();
+      final unreadMessages =
+          await getChatRoomMessages(chatRoomId)
+              .where("receiverId", isEqualTo: userId)
+              .where('status', isEqualTo: MessageStatus.sent.toString())
+              .get();
 
       print("found ${unreadMessages.docs.length} unread messages");
 
-      for(final doc in unreadMessages.docs)
-      {
+      for (final doc in unreadMessages.docs) {
         batch.update(doc.reference, {
           'readBy': FieldValue.arrayUnion([userId]),
-          'status' : MessageStatus.read.toString(),
+          'status': MessageStatus.read.toString(),
         });
 
         await batch.commit();
@@ -173,10 +174,23 @@ class ChatRepository extends BaseRepository {
     } catch (e) {}
   }
 
-  Stream<Map<String,dynamic>> getUserOnlineStatus(String userId) {
+  Stream<Map<String, dynamic>> getUserOnlineStatus(String userId) {
+    return firestore.collection("users").doc(userId).snapshots().map((
+      snapshot,
+    ) {
+      final data = snapshot.data();
+      return {
+        'isOnline': data?['isOnline'] ?? false,
+        'lastSeen': data?['lastSeen'],
+      };
+    });
+  }
 
-    return firestore.collection("users").doc(userId).snapshots().map((snapshot) {
-
+  Stream<Map<String, dynamic>> getTypingStatus(String chatRoomId) {
+    return _chatRooms
+    .doc(chatRoomId).snapshots().map((
+      snapshot,
+    ) {
       final data = snapshot.data();
       return {
         'isOnline': data?['isOnline'] ?? false,
