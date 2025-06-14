@@ -203,6 +203,7 @@ class MessageBubble extends StatelessWidget {
 
                 //    const SizedBox(width: 54,),
                 if (isMe) ...[
+                  const SizedBox(width: 4.0,),
                   Icon(
                     message.status == MessageStatus.read
                         ? Icons.check
