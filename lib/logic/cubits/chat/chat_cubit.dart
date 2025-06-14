@@ -90,9 +90,15 @@ class ChatCubit extends Cubit<ChatState> {
       final lastSeen = status["lastSeen"] as Timestamp?;
       
       emit(state.copyWith(
-
+        isReceiverOnline: isOnline,
+        receiverLatSeen: lastSeen,
       ));
-    });
+    },
+    onError: (error)
+    {
+      print("error getting online status");
+    }
+    );
   }
 
   Future<void> _markMessagesAsRead(String chatRoomId) async {
