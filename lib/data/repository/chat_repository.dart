@@ -147,5 +147,8 @@ class ChatRepository extends BaseRepository {
         .map((snapshot) => snapshot.docs.length);
   }
 
-  Future<void> markMessageAsRead()
+  Future<void> markMessagesAsRead(String chatRoomId, String userId)
+  {
+    
+  }
 }
