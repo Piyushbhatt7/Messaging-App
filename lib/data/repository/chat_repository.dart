@@ -203,7 +203,7 @@ class ChatRepository extends BaseRepository {
 
           return {
             'isTyping': data['isTyping'] ?? false,
-            'typingUserId': data['typingUserId'] ?? false,
+            'typingUserId': data['typingUserId'],
           };
     });
   }
