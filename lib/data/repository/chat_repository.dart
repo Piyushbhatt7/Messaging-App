@@ -155,7 +155,7 @@ class ChatRepository extends BaseRepository {
 
       final unreadMessages = await getChatRoomMessages(chatRoomId)
           .where("receiverId", isEqualTo: userId)
-          .where('status', isEqualTo: MessageStatus.sent.toString());
+          .where('status', isEqualTo: MessageStatus.sent.toString()).get();
     } catch (e) {}
   }
 }
