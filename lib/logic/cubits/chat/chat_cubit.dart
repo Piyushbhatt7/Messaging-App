@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class ChatCubit extends Cubit<ChatState> {
   final ChatRepository _chatRepository;
   final String currentUserId;
+  bool _isInChat = false;
 
   StreamSubscription? _messageSubscription;
 
@@ -17,6 +18,9 @@ class ChatCubit extends Cubit<ChatState> {
 
 
   void enterChat(String reciverId) async{
+
+    _isInChat = true;
+    
     emit(state.copyWith(status: ChatStatus.loading));
 
     try {
