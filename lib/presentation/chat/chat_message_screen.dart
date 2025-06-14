@@ -82,85 +82,75 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
       body: BlocBuilder<ChatCubit, ChatState>(
         bloc: _chatCubit,
         builder: (context, state) {
-          
-          if(state.status == ChatStatus.loading){
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+          if (state.status == ChatStatus.loading) {
+            return const Center(child: CircularProgressIndicator());
           }
 
-          if(state.status == ChatStatus.error)
-          {
-            Center(child: Text(
-              state.error??"Something went wrong"
-            ),);
+          if (state.status == ChatStatus.error) {
+            Center(child: Text(state.error ?? "Something went wrong"));
           }
-        return Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                reverse: true,
-                itemCount: state.messages.length,
-                itemBuilder: (context, index) {
-                  final message = state.messages[index];
-                  final isMe = message.senderId == _chatCubit.currentUserId;
-                  return MessageBubble(
-                    message: message,
-                    isMe: isMe,
-                  ); // 5:28
-                },
+          return Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                  reverse: true,
+                  itemCount: state.messages.length,
+                  itemBuilder: (context, index) {
+                    final message = state.messages[index];
+                    final isMe = message.senderId == _chatCubit.currentUserId;
+                    return MessageBubble(message: message, isMe: isMe); // 5:28
+                  },
+                ),
               ),
-            ),
-        
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.emoji_emotions),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: TextField(
-                          onTap: () {},
-                          controller: messageController,
-                          textCapitalization: TextCapitalization.sentences,
-                          keyboardType: TextInputType.multiline,
-                          // maxLines: ,
-                          decoration: InputDecoration(
-                            hintText: "Type of message",
-                            filled: true,
-        
-                            contentPadding: EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 8,
+
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.emoji_emotions),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: TextField(
+                            onTap: () {},
+                            controller: messageController,
+                            textCapitalization: TextCapitalization.sentences,
+                            keyboardType: TextInputType.multiline,
+                            // maxLines: ,
+                            decoration: InputDecoration(
+                              hintText: "Type of message",
+                              filled: true,
+
+                              contentPadding: EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: 8,
+                              ),
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                              ),
+                              fillColor: Theme.of(context).cardColor,
                             ),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                            ),
-                            fillColor: Theme.of(context).cardColor,
                           ),
                         ),
-                      ),
-        
-                      SizedBox(width: 8.0),
-                      IconButton(
-                        onPressed: _handleSendMessage,
-                        icon: Icon(
-                          Icons.send,
-                          color: Theme.of(context).primaryColor,
+
+                        SizedBox(width: 8.0),
+                        IconButton(
+                          onPressed: _handleSendMessage,
+                          icon: Icon(
+                            Icons.send,
+                            color: Theme.of(context).primaryColor,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
-        );
-        }
+            ],
+          );
+        },
       ),
-  
     );
   }
 }
@@ -202,26 +192,28 @@ class MessageBubble extends StatelessWidget {
             ),
             Row(
               mainAxisSize: MainAxisSize.min,
-              children: [    
-                Text(      
-                  DateFormat('h:mm a').format(message.timestamp.toDate()),              
-                  style: TextStyle(color: isMe ? Colors.white70 : Colors.black, fontSize: 12),
+              children: [
+                Text(
+                  DateFormat('h:mm a').format(message.timestamp.toDate()),
+                  style: TextStyle(
+                    color: isMe ? Colors.white70 : Colors.black,
+                    fontSize: 12,
+                  ),
                 ),
- 
-            //    const SizedBox(width: 54,),
 
-              if(isMe)  
-              ...[
-                 Icon(
-                  message.status == MessageStatus.read ?
-                  Icons.check : Icons.done_all,
-                  size: 14,
-                  color:
-                      message.status == MessageStatus.read
-                          ? Colors.lightBlueAccent
-                          : Colors.white70,
-                ),
-              ]
+                //    const SizedBox(width: 54,),
+                if (isMe) ...[
+                  Icon(
+                    message.status == MessageStatus.read
+                        ? Icons.check
+                        : Icons.done_all,
+                    size: 14,
+                    color:
+                        message.status == MessageStatus.read
+                            ? Colors.lightBlueAccent
+                            : Colors.white70,
+                  ),
+                ],
               ],
             ),
           ],
