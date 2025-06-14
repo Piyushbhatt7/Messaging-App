@@ -49,26 +49,27 @@ class ChatListTile extends StatelessWidget {
           ),
         ],
       ),
-      trailing: StreamBuilder<int>(stream: getIt<ChatRepository>().getUnreadCount(chat.id, currentUserId), builder: (context, snapshot)
-      {
-        if(!snapshot.hasData || snapshot.data == 0)
-        {
-          return const SizedBox();
-        }
+      trailing: StreamBuilder<int>(
+        stream: getIt<ChatRepository>().getUnreadCount(chat.id, currentUserId),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData || snapshot.data == 0) {
+            return const SizedBox();
+          }
 
-        return Container(
-          padding: EdgeInsets.all(8.0),
-          decoration: BoxDecoration(
-            color: Theme.of(context).primaryColor,
-            shape: BoxShape.circle,
-          ),
+          return Container(
+            padding: EdgeInsets.all(8.0),
+            decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+              shape: BoxShape.circle,
+            ),
 
-          child:  Text(
-            snapshot.data.toString(),
-            style: TextStyle(color: Colors.white),
-          ),
-        )
-      })
+            child: Text(
+              snapshot.data.toString(),
+              style: TextStyle(color: Colors.white),
+            ),
+          );
+        },
+      ),
     );
   }
 }
