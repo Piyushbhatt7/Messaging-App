@@ -136,4 +136,6 @@ class ChatRepository extends BaseRepository {
               snapshot.docs.map((doc) => ChatRoomModel.fromFirestore(doc)).toList(),
         ); // 7:04
   }
+
+  Stream<int> getUnreadCount()
 }
