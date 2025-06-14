@@ -1,4 +1,5 @@
 import 'package:chatt_app/data/models/chat_message.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 enum ChatStatus { initaial, loading, loaded, error }
@@ -9,6 +10,10 @@ class ChatState extends Equatable {
   final String? receiverId;
   final String? chatRoomId;
   final List<ChatMessage> messages;
+  final bool isReceiverTyping;
+  final bool isReceiverOnline;
+  final Timestamp? receiverLatSeen;
+
 
   ChatState({
     this.status = ChatStatus.initaial,
