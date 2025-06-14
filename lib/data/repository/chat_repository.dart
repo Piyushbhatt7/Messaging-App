@@ -191,11 +191,20 @@ class ChatRepository extends BaseRepository {
     .doc(chatRoomId).snapshots().map((
       snapshot,
     ) {
-      final data = snapshot.data();
-      return {
-        'isOnline': data?['isOnline'] ?? false,
-        'lastSeen': data?['lastSeen'],
-      };
+          if (!snapshot.exists) {
+            
+            return {
+              'isTyping': false,
+              'typingUserId': null,
+            };
+          }
+
+          final data = snapshot.data() as Map<String, dynamic>;
+
+          return {
+            'isTyping': data['isTyping'] ?? false,
+            'typingUserId': data['typingUserId'] ?? false,
+          };
     });
   }
 }
