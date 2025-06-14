@@ -162,8 +162,9 @@ class ChatRepository extends BaseRepository {
       for(final doc in unreadMessages.docs)
       {
         batch.update(doc.reference, {
-          'readBy': FieldValue.arrayUnion([userId])
-        })
+          'readBy': FieldValue.arrayUnion([userId]),
+          'status' : MessageStatus.read.toString(),
+        });
       }
     } catch (e) {}
   }
