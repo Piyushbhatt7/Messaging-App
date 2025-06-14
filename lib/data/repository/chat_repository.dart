@@ -180,8 +180,8 @@ class ChatRepository extends BaseRepository {
       final data = snapshot.data();
       return {
         'isOnline': data?['isOnline'] ?? false,
-        'lastSeen': data?['lastSeen'] ?? true
-      }
-    })
+        'lastSeen': data?['lastSeen'],
+      };
+    });
   }
 }
