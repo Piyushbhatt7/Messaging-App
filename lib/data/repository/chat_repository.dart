@@ -149,6 +149,12 @@ class ChatRepository extends BaseRepository {
 
   Future<void> markMessagesAsRead(String chatRoomId, String userId)
   {
-    
+    try {
+
+    }
+
+    catch(e) {
+      
+    }
   }
 }
