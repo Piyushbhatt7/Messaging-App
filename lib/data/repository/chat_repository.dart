@@ -186,6 +186,10 @@ class ChatRepository extends BaseRepository {
     });
   }
 
+  Future<void> updateOnlineStatus(String userId, bool isOnline) {
+    
+  }
+
   Stream<Map<String, dynamic>> getTypingStatus(String chatRoomId) {
     return _chatRooms
     .doc(chatRoomId).snapshots().map((
