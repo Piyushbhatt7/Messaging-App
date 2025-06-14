@@ -66,4 +66,8 @@ class ChatCubit extends Cubit<ChatState> {
       emit(state.copyWith(error: "Failed to load messages", status: ChatStatus.error));
     }); // 6:31
   }
+
+  Future<void> markMessagesAsRead(String chatRoomId) async {
+    
+  }
 }
