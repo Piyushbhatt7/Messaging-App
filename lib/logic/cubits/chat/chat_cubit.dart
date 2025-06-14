@@ -87,8 +87,12 @@ class ChatCubit extends Cubit<ChatState> {
     _onlineStatusSubscription = _chatRepository.getUserOnlineStatus(userId).listen((status) {
 
       final isOnline = status["isOnline"] as bool;
-      final lastSeen = status["lastSeen"] as Timestamp;
-    })
+      final lastSeen = status["lastSeen"] as Timestamp?;
+      
+      emit(state.copyWith(
+
+      ));
+    });
   }
 
   Future<void> _markMessagesAsRead(String chatRoomId) async {
