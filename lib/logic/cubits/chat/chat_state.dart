@@ -14,12 +14,18 @@ class ChatState extends Equatable {
   final bool isReceiverOnline;
   final Timestamp? receiverLatSeen;
   final bool hasMoreMessages;
-  final bool? isLoadingMore;
-  final bool? isUserBlocked;
-  final bool? amIBlocked;
+  final bool isLoadingMore;
+  final bool isUserBlocked;
+  final bool amIBlocked;
 
-
-  ChatState(this.isReceiverTyping, this.isReceiverOnline, this.receiverLatSeen, this.hasMoreMessages, this.isLoadingMore, this.isUserBlocked, this.amIBlocked, {
+  ChatState({
+    this.isReceiverTyping = false,
+    this.isReceiverOnline = false,
+    this.receiverLatSeen,
+    this.hasMoreMessages = false,
+    this.isLoadingMore = false,
+    this.isUserBlocked = false,
+    this.amIBlocked = false,
     this.status = ChatStatus.initaial,
     this.error,
     this.receiverId,
