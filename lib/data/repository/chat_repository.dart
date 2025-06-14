@@ -167,6 +167,8 @@ class ChatRepository extends BaseRepository {
         });
 
         await batch.commit();
+
+        print("Marked message as read for user ${userId}");
       }
     } catch (e) {}
   }
