@@ -206,7 +206,7 @@ class MessageBubble extends StatelessWidget {
                   daa     
                   style: TextStyle(color: isMe ? Colors.white70 : Colors.black, fontSize: 12),
                 ),
-
+ 
             //    const SizedBox(width: 54,),
 
                 Icon(
