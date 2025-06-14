@@ -63,8 +63,9 @@ class ChatListTile extends StatelessWidget {
             shape: BoxShape.circle,
           ),
 
-          child: const Text(
-            
+          child:  Text(
+            snapshot.data.toString(),
+            style: TextStyle(color: Colors.white),
           ),
         )
       })
