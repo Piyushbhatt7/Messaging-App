@@ -10,6 +10,7 @@ class ChatCubit extends Cubit<ChatState> {
   bool _isInChat = false;
 
   StreamSubscription? _messageSubscription;
+  StreamSubscription? _onlineStatusSubscription;
 
   ChatCubit({
     required ChatRepository chatRepository,
@@ -76,6 +77,10 @@ class ChatCubit extends Cubit<ChatState> {
     {
       emit(state.copyWith(error: "Failed to load messages", status: ChatStatus.error));
     }); // 6:31
+  }
+
+  void _subscribeToOnlineStatus(String userId) {
+
   }
 
   Future<void> _markMessagesAsRead(String chatRoomId) async {
