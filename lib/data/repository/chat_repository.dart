@@ -158,6 +158,13 @@ class ChatRepository extends BaseRepository {
           .where('status', isEqualTo: MessageStatus.sent.toString()).get();
 
       print("found ${unreadMessages.docs.length} unread messages");
+
+      for(final doc in unreadMessages.docs)
+      {
+        batch.update(doc.reference, {
+          'readBy': FieldValue.arrayUnion([userId])
+        })
+      }
     } catch (e) {}
   }
 }
