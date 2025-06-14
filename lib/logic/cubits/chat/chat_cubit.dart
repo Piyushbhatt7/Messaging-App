@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:chatt_app/data/repository/chat_repository.dart';
 import 'package:chatt_app/logic/cubits/chat/chat_state.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ChatCubit extends Cubit<ChatState> {
@@ -82,6 +83,12 @@ class ChatCubit extends Cubit<ChatState> {
 
   void _subscribeToOnlineStatus(String userId) {
 
+    _onlineStatusSubscription?.cancel();
+    _onlineStatusSubscription = _chatRepository.getUserOnlineStatus(userId).listen((status) {
+
+      final isOnline = status["isOnline"] as bool;
+      final lastSeen = status["lastSeen"] as Timestamp;
+    })
   }
 
   Future<void> _markMessagesAsRead(String chatRoomId) async {
