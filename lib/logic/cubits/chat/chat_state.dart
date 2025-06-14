@@ -13,6 +13,8 @@ class ChatState extends Equatable {
   final bool isReceiverTyping;
   final bool isReceiverOnline;
   final Timestamp? receiverLatSeen;
+  final bool hasMoreMessages;
+  final bool isLoadingMore;
 
 
   ChatState({
