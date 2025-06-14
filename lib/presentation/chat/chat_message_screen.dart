@@ -4,6 +4,7 @@ import 'package:chatt_app/logic/cubits/chat/chat_cubit.dart';
 import 'package:chatt_app/logic/cubits/chat/chat_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 class ChatMessageScreen extends StatefulWidget {
   final String receiverId;
@@ -203,7 +204,7 @@ class MessageBubble extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [    
                 Text(      
-                  ,              
+                  DateFormat('h:mm a').format(message.timestamp.toDate()),              
                   style: TextStyle(color: isMe ? Colors.white70 : Colors.black, fontSize: 12),
                 ),
  
