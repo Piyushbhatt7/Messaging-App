@@ -201,7 +201,7 @@ class MessageBubble extends StatelessWidget {
             ),
             Row(
               mainAxisSize: MainAxisSize.min,
-              children: [  
+              children: [   
                 Text(    
                   daa          
                   style: TextStyle(color: isMe ? Colors.white70 : Colors.black, fontSize: 12),
