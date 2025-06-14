@@ -68,6 +68,11 @@ class ChatCubit extends Cubit<ChatState> {
   }
 
   Future<void> markMessagesAsRead(String chatRoomId) async {
-    
+
+    try {
+      await _chatRepository.markMessagesAsRead(chatRoomId, currentUserId);
+    } catch (e) {
+      print("Error marking messages as read $e");
+    }
   }
 }
