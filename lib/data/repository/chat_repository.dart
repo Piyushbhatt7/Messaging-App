@@ -133,11 +133,17 @@ class ChatRepository extends BaseRepository {
         .snapshots()
         .map(
           (snapshot) =>
-              snapshot.docs.map((doc) => ChatRoomModel.fromFirestore(doc)).toList(),
+              snapshot.docs
+                  .map((doc) => ChatRoomModel.fromFirestore(doc))
+                  .toList(),
         ); // 7:04
   }
 
   Stream<int> getUnreadCount(String chatRoomId, String userId) {
-    return getChatRoomMessages(chatRoomId).where("receiverId")
+    return getChatRoomMessages(chatRoomId)
+        .where("receiverId", isEqualTo: userId)
+        .where('status', isEqualTo: MessageStatus.sent.toString())
+        .snapshots()
+        .map((snapshot) => snapshot.docs.length);
   }
 }
