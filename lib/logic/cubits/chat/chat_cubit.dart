@@ -86,4 +86,8 @@ class ChatCubit extends Cubit<ChatState> {
       print("Error marking messages as read $e");
     }
   }
+
+  Future<void> leaveChat() async {
+    _isInChat = false;
+  }
 }
