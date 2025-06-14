@@ -138,13 +138,6 @@ class ChatRepository extends BaseRepository {
   }
 
   Stream<int> getUnreadCount(String chatRoomId, String userId) {
-    return _chatRooms
-        .where("participants", arrayContains: userId)
-        .orderBy('lastMessageTime', descending: true)
-        .snapshots()
-        .map(
-          (snapshot) =>
-              snapshot.docs.map((doc) => ChatRoomModel.fromFirestore(doc)).toList(),
-        ); // 7:04
+    return getChatRoomMessages(chatRoomId).where("receiverId")
   }
 }
