@@ -29,8 +29,10 @@ class ChatCubit extends Cubit<ChatState> {
     try {
       final chatRoom = await _chatRepository.getOrCreateChatRoom(currentUserId, reciverId);
       emit(state.copyWith(chatRoomId: chatRoom.id, receiverId: reciverId, status: ChatStatus.loaded));
-
+// subscribe to all updates
       _subscribeToMessages(chatRoom.id);
+      _subscribeToOnlineStatus(reciverId);
+
       
     } catch (e) {
       emit(state.copyWith(status: ChatStatus.error, error: "Failed to create chat room $e"));
@@ -72,7 +74,7 @@ class ChatCubit extends Cubit<ChatState> {
       }
 
        emit(state.copyWith(
-        message: messages, 
+        messages: messages, 
         error: null,
        ));
     }, onError: (error)
@@ -90,7 +92,27 @@ class ChatCubit extends Cubit<ChatState> {
       final lastSeen = status["lastSeen"] as Timestamp?;
       
       emit(state.copyWith(
-        isReceiverOnline: isOnline,
+        isReceiverOnline: isOnline, // 7:45
+        receiverLatSeen: lastSeen,
+      ));
+    },
+    onError: (error)
+    {
+      print("error getting online status");
+    }
+    );
+  }
+
+  void _subscribeToTypingStatus(String chatRoomId) {
+
+    _typingSubscription?.cancel();
+    _typingSubscription= _chatRepository.getUserOnlineStatus(chatRoomId).listen((status) {
+
+      final isOnline = status["isOnline"] as bool;
+      final lastSeen = status["lastSeen"] as Timestamp?;
+      
+      emit(state.copyWith(
+        isReceiverOnline: isOnline, // 7:45
         receiverLatSeen: lastSeen,
       ));
     },
