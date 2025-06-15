@@ -32,6 +32,7 @@ class ChatCubit extends Cubit<ChatState> {
 // subscribe to all updates
       _subscribeToMessages(chatRoom.id);
       _subscribeToOnlineStatus(reciverId);
+      _subscribeToTypingStatus(chatRoom.id);
 
       
     } catch (e) {
@@ -112,8 +113,8 @@ class ChatCubit extends Cubit<ChatState> {
       final typingUserId = status["typingUserId"] as String?;
       
       emit(state.copyWith(
-        isReceiverOnline: isOnline, // 7:45
-        receiverLatSeen: lastSeen,
+        isReceiverTyping: isTyping && typingUserId != currentUserId
+        
       ));
     },
     onError: (error)
