@@ -106,10 +106,10 @@ class ChatCubit extends Cubit<ChatState> {
   void _subscribeToTypingStatus(String chatRoomId) {
 
     _typingSubscription?.cancel();
-    _typingSubscription= _chatRepository.getUserOnlineStatus(chatRoomId).listen((status) {
+    _typingSubscription= _chatRepository.getTypingStatus(chatRoomId).listen((status) {
 
-      final isOnline = status["isOnline"] as bool;
-      final lastSeen = status["lastSeen"] as Timestamp?;
+      final isTyping = status["isTyping"] as bool;
+      final typingUserId = status["typingUserId"] as String?;
       
       emit(state.copyWith(
         isReceiverOnline: isOnline, // 7:45
