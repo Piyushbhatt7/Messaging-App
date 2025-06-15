@@ -30,7 +30,7 @@ class ChatState extends Equatable {
     bool? hasMoreMessages,       
     bool? isLoadingMore,  
     bool? isUserBlocked, 
-    bool? amIBlocked, 
+    bool? amIBlocked,  
   }) {
     return ChatState(
       status: status ?? this.status,
