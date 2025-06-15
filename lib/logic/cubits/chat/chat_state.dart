@@ -28,7 +28,7 @@ class ChatState extends Equatable {
     bool? isReceiverOnline, 
     Timestamp? receiverLatSeen,       
     bool? hasMoreMessages,       
-    bool? isLoadingMore,  
+    bool? isLoadingMore,   
     bool? isUserBlocked,  
     bool? amIBlocked,  
   }) {
