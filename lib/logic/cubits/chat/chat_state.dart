@@ -25,7 +25,7 @@ class ChatState extends Equatable {
     String? chatRoomId,
     List<ChatMessage>? messages,
     bool? isReceiverTyping,
-    bool? isReceiverOnline,
+    bool? isReceiverOnline, 
     Timestamp? receiverLatSeen,       
     bool? hasMoreMessages,      
     bool? isLoadingMore,
