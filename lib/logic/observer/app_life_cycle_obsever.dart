@@ -1,8 +1,7 @@
 import 'package:chatt_app/data/repository/chat_repository.dart';
 import 'package:flutter/widgets.dart';
 
-class AppLifeCycleObsever extends WidgetsBindingObserver{
-
+class AppLifeCycleObsever extends WidgetsBindingObserver {
   final String userId;
   final ChatRepository chatRepository;
 
@@ -13,20 +12,18 @@ class AppLifeCycleObsever extends WidgetsBindingObserver{
     // TODO: implement didChangeAppLifecycleState
     super.didChangeAppLifecycleState(state);
 
-    switch (state)
-    {
+    switch (state) {
       case AppLifecycleState.paused:
       case AppLifecycleState.inactive:
       case AppLifecycleState.detached:
-      chatRepository.updateOnlineStatus(userId, false);
-      break;
+        chatRepository.updateOnlineStatus(userId, false);
+        break;
 
       case AppLifecycleState.resumed:
-      chatRepository.updateOnlineStatus(userId, true);
+        chatRepository.updateOnlineStatus(userId, true);
 
       default:
-      break;
+        break;
     }
   }
 }
-
