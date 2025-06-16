@@ -37,7 +37,10 @@ class _MyAppState extends State<MyApp> {
     // TODO: implement initState
     getIt<AuthCubit>().stream.listen((state)
     {
-      
+      if(state.status == AuthStatus.authenticated && state.user != null)
+      {
+        _lifeCycleObsever = AppLifeCycleObsever(userId: state.user!.uid, chatRepository: chatRepository)
+      }
     })
     super.initState();
   }
