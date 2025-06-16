@@ -68,15 +68,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                   style: TextStyle(color: Colors.green, fontSize: 12),
                 ),
 
-                Row(
-                  children: [
-                    Container(
-                      child: Text(
-                        "Typing"
-                      ),
-                    )
-                  ],
-                )
+               
               ],
             ),
           ],
