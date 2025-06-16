@@ -72,7 +72,10 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                   bloc: getIt<ChatCubit>(),
                   builder: (context, state)
                  {
-
+                  if(state.isReceiverTyping)
+                  {
+                    
+                  }
                  })
               ],
             ),
