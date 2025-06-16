@@ -7,5 +7,16 @@ class AppLifeCycleObsever extends WidgetsBindingObserver{
   final ChatRepository chatRepository;
 
   AppLifeCycleObsever({required this.userId, required this.chatRepository});
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // TODO: implement didChangeAppLifecycleState
+    super.didChangeAppLifecycleState(state);
+
+    switch (state)
+    {
+      case AppLifecycleState.paused
+    }
+  }
 }
 
