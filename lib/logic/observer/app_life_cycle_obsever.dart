@@ -15,7 +15,8 @@ class AppLifeCycleObsever extends WidgetsBindingObserver{
 
     switch (state)
     {
-      case AppLifecycleState.paused
+      case AppLifecycleState.paused:
+      case AppLifecycleState.inactive:
     }
   }
 }
