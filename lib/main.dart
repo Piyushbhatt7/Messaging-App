@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
               return const Scaffold( 
                 body: Center(child: CircularProgressIndicator()),
               );
-            }
+            } 
             // You can customize the following logic as needed
             // For demonstration, redirect to HomeScreen if authenticated, else LoginScreen
             if (state.status == AuthStatus.authenticated) {
