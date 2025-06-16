@@ -74,8 +74,13 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                  {
                   if(state.isReceiverTyping)
                   {
-                    Container(
-                      child: const Text('Typing...'),
+                    return Row(
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(right: 4),
+                          child: const Text('Typing...'),
+                        ),
+                      ],
                     );
                   }
                  })
