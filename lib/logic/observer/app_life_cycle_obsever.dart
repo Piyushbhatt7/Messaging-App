@@ -23,6 +23,9 @@ class AppLifeCycleObsever extends WidgetsBindingObserver{
 
       case AppLifecycleState.resumed:
       chatRepository.updateOnlineStatus(userId, true);
+
+      default:
+      break;
     }
   }
 }
