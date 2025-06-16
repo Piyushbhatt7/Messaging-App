@@ -55,7 +55,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Messenger App',
       theme: AppTheme.lightTheme, 
-      home:  
+      home:   
       // ChatMessageScreen(
       //   receiverId: 'sampleReceiverId',
       //   receiverName: 'Sample Receiver',  
