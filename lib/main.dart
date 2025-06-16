@@ -1,4 +1,5 @@
 import 'package:chatt_app/config/theme/app_theme.dart';
+import 'package:chatt_app/data/repository/chat_repository.dart';
 import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/firebase_options.dart';
 import 'package:chatt_app/logic/cubits/auth/auth_cubit.dart';
@@ -39,7 +40,7 @@ class _MyAppState extends State<MyApp> {
     {
       if(state.status == AuthStatus.authenticated && state.user != null)
       {
-        _lifeCycleObsever = AppLifeCycleObsever(userId: state.user!.uid, chatRepository: chatRepository)
+        _lifeCycleObsever = AppLifeCycleObsever(userId: state.user!.uid, chatRepository: getIt<ChatRepository>());
       }
     })
     super.initState();
