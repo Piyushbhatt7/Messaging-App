@@ -69,7 +69,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                 ),
 
                  BlocBuilder<ChatCubit, ChatState>(
-                  
+                  bloc: getIt<ChatCubit>(),
                   builder: (context, state)
                  {
 
