@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
       navigatorKey: getIt<AppRouter>().navigatorKey,
       debugShowCheckedModeBanner: false,
       title: 'Messenger App',
-      theme: AppTheme.lightTheme,
+      theme: AppTheme.lightTheme, 
       home:  
       // ChatMessageScreen(
       //   receiverId: 'sampleReceiverId',
