@@ -3,6 +3,7 @@ import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/firebase_options.dart';
 import 'package:chatt_app/logic/cubits/auth/auth_cubit.dart';
 import 'package:chatt_app/logic/cubits/auth/auth_state.dart';
+import 'package:chatt_app/logic/observer/app_life_cycle_obsever.dart';
 import 'package:chatt_app/presentation/chat/chat_message_screen.dart';
 import 'package:chatt_app/presentation/home/home_screen.dart';
 import 'package:chatt_app/presentation/screens/auth/login_screen.dart';
@@ -21,9 +22,22 @@ void main() async{
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  late AppLifeCycleObsever _lifeCycleObsever;
+  @override
+  void initState() {
+    // TODO: implement initState
+    getIt
+    super.initState();
+  }
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
