@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
       }
 
       WidgetsBinding.instance.addObserver(_lifeCycleObsever);
-    })
+    });
     super.initState();
   }
   // This widget is the root of your application.
