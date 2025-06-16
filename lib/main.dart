@@ -35,7 +35,10 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     // TODO: implement initState
-    getIt
+    getIt<AuthCubit>().stream.listen((state)
+    {
+      
+    })
     super.initState();
   }
   // This widget is the root of your application.
