@@ -68,7 +68,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                   style: TextStyle(color: Colors.green, fontSize: 12),
                 ),
 
-                 BlocBuilder(builder: )
+                 BlocBuilder<ChatCubit, ChatState>(builder: )
               ],
             ),
           ],
