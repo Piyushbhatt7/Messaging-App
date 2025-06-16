@@ -60,7 +60,7 @@ class _MyAppState extends State<MyApp> {
       //   receiverId: 'sampleReceiverId',
       //   receiverName: 'Sample Receiver',   
       // ), 
-       BlocBuilder<AuthCubit, AuthState>(
+       BlocBuilder<AuthCubit, AuthState>( 
           bloc: getIt<AuthCubit>(), 
           builder: (context, state) { 
             if (state.status == AuthStatus.initial) { 
