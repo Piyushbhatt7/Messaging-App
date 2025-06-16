@@ -92,6 +92,13 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                   {
                     return Text("Online", style: TextStyle(color: Colors.lightGreenAccent),);
                   }
+
+                  
+                  if(state.receiverLatSeen != null)
+                  {
+                    final lastSeen = 
+                    return Text("Online", style: TextStyle(color: Colors.lightGreenAccent),);
+                  }
                  })
               ],
             ),
