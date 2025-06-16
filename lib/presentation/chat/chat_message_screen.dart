@@ -90,7 +90,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
 
                   if(state.isReceiverOnline)
                   {
-                    return Text("Online", style: TextStyle(),);
+                    return Text("Online", style: TextStyle(color: Theme),);
                   }
                  })
               ],
