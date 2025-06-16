@@ -69,7 +69,9 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                 ),
 
                 Row(
-                  ch
+                  children: [
+                    
+                  ],
                 )
               ],
             ),
