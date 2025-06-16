@@ -61,7 +61,7 @@ class _MyAppState extends State<MyApp> {
       //   receiverName: 'Sample Receiver',   
       // ), 
        BlocBuilder<AuthCubit, AuthState>(
-          bloc: getIt<AuthCubit>(),
+          bloc: getIt<AuthCubit>(), 
           builder: (context, state) {
             if (state.status == AuthStatus.initial) {
               return const Scaffold( 
