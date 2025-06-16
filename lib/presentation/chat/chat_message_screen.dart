@@ -67,6 +67,10 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                   "Online",
                   style: TextStyle(color: Colors.green, fontSize: 12),
                 ),
+
+                Row(
+                  ch
+                )
               ],
             ),
           ],
