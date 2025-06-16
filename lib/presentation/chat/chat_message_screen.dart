@@ -70,7 +70,11 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
 
                 Row(
                   children: [
-                    
+                    Container(
+                      child: Text(
+                        "Typing"
+                      ),
+                    )
                   ],
                 )
               ],
