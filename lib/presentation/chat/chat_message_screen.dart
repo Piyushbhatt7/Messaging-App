@@ -96,7 +96,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                   {
                     return Row(    
                       children: [   
-                        Container(  
+                        Container(   
                           margin: EdgeInsets.only(right: 4),
                           child: const LoadingDots(), 
                         ),
