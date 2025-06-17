@@ -208,8 +208,8 @@ class ChatRepository extends BaseRepository {
 
       await _chatRooms.doc(chatRoomId).update({
         'isTyping': isTyping,
-        ''
-      })
+        'typingUserId': isTyping? userId : null,
+      });
     } catch (e) {
       
     }
