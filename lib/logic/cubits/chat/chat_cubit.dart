@@ -133,7 +133,9 @@ class ChatCubit extends Cubit<ChatState> {
 
     typingTimer?.cancel();
     _updateTypingStatus(true);
-    typingTimer = Timer(Duration(seconds: 3), callback)
+    typingTimer = Timer(Duration(seconds: 3), (){
+      _updateTypingStatus(false);
+    });
   }
 
   Future<void> _updateTypingStatus(bool isTyping) async
