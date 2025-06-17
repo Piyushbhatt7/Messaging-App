@@ -34,6 +34,8 @@ class ChatCubit extends Cubit<ChatState> {
       _subscribeToOnlineStatus(reciverId);
       _subscribeToTypingStatus(chatRoom.id);
 
+      await _chatRepo
+
       
     } catch (e) {
       emit(state.copyWith(status: ChatStatus.error, error: "Failed to create chat room $e"));
