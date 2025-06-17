@@ -42,6 +42,11 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
     );
   }
 
+  void _onTextChanged() {
+
+    final isComposing = 
+  }
+
   @override
   void dispose() {
     // TODO: implement dispose
