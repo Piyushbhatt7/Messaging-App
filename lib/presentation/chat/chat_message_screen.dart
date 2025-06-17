@@ -98,11 +98,12 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                       children: [
                         Container(
                           margin: EdgeInsets.only(right: 4),
-                          child: LoadingDots(),
+                          child: const LoadingDots(),
                         ),
 
                         Text("typing", style: TextStyle(
-                          color: Theme.of(context).primaryColor
+                          color: Theme.of(context).primaryColor,
+                          fontSize: 12.0
                         ),)
                       ],
                     );
