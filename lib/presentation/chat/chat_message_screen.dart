@@ -50,6 +50,11 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
       setState(() {
         _isComposing = isComposing;
       });
+
+      if(isComposing)
+      {
+        _chatCubit.sta
+      }
     }
   }
 
