@@ -102,7 +102,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                         ),
 
                         Text("typing", style: TextStyle(
-                          color: Theme.of(context).primaryColor,
+                          color:  Color(0xffF7CFD8),
                           fontSize: 12.0
                         ),)
                       ],
