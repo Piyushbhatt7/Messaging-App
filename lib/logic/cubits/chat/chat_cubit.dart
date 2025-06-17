@@ -13,6 +13,7 @@ class ChatCubit extends Cubit<ChatState> {
   StreamSubscription? _messageSubscription;
   StreamSubscription? _onlineStatusSubscription;
   StreamSubscription? _typingSubscription;
+  Timer? typingTimer;
 
   ChatCubit({
     required ChatRepository chatRepository,
