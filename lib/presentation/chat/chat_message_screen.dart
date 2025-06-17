@@ -2,6 +2,7 @@ import 'package:chatt_app/data/models/chat_message.dart';
 import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/logic/cubits/chat/chat_cubit.dart';
 import 'package:chatt_app/logic/cubits/chat/chat_state.dart';
+import 'package:chatt_app/presentation/widgets/loading_dosts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -97,7 +98,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                       children: [
                         Container(
                           margin: EdgeInsets.only(right: 4),
-                          child: const Text('Typing...'),
+                          child: LoadingDots(),
                         ),
 
                         Text("typing", style: TextStyle(
