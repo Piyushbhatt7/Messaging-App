@@ -23,7 +23,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
   final TextEditingController messageController = TextEditingController();
   late final ChatCubit _chatCubit;
 
-  bool isTyping
+  bool _isComposing = false;
 
   @override
   void initState() {
