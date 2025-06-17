@@ -129,7 +129,10 @@ class ChatCubit extends Cubit<ChatState> {
 
   void startTyping () {
 
-    if()
+    if(state.chatRoomId == null) return;
+
+    typingTimer?.cancel();
+    _up
   }
 
   Future<void> _markMessagesAsRead(String chatRoomId) async {
