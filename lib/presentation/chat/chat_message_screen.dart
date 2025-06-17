@@ -48,7 +48,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
     if(isComposing != _isComposing)
     {
       setState(() {
-        
+        _isComposing = isComposing;
       });
     }
   }
