@@ -211,7 +211,7 @@ class ChatRepository extends BaseRepository {
         'typingUserId': isTyping? userId : null,
       });
     } catch (e) {
-      
+      print("error updating typing status");
     }
   }
 
