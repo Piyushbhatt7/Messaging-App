@@ -142,7 +142,7 @@ class ChatCubit extends Cubit<ChatState> {
     try {
       await _chatRepository.updateTypingStatus(state.chatRoomId!, currentUserId, isTyping);
     } catch (e) {
-      
+      print("error making messages as read $e");
     }
   }
 
