@@ -53,7 +53,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
 
       if(isComposing)
       {
-        _chatCubit.sta
+        _chatCubit.startTyping();
       }
     }
   }
