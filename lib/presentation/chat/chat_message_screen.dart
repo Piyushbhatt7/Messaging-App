@@ -100,7 +100,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                           margin: EdgeInsets.only(right: 4),
                           child: const LoadingDots(), 
                         ),
-
+ 
                         Text("typing", style: TextStyle(
                           color:  Color(0xffF7CFD8), // 8:23
                           fontSize: 12.0
