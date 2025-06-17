@@ -47,7 +47,9 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
     final isComposing = messageController.text.isNotEmpty;
     if(isComposing != _isComposing)
     {
-      
+      setState(() {
+        
+      });
     }
   }
 
