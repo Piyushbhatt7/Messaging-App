@@ -127,6 +127,11 @@ class ChatCubit extends Cubit<ChatState> {
     );
   }
 
+  void startTyping () {
+
+    if()
+  }
+
   Future<void> _markMessagesAsRead(String chatRoomId) async {
 
     try {
