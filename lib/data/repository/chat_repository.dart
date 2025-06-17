@@ -194,7 +194,10 @@ class ChatRepository extends BaseRepository {
     });
   }
 
-  Future
+  Future<void> updateTypingStatus(String chatRoomId, String userId, bool isTyping)
+  {
+    
+  }
 
   Stream<Map<String, dynamic>> getTypingStatus(String chatRoomId) {
     return _chatRooms
