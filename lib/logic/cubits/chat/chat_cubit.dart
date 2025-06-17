@@ -140,7 +140,7 @@ class ChatCubit extends Cubit<ChatState> {
     if(state.chatRoomId == null) return;
 
     try {
-      await _chatRepository.
+      await _chatRepository.updateTypingStatus(state.chatRoomId!, currentUserId, isTyping);
     } catch (e) {
       
     }
