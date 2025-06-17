@@ -63,10 +63,10 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(widget.receiverName),
-                Text(
-                  "Online",
-                  style: TextStyle(color: Colors.green, fontSize: 12),
-                ),
+                // Text(
+                //   "Online",
+                //   style: TextStyle(color: Colors.green, fontSize: 12),
+                // ),
 
                  BlocBuilder<ChatCubit, ChatState>(
                   bloc: _chatCubit,
