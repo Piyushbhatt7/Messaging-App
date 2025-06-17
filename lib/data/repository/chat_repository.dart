@@ -199,6 +199,17 @@ class ChatRepository extends BaseRepository {
 
     try {
       final doc = await _chatRooms.doc(chatRoomId).get();
+
+      if(!doc.exists)
+      {
+        print("chat room does not exist");
+        return;
+      }
+
+      await _chatRooms.doc(chatRoomId).update({
+        'isTyping': isTyping,
+        ''
+      })
     } catch (e) {
       
     }
