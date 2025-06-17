@@ -194,6 +194,8 @@ class ChatRepository extends BaseRepository {
     });
   }
 
+  Future
+
   Stream<Map<String, dynamic>> getTypingStatus(String chatRoomId) {
     return _chatRooms
     .doc(chatRoomId).snapshots().map((
