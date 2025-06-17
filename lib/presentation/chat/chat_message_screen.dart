@@ -100,7 +100,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                           child: const Text('Typing...'),
                         ),
 
-                        Text("typing...", style: TextStyle(
+                        Text("typing", style: TextStyle(
                           color: Theme.of(context).primaryColor
                         ),)
                       ],
