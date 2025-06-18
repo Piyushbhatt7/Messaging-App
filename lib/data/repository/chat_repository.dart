@@ -244,4 +244,12 @@ class ChatRepository extends BaseRepository {
       'blockedUsers': FieldValue.arrayUnion([blockedUserId])
     });
   }
+
+  Future<void> unBlockUser(String currentUserId, String blockedUserId) async
+  {
+    final userRef = firestore.collection("users").doc(currentUserId);
+    await userRef.update({
+      'blockedUsers': FieldValue.arrayRemove([blockedUserId])
+    });
+  }
 }
