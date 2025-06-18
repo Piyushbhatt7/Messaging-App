@@ -45,16 +45,13 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
   }
 
   void _onTextChanged() {
-
     final isComposing = messageController.text.isNotEmpty;
-    if(isComposing != _isComposing)
-    {
+    if (isComposing != _isComposing) {
       setState(() {
         _isComposing = isComposing;
       });
 
-      if(isComposing)
-      {
+      if (isComposing) {
         _chatCubit.startTyping();
       }
     }
@@ -83,46 +80,57 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(widget.receiverName),
+
                 // Text(
                 //   "Online",
                 //   style: TextStyle(color: Colors.green, fontSize: 12),
                 // ),
-
-                 BlocBuilder<ChatCubit, ChatState>(
+                BlocBuilder<ChatCubit, ChatState>(
                   bloc: _chatCubit,
-                  builder: (context, state)
-                 {
-                  if(state.isReceiverTyping)
-                  {
-                    return Row(    
-                      children: [   
-                        Container(      
-                          margin: EdgeInsets.only(right: 4),
-                          child: const LoadingDots(), 
+                  builder: (context, state) {
+                    if (state.isReceiverTyping) {
+                      return Row(
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(right: 4),
+                            child: const LoadingDots(),
+                          ),
+
+                          Text(
+                            "typing",
+                            style: TextStyle(
+                              color: Color(0xffF7CFD8), // 8:23
+                              fontSize: 12.0,
+                            ),
+                          ),
+                        ],
+                      );
+                    }
+
+                    if (state.isReceiverOnline) {
+                      return Text(
+                        "Online",
+                        style: TextStyle(
+                          color: Colors.lightGreenAccent,
+                          fontSize: 12.0,
                         ),
- 
-                        Text("typing", style: TextStyle(
-                          color:  Color(0xffF7CFD8), // 8:23
-                          fontSize: 12.0
-                        ),)
-                      ],
-                    );
-                  }
+                      );
+                    }
 
-                  if(state.isReceiverOnline)
-                  {
-                    return Text("Online", style: TextStyle(color: Colors.lightGreenAccent, fontSize: 12.0),);
-                  }
+                    if (state.receiverLatSeen != null) {
+                      final lastSeen = state.receiverLatSeen!.toDate();
+                      return Text(
+                        "last seen at ${DateFormat('h:mm a').format(lastSeen)}",
+                        style: TextStyle(
+                          color: Colors.lightGreenAccent,
+                          fontSize: 12.0,
+                        ),
+                      );
+                    }
 
-                  
-                  if(state.receiverLatSeen != null)
-                  {
-                    final lastSeen = state.receiverLatSeen !.toDate();
-                    return Text("last seen at ${DateFormat('h:mm a').format(lastSeen)}", style: TextStyle(color: Colors.lightGreenAccent, fontSize: 12.0),);
-                  }
-
-                  return SizedBox();
-                 })
+                    return SizedBox();
+                  },
+                ),
               ],
             ),
           ],
@@ -130,14 +138,27 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
         actions: [
           BlocBuilder<ChatCubit, ChatState>(
             bloc: _chatCubit,
-            builder: (context, state)
-            {
-              if(state.isUserBlocked)
-              {
-                return TextButton.icon(onPressed: (){}, label: Text("Unblock"));
+            builder: (context, state) {
+              if (state.isUserBlocked) {
+                return TextButton.icon(
+                  onPressed: () => _chatCubit.unBlockUser(widget.receiverId),
+                  label: Text("Unblock"),
+                  icon: Icon(Icons.block),
+                );
               }
-            })
-          
+              return PopupMenuButton<String>(
+                icon: Icon(Icons.more_vert),
+                onSelected: (value) {
+                  if(value == "block")
+                  {
+                    final bool? confirm = await showDialog(context: context, builder: builder)
+                  }
+                },
+                itemBuilder: (context) {
+                
+              },)
+            },
+          ),
         ],
       ),
 
@@ -265,7 +286,7 @@ class MessageBubble extends StatelessWidget {
 
                 //    const SizedBox(width: 54,),
                 if (isMe) ...[
-                  const SizedBox(width: 4.0,),
+                  const SizedBox(width: 4.0),
                   Icon(
                     message.status == MessageStatus.read
                         ? Icons.check
