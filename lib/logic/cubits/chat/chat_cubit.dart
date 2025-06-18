@@ -163,7 +163,7 @@ class ChatCubit extends Cubit<ChatState> {
     try {
       await _chatRepository.unBlockUser(currentUserId, userId);
     } catch (e) {
-      emit(state.copyWith(error: 'failed to block user $e'));
+      emit(state.copyWith(error: 'failed to unblock user $e'));
     }
   }
 
