@@ -277,7 +277,15 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                         const SizedBox(width: 8),
                         Expanded(
                           child: TextField(
-                            onTap: () {},
+                            onTap: () {
+                              
+                             setState(() {
+                            _isshowEmoji = !_isshowEmoji;
+                            if (_isshowEmoji) {
+                              FocusScope.of(context).unfocus();
+                            }
+                          }); 
+                            },
                             controller: messageController,
                             textCapitalization: TextCapitalization.sentences,
                             keyboardType: TextInputType.multiline,
