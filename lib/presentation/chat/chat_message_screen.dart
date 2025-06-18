@@ -171,7 +171,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                   }
                 },
                 itemBuilder: (context) => <PopupMenuEntry<String>> [
-                  
+                  const PopupMenuItem(child: Text("Block"))
                 ],);
             },
           ),
