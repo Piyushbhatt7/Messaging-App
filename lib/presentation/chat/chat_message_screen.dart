@@ -166,7 +166,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                               ),
 
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () => Navigator.pop(context, true),
                                 child: Text(
                                   "Block",
                                   style: TextStyle(color: Colors.red),
