@@ -71,7 +71,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
   void _scrollToBottom () {
 
     if (_scrollController.hasClients) {
-      
+      _scrollController.animateTo(0, duration: Duration(milliseconds: 300), curve: Curves.easeInCubic);
     }
   }
 
