@@ -32,7 +32,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
     _chatCubit = getIt<ChatCubit>();
     _chatCubit.enterChat(widget.receiverId);
     messageController.addListener(_onTextChanged);
-    _scrollController.addListener(_onScroll())
+    _scrollController.addListener(_onScroll);
     // TODO: implement initState
     super.initState();
   }
@@ -51,7 +51,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
     // load more messages when reaching to top
 
     if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent - 200) {
-      
+      _chatCubit.loadMoreMessages();
     }
   }
 
