@@ -244,6 +244,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
               ),
               Expanded(
                 child: ListView.builder(
+                  controller: _scrollController,
                   reverse: true,
                   itemCount: state.messages.length,
                   itemBuilder: (context, index) {
