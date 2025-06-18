@@ -1,5 +1,6 @@
 import 'package:chatt_app/data/models/chat_message.dart';
 import 'package:chatt_app/data/models/chat_room_model.dart';
+import 'package:chatt_app/data/models/user_model.dart';
 import 'package:chatt_app/data/services/base_repository.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -255,6 +256,9 @@ class ChatRepository extends BaseRepository {
 
   Stream<bool> isUserBlocked(String currentUserId, String otherUserId) {
 
-    return firestore.collection("users").doc(currentUserId).snapshots().map((doc) => )
+    return firestore.collection("users").doc(currentUserId).snapshots().map((doc) {
+      final userData = UserModel.fromFirestore(doc);
+      return userData.blockedUsers
+    })
   }
 }
