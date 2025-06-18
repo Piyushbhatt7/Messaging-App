@@ -267,7 +267,12 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                       children: [
                         IconButton(onPressed: ()
                         {
-
+                          setState(() {
+                            _isshowEmoji = !_isshowEmoji;
+                            if (_isshowEmoji) {
+                              FocusScope.of(context).unfocus();
+                            }
+                          });
                         }, icon: Icon(Icons.emoji_emotions)),
                         const SizedBox(width: 8),
                         Expanded(
