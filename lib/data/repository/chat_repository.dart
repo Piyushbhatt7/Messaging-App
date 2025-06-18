@@ -258,7 +258,7 @@ class ChatRepository extends BaseRepository {
 
     return firestore.collection("users").doc(currentUserId).snapshots().map((doc) {
       final userData = UserModel.fromFirestore(doc);
-      return userData.blockedUsers
-    })
+      return userData.blockedUsers.contains(otherUserId);
+    });
   }
 }
