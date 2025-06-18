@@ -261,4 +261,12 @@ class ChatRepository extends BaseRepository {
       return userData.blockedUsers.contains(otherUserId);
     });
   }
+
+  Stream<bool> amIBlocked(String currentUserId, String otherUserId) {
+
+    return firestore.collection("users").doc(currentUserId).snapshots().map((doc) {
+      final userData = UserModel.fromFirestore(doc);
+      return userData.blockedUsers.contains(otherUserId);
+    });
+  }
 }
