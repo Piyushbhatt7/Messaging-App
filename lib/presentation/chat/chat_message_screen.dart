@@ -24,6 +24,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
   final TextEditingController messageController = TextEditingController();
   late final ChatCubit _chatCubit;
   bool _isComposing = false;
+  List<ChatMessage> _previousMessages;
   final _scrollController = ScrollController();
 
   @override
