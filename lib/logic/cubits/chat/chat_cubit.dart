@@ -70,7 +70,8 @@ class ChatCubit extends Cubit<ChatState> {
   }
 
   Future<void> loadMoreMessages() async {
-    
+    if(state.status != ChatStatus.loaded || state.messages.isEmpty || !state.isLoadingMore)
+    return;
   }
   void _subscribeToMessages(String chatRoomId)
   {
