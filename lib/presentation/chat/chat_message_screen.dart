@@ -161,7 +161,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                         TextButton(onPressed: (){
 
                         }, child: Text(
-                          "Blocl",
+                          "Block",
                           style: TextStyle(
                             color: Colors.red,
                           ),
@@ -170,9 +170,9 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                     ));
                   }
                 },
-                itemBuilder: (context) {
-                
-              },)
+                itemBuilder: (context) => <PopupMenuEntry<String>> [
+                  
+                ],);
             },
           ),
         ],
