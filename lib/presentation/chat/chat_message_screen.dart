@@ -220,7 +220,10 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
         ],
       ),
 
-      body: BlocBuilder<ChatCubit, ChatState>(
+      body: BlocConsumer<ChatCubit, ChatState>(
+        listener: (context, state) {
+          _hasNewMessages();
+        },
         bloc: _chatCubit,
         builder: (context, state) {
           if (state.status == ChatStatus.loading) {
