@@ -207,6 +207,8 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
             children: [
               if(state.amIBlocked)
               Container(
+                color: Colors.redAccent.withOpacity(0.1),
+                padding: EdgeInsets.all(8.0),
                 child: Text("You have been blocked by ${widget.receiverName}", 
                 textAlign: TextAlign.center,
                 style: TextStyle(
