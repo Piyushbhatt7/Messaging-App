@@ -226,7 +226,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                   },
                 ),
               ),
-
+              if(!state.amIBlocked && !state.isUserBlocked)
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
