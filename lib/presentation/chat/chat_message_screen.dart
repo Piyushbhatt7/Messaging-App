@@ -26,6 +26,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
   bool _isComposing = false;
   List<ChatMessage> _previousMessages = [];
   final _scrollController = ScrollController();
+  bool _isshowEmoji = false;
 
   @override
   void initState() {
