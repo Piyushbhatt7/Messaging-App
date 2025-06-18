@@ -241,7 +241,7 @@ class ChatRepository extends BaseRepository {
   {
     final userRef = firestore.collection("users").doc(currentUserId);
     await userRef.update({
-      'blockedUsers': FieldValue.arrayUnion(blockedUserId)
-    })
+      'blockedUsers': FieldValue.arrayUnion([blockedUserId])
+    });
   }
 }
