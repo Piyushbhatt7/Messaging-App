@@ -148,31 +148,46 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
               }
               return PopupMenuButton<String>(
                 icon: Icon(Icons.more_vert),
-                onSelected: (value) async{
-                  if(value == "block")
-                  {
-                    final bool? confirm = await showDialog(context: context, builder: (context) => AlertDialog(
-                      title: Text("Are you sure you wan to block ${widget.receiverName}"),
-                      actions: [
-                        TextButton(onPressed: (){
-                          Navigator.pop(context);
-                        }, child: Text("Cancel"),),
+                onSelected: (value) async {
+                  if (value == "block") {
+                    final bool? confirm = await showDialog(
+                      context: context,
+                      builder:
+                          (context) => AlertDialog(
+                            title: Text(
+                              "Are you sure you wan to block ${widget.receiverName}",
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text("Cancel"),
+                              ),
 
-                        TextButton(onPressed: (){
-
-                        }, child: Text(
-                          "Block",
-                          style: TextStyle(
-                            color: Colors.red,
+                              TextButton(
+                                onPressed: () {},
+                                child: Text(
+                                  "Block",
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
+                            ],
                           ),
-                        ))
-                      ],
-                    ));
+                    );
+
+                    if (confirm == true) {
+                      await _chatCubit.blockUser(widget.receiverId); // 8:44
+                    }
                   }
                 },
-                itemBuilder: (context) => <PopupMenuEntry<String>> [
-                  const PopupMenuItem(child: Text("Block"))
-                ],);
+                itemBuilder:
+                    (context) => <PopupMenuEntry<String>>[
+                      const PopupMenuItem(
+                        value: 'block',
+                        child: Text("Block")),
+                    ],
+              );
             },
           ),
         ],
