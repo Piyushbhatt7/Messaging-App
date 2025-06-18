@@ -37,6 +37,7 @@ class ChatCubit extends Cubit<ChatState> {
       _subscribeToMessages(chatRoom.id);
       _subscribeToOnlineStatus(reciverId);
       _subscribeToTypingStatus(chatRoom.id);
+      _subscribeToBlockStatus(reciverId);
 
       await _chatRepository.updateOnlineStatus(currentUserId, true);
 
