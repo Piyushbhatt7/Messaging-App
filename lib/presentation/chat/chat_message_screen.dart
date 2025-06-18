@@ -46,6 +46,15 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
     );
   }
 
+  void _onScroll() {
+
+    // load more messages when reaching to top
+
+    if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent - 200) {
+      
+    }
+  }
+
   void _onTextChanged() {
     final isComposing = messageController.text.isNotEmpty;
     if (isComposing != _isComposing) {
