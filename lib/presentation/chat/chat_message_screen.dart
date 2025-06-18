@@ -23,8 +23,8 @@ class ChatMessageScreen extends StatefulWidget {
 class _ChatMessageScreenState extends State<ChatMessageScreen> {
   final TextEditingController messageController = TextEditingController();
   late final ChatCubit _chatCubit;
-
   bool _isComposing = false;
+  final _scrollController = ScrollController();
 
   @override
   void initState() {
