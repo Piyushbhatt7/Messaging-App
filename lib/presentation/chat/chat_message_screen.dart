@@ -75,6 +75,14 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
     }
   }
 
+  void _hasNewMessages(List<ChatMessage> messages)
+  {
+    if (messages.length != _previousMessages.length) {
+      _scrollToBottom();
+      _previousMessages = messages;
+    }
+  }
+
   @override
   void dispose() {
     // TODO: implement dispose
