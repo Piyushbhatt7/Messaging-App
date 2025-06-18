@@ -253,8 +253,8 @@ class ChatRepository extends BaseRepository {
     });
   }
 
-  Stream<bool> isUserBlocked(String currentUserId, String otherUserId)async {
+  Stream<bool> isUserBlocked(String currentUserId, String otherUserId) {
 
-    
+    return firestore.collection("users").doc(currentUserId).snapshots().map((doc) => )
   }
 }
