@@ -148,10 +148,12 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
               }
               return PopupMenuButton<String>(
                 icon: Icon(Icons.more_vert),
-                onSelected: (value) {
+                onSelected: (value) async{
                   if(value == "block")
                   {
-                    final bool? confirm = await showDialog(context: context, builder: builder)
+                    final bool? confirm = await showDialog(context: context, builder: (context) => AlertDialog(
+                      title: Text("Are you sure you wan to block ${widget.receiverName}"),
+                    ));
                   }
                 },
                 itemBuilder: (context) {
