@@ -80,6 +80,11 @@ class ChatCubit extends Cubit<ChatState> {
       final lastDoc = await _chatRepository.getChatRoomMessages(state.chatRoomId!).doc(lastMessage.id).get();
 
       final moreMessages = await _chatRepository.getMoreMessages(state.chatRoomId!, lastDocument: lastDoc);
+
+      if(moreMessages.isEmpty)
+      {
+        emit(state.copyWith(hasMoreMessages: false, isLoadingMore: ))
+      }
     } catch (e) {
       
     }
