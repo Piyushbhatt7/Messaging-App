@@ -236,4 +236,6 @@ class ChatRepository extends BaseRepository {
           };
     });
   }
+
+  Future<void> blockUser(String currentUserId, String blockUserId)
 }
