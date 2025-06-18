@@ -130,7 +130,13 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
         actions: [
           BlocBuilder<ChatCubit, ChatState>(
             bloc: _chatCubit,
-            builder: )
+            builder: (context, state)
+            {
+              if(state.isUserBlocked)
+              {
+                return TextButton.icon(onPressed: (){}, label: Text("Unblock"));
+              }
+            })
           
         ],
       ),
