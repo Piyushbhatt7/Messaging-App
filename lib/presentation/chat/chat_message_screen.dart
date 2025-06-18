@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:chatt_app/data/models/chat_message.dart';
 import 'package:chatt_app/data/services/service_locator.dart';
 import 'package:chatt_app/logic/cubits/chat/chat_cubit.dart';
 import 'package:chatt_app/logic/cubits/chat/chat_state.dart';
 import 'package:chatt_app/presentation/widgets/loading_dosts.dart';
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -26,7 +29,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
   bool _isComposing = false;
   List<ChatMessage> _previousMessages = [];
   final _scrollController = ScrollController();
-  bool _isshowEmoji = false;
+  bool _isShowEmoji = false;
 
   @override
   void initState() {
@@ -268,8 +271,8 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                         IconButton(onPressed: ()
                         {
                           setState(() {
-                            _isshowEmoji = !_isshowEmoji;
-                            if (_isshowEmoji) {
+                            _isShowEmoji = !_isShowEmoji;
+                            if (_isShowEmoji) {
                               FocusScope.of(context).unfocus();
                             }
                           });
@@ -278,10 +281,10 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                         Expanded(
                           child: TextField(
                             onTap: () {
-                              if(_isshowEmoji)
+                              if(_isShowEmoji)
                               {
                                 setState(() {
-                                  _isshowEmoji = false;
+                                  _isShowEmoji = false;
                                 });
                               }
                             },
@@ -315,6 +318,59 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                         ),
                       ],
                     ),
+
+                    if (_isShowEmoji)
+                        SizedBox(
+                          height: 250,
+                          child: EmojiPicker(
+                            textEditingController: messageController,
+                            onEmojiSelected: (category, emoji) {
+                              messageController
+                                ..text += emoji.emoji
+                                ..selection = TextSelection.fromPosition(
+                                  TextPosition(
+                                      offset: messageController.text.length),
+                                );
+                              setState(() {
+                                _isComposing =
+                                    messageController.text.isNotEmpty;
+                              });
+                            },
+                            config: Config(
+                              height: 250,
+                              emojiViewConfig: EmojiViewConfig(
+                                columns: 7,
+                                emojiSizeMax:
+                                    32.0 * (Platform.isIOS ? 1.30 : 1.0),
+                                verticalSpacing: 0,
+                                horizontalSpacing: 0,
+                                gridPadding: EdgeInsets.zero,
+                                backgroundColor:
+                                    Theme.of(context).scaffoldBackgroundColor,
+                                loadingIndicator: const SizedBox.shrink(),
+                              ),
+                              categoryViewConfig: const CategoryViewConfig(
+                                initCategory: Category.RECENT,
+                              ),
+                              bottomActionBarConfig: BottomActionBarConfig(
+                                enabled: true,
+                                backgroundColor:
+                                    Theme.of(context).scaffoldBackgroundColor,
+                                buttonColor: Theme.of(context).primaryColor,
+                              ),
+                              skinToneConfig: const SkinToneConfig(
+                                enabled: true,
+                                dialogBackgroundColor: Colors.white,
+                                indicatorColor: Colors.grey,
+                              ),
+                              searchViewConfig: SearchViewConfig(
+                                backgroundColor:
+                                    Theme.of(context).scaffoldBackgroundColor,
+                                buttonIconColor: Theme.of(context).primaryColor,
+                              ),
+                            ),
+                          ),
+                        ),
                   ],
                 ),
               ),
