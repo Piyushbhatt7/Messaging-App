@@ -278,13 +278,12 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                         Expanded(
                           child: TextField(
                             onTap: () {
-                              
-                             setState(() {
-                            _isshowEmoji = !_isshowEmoji;
-                            if (_isshowEmoji) {
-                              FocusScope.of(context).unfocus();
-                            }
-                          }); 
+                              if(_isshowEmoji)
+                              {
+                                setState(() {
+                                  _isshowEmoji = false;
+                                });
+                              }
                             },
                             controller: messageController,
                             textCapitalization: TextCapitalization.sentences,
