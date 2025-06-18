@@ -93,7 +93,10 @@ class ChatCubit extends Cubit<ChatState> {
         isLoadingMore: false
       ));
     } catch (e) {
-      
+      emit(state.copyWith(
+        error: "Failed to load more messages",
+        isLoadingMore: false
+      ));
     }
   }
   void _subscribeToMessages(String chatRoomId)
