@@ -128,10 +128,10 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
           ],
         ),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 15.0),
-            child: Icon(Icons.more_vert),
-          ),
+          BlocBuilder<ChatCubit, ChatState>(
+            bloc: _chatCubit,
+            builder: )
+          
         ],
       ),
 
