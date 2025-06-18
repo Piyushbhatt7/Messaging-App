@@ -252,4 +252,9 @@ class ChatRepository extends BaseRepository {
       'blockedUsers': FieldValue.arrayRemove([blockedUserId])
     });
   }
+
+  Stream<bool> isUserBlocked(String currentUserId, String otherUserId)async {
+
+    
+  }
 }
