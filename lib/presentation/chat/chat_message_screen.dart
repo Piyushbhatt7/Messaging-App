@@ -6,6 +6,7 @@ import 'package:chatt_app/logic/cubits/chat/chat_cubit.dart';
 import 'package:chatt_app/logic/cubits/chat/chat_state.dart';
 import 'package:chatt_app/presentation/widgets/loading_dosts.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
+import 'package:flutter/foundation.dart' hide Category;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -51,10 +52,10 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
   }
 
   void _onScroll() {
-
     // load more messages when reaching to top
 
-    if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent - 200) {
+    if (_scrollController.position.pixels >=
+        _scrollController.position.maxScrollExtent - 200) {
       _chatCubit.loadMoreMessages();
     }
   }
@@ -72,15 +73,17 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
     }
   }
 
-  void _scrollToBottom () {
-
+  void _scrollToBottom() {
     if (_scrollController.hasClients) {
-      _scrollController.animateTo(0, duration: Duration(milliseconds: 300), curve: Curves.easeInCubic);
+      _scrollController.animateTo(
+        0,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeInCubic,
+      );
     }
   }
 
-  void _hasNewMessages(List<ChatMessage> messages)
-  {
+  void _hasNewMessages(List<ChatMessage> messages) {
     if (messages.length != _previousMessages.length) {
       _scrollToBottom();
       _previousMessages = messages;
@@ -98,6 +101,10 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double emojiScale = 1.0;
+    if (!kIsWeb) {
+      if (Platform.isIOS) emojiScale = 1.3;
+    }
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -152,10 +159,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                       final lastSeen = state.receiverLatSeen!.toDate();
                       return Text(
                         "last seen at ${DateFormat('h:mm a').format(lastSeen)}",
-                        style: TextStyle(
-                          color: Colors.green,
-                          fontSize: 12.0,
-                        ),
+                        style: TextStyle(color: Colors.green, fontSize: 12.0),
                       );
                     }
 
@@ -214,9 +218,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                 },
                 itemBuilder:
                     (context) => <PopupMenuEntry<String>>[
-                      const PopupMenuItem(
-                        value: 'block',
-                        child: Text("Block")),
+                      const PopupMenuItem(value: 'block', child: Text("Block")),
                     ],
               );
             },
@@ -239,16 +241,16 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
           }
           return Column(
             children: [
-              if(state.amIBlocked)
-              Container(
-                color: Colors.redAccent.withOpacity(0.1),
-                padding: EdgeInsets.all(8.0),
-                child: Text("You have been blocked by ${widget.receiverName}", 
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.red,
-                ),),
-              ),
+              if (state.amIBlocked)
+                Container(
+                  color: Colors.redAccent.withOpacity(0.1),
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    "You have been blocked by ${widget.receiverName}",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
               Expanded(
                 child: ListView.builder(
                   controller: _scrollController,
@@ -261,65 +263,69 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                   },
                 ),
               ),
-              if(!state.amIBlocked && !state.isUserBlocked)
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        IconButton(onPressed: ()
-                        {
-                          setState(() {
-                            _isShowEmoji = !_isShowEmoji;
-                            if (_isShowEmoji) {
-                              FocusScope.of(context).unfocus();
-                            }
-                          });
-                        }, icon: Icon(Icons.emoji_emotions)),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: TextField(
-                            onTap: () {
-                              if(_isShowEmoji)
-                              {
-                                setState(() {
-                                  _isShowEmoji = false;
-                                });
-                              }
+              if (!state.amIBlocked && !state.isUserBlocked)
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _isShowEmoji = !_isShowEmoji;
+                                if (_isShowEmoji) {
+                                  FocusScope.of(context).unfocus();
+                                }
+                              });
                             },
-                            controller: messageController,
-                            textCapitalization: TextCapitalization.sentences,
-                            keyboardType: TextInputType.multiline,
-                            // maxLines: ,
-                            decoration: InputDecoration(
-                              hintText: "Type of message",
-                              filled: true,
+                            icon: Icon(Icons.emoji_emotions),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: TextField(
+                              onTap: () {
+                                if (_isShowEmoji) {
+                                  setState(() {
+                                    _isShowEmoji = false;
+                                  });
+                                }
+                              },
+                              controller: messageController,
+                              textCapitalization: TextCapitalization.sentences,
+                              keyboardType: TextInputType.multiline,
+                              // maxLines: ,
+                              decoration: InputDecoration(
+                                hintText: "Type of message",
+                                filled: true,
 
-                              contentPadding: EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 8,
+                                contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 8,
+                                ),
+                                border: OutlineInputBorder(
+                                  borderSide: BorderSide.none,
+                                ),
+                                fillColor: Theme.of(context).cardColor,
                               ),
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                              ),
-                              fillColor: Theme.of(context).cardColor,
                             ),
                           ),
-                        ),
 
-                        SizedBox(width: 8.0),
-                        IconButton(
-                          onPressed: _isComposing? _handleSendMessage : null,
-                          icon: Icon(
-                            Icons.send,
-                            color: _isComposing?  Theme.of(context).primaryColor : Colors.blueGrey,
+                          SizedBox(width: 8.0),
+                          IconButton(
+                            onPressed: _isComposing ? _handleSendMessage : null,
+                            icon: Icon(
+                              Icons.send,
+                              color:
+                                  _isComposing
+                                      ? Theme.of(context).primaryColor
+                                      : Colors.blueGrey,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
 
-                    if (_isShowEmoji)
+                      if (_isShowEmoji)
                         SizedBox(
                           height: 250,
                           child: EmojiPicker(
@@ -329,7 +335,8 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                                 ..text += emoji.emoji
                                 ..selection = TextSelection.fromPosition(
                                   TextPosition(
-                                      offset: messageController.text.length),
+                                    offset: messageController.text.length,
+                                  ),
                                 );
                               setState(() {
                                 _isComposing =
@@ -340,8 +347,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                               height: 250,
                               emojiViewConfig: EmojiViewConfig(
                                 columns: 7,
-                                emojiSizeMax:
-                                    32.0 * (Platform.isIOS ? 1.30 : 1.0),
+                                emojiSizeMax: 32.0 * emojiScale,
                                 verticalSpacing: 0,
                                 horizontalSpacing: 0,
                                 gridPadding: EdgeInsets.zero,
@@ -349,7 +355,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                                     Theme.of(context).scaffoldBackgroundColor,
                                 loadingIndicator: const SizedBox.shrink(),
                               ),
-                              categoryViewConfig: const CategoryViewConfig(
+                              categoryViewConfig: CategoryViewConfig(
                                 initCategory: Category.RECENT,
                               ),
                               bottomActionBarConfig: BottomActionBarConfig(
@@ -371,9 +377,9 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                             ),
                           ),
                         ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
             ],
           );
         },
