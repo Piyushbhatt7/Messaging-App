@@ -153,6 +153,20 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                   {
                     final bool? confirm = await showDialog(context: context, builder: (context) => AlertDialog(
                       title: Text("Are you sure you wan to block ${widget.receiverName}"),
+                      actions: [
+                        TextButton(onPressed: (){
+                          Navigator.pop(context);
+                        }, child: Text("Cancel"),),
+
+                        TextButton(onPressed: (){
+
+                        }, child: Text(
+                          "Blocl",
+                          style: TextStyle(
+                            color: Colors.red,
+                          ),
+                        ))
+                      ],
                     ));
                   }
                 },
