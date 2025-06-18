@@ -32,6 +32,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
     _chatCubit = getIt<ChatCubit>();
     _chatCubit.enterChat(widget.receiverId);
     messageController.addListener(_onTextChanged);
+    _scrollController.addListener(_onScroll())
     // TODO: implement initState
     super.initState();
   }
