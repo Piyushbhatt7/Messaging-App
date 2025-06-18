@@ -149,8 +149,13 @@ class ChatCubit extends Cubit<ChatState> {
     }
   }
 
-  Future<void> blockUser(String userId, String userName) {
+  Future<void> blockUser(String userId, String userName) async{
 
+    try {
+      await _chatRepository.blockUser(currentUserId, userId)
+    } catch (e) {
+      
+    }
   }
 
   Future<void> _markMessagesAsRead(String chatRoomId) async {
