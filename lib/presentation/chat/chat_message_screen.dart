@@ -153,7 +153,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                       return Text(
                         "last seen at ${DateFormat('h:mm a').format(lastSeen)}",
                         style: TextStyle(
-                          color: Colors.lightGreenAccent,
+                          color: Colors.green,
                           fontSize: 12.0,
                         ),
                       );
