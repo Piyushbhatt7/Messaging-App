@@ -222,7 +222,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
 
       body: BlocConsumer<ChatCubit, ChatState>(
         listener: (context, state) {
-          _hasNewMessages();
+          _hasNewMessages(state.messages);
         },
         bloc: _chatCubit,
         builder: (context, state) {
