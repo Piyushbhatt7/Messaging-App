@@ -13,7 +13,10 @@ class ChatCubit extends Cubit<ChatState> {
   StreamSubscription? _messageSubscription;
   StreamSubscription? _onlineStatusSubscription;
   StreamSubscription? _typingSubscription;
+  StreamSubscription? _blockStatusSubscription;
+  StreamSubscription? _amIBlockStatusSubscription;
   Timer? typingTimer;
+  
 
   ChatCubit({
     required ChatRepository chatRepository,
@@ -127,6 +130,31 @@ class ChatCubit extends Cubit<ChatState> {
     );
   }
 
+  void _subscribeToBlockStatus(String otherUserId) {
+
+    _blockStatusSubscription?.cancel();
+    _blockStatusSubscription = _chatRepository.isUserBlocked(currentUserId, otherUserId).listen((isBlocked) {
+      
+      emit(state.copyWith(
+        isUserBlocked: isBlocked
+      ));
+
+      _amIBlockStatusSubscription?.cancel();
+       _blockStatusSubscription = _chatRepository.amIBlocked(currentUserId, otherUserId).listen((isBlocked) {
+      
+      emit(state.copyWith(
+        amIBlocked: isBlocked
+        )
+    );
+    });
+    },
+    onError: (error)
+    {
+      print("error getting online status");
+    }
+    );
+    }
+
   void startTyping () {
 
     if(state.chatRoomId == null) return;
@@ -166,6 +194,7 @@ class ChatCubit extends Cubit<ChatState> {
       emit(state.copyWith(error: 'failed to unblock user $e'));
     }
   }
+
 
   Future<void> _markMessagesAsRead(String chatRoomId) async {
 
