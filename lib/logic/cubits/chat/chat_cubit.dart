@@ -69,6 +69,9 @@ class ChatCubit extends Cubit<ChatState> {
     }
   }
 
+  Future<void> loadMoreMessages() async {
+    
+  }
   void _subscribeToMessages(String chatRoomId)
   {
     _messageSubscription?.cancel(); // 6:20
