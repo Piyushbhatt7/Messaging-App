@@ -149,6 +149,10 @@ class ChatCubit extends Cubit<ChatState> {
     }
   }
 
+  Future<void> blockUser(String userId, String userName) {
+
+  }
+
   Future<void> _markMessagesAsRead(String chatRoomId) async {
 
     try {
