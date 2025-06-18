@@ -68,6 +68,13 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
     }
   }
 
+  void _scrollToBottom () {
+
+    if (_scrollController.hasClients) {
+      
+    }
+  }
+
   @override
   void dispose() {
     // TODO: implement dispose
