@@ -88,6 +88,7 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
     // TODO: implement dispose
     messageController.dispose();
     _chatCubit.leaveChat();
+    _scrollController.dispose();
     super.dispose();
   }
 
