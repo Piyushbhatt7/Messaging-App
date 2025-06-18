@@ -83,8 +83,13 @@ class ChatCubit extends Cubit<ChatState> {
 
       if(moreMessages.isEmpty)
       {
-        emit(state.copyWith(hasMoreMessages: false, isLoadingMore: ))
+        emit(state.copyWith(hasMoreMessages: false, isLoadingMore: false));
+        return;
       }
+
+      emit(state.copyWith(
+        messages: [...state.messages, ...moreMessages]
+      ));
     } catch (e) {
       
     }
