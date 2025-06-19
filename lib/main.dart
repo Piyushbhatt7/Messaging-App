@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
         // ChatMessageScreen(
         //   receiverId: 'sampleReceiverId',
         //   receiverName: 'Sample Receiver',   
-        // ), 
+
          BlocBuilder<AuthCubit, AuthState>( 
             bloc: getIt<AuthCubit>(),  
             builder: (context, state) {  
@@ -72,7 +72,6 @@ class _MyAppState extends State<MyApp> {
                   body: Center(child: CircularProgressIndicator()),
                 );
               } 
-
               if (state.status == AuthStatus.authenticated) {
                 return const HomeScreen();
               }
