@@ -72,7 +72,7 @@ class _MyAppState extends State<MyApp> {
                   body: Center(child: CircularProgressIndicator()),
                 );
               } 
-              // You can customize the following logic as needed
+
               if (state.status == AuthStatus.authenticated) {
                 return const HomeScreen();
               }
