@@ -182,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ..onTap = () {
                                       // Navigator.push(
                                       //   context,
-                                      //   MaterialPageRoute(
+                                      //   MaterialPage
                                       getIt<AppRouter>().push(
                                         const SignupScreen(),
                                       );
