@@ -184,7 +184,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                       //   context,
                                       //   MaterialPageRoute(
                                       //     builder: (context) => SignupScreen(),
-                                      
                                       getIt<AppRouter>().push(
                                         const SignupScreen(),
                                       );
