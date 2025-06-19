@@ -149,8 +149,8 @@ class _ChatMessageScreenState extends State<ChatMessageScreen> {
                       return Text(
                         "Online",
                         style: TextStyle(
-                          color: Colors.lightGreenAccent,
-                          fontSize: 12.0,
+                          color: Colors.green,
+                          fontSize: 14.0,
                         ),
                       );
                     }
