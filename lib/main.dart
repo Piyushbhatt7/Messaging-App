@@ -63,7 +63,6 @@ class _MyAppState extends State<MyApp> {
         // ChatMessageScreen(
         //   receiverId: 'sampleReceiverId',
         //   receiverName: 'Sample Receiver',   
-
          BlocBuilder<AuthCubit, AuthState>( 
             bloc: getIt<AuthCubit>(),  
             builder: (context, state) {  
