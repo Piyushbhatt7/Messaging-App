@@ -12,7 +12,7 @@ class AppTheme {
       primary: primaryColor,  
       secondary: Color(0xffF7CFD8),  
       surface: Colors.white, 
-      onSurface: Colors.black, 
+      onSurface: Colors.black,  
       tertiary: Color(0xFF7CBEC2),
       onPrimary: Colors.black87,
     ),
@@ -55,7 +55,7 @@ class AppTheme {
     ),
     textTheme: const TextTheme(
       titleLarge: TextStyle(
-        fontSize: 18.0, // 36.52
+        fontSize: 18.0,
       )
     )
   );
