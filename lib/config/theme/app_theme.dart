@@ -9,8 +9,8 @@ class AppTheme {
     brightness: Brightness.light,
 
     colorScheme:  ColorScheme.light(
-      primary: primaryColor,
-      secondary: Color(0xffF7CFD8),
+      primary: primaryColor, 
+      secondary: Color(0xffF7CFD8), 
       surface: Colors.white,
       onSurface: Colors.black,
       tertiary: Color(0xFF7CBEC2),
