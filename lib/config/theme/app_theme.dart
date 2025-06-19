@@ -26,7 +26,7 @@ class AppTheme {
         borderSide: BorderSide.none,
       ), 
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(24), 
         borderSide: BorderSide.none,
       ),
       focusedBorder: OutlineInputBorder(
