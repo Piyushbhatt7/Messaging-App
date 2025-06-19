@@ -180,8 +180,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               recognizer:
                                   TapGestureRecognizer()
                                     ..onTap = () {
-                                      // Navigator.push(
-                                      //   context,
+                                      // Navigator.push
                                       getIt<AppRouter>().push(
                                         const SignupScreen(),
                                       );
