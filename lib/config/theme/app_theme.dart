@@ -23,7 +23,7 @@ class AppTheme {
       contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(24),
-        borderSide: BorderSide.none, 
+        borderSide: BorderSide.none,  
       ), 
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(24), 
