@@ -61,8 +61,7 @@ class _MyAppState extends State<MyApp> {
         theme: AppTheme.lightTheme, 
         home:   
         // ChatMessageScreen(
-        //   receiverId: 'sampleReceiverId',
-
+        //   receiverId: 'sampleReceiverId
          BlocBuilder<AuthCubit, AuthState>( 
             bloc: getIt<AuthCubit>(),  
             builder: (context, state) {  
