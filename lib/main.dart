@@ -7,7 +7,6 @@ import 'package:chatt_app/logic/cubits/auth/auth_state.dart';
 import 'package:chatt_app/logic/observer/app_life_cycle_obsever.dart';
 import 'package:chatt_app/presentation/home/home_screen.dart';
 import 'package:chatt_app/presentation/screens/auth/login_screen.dart';
-import 'package:chatt_app/presentation/screens/auth/signup_screen.dart';
 import 'package:chatt_app/router/app_router.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
