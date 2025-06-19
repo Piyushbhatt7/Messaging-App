@@ -60,7 +60,7 @@ class _MyAppState extends State<MyApp> {
         title: 'Messenger App',
         theme: AppTheme.lightTheme, 
         home:   
-        // ChatMessage
+        // 
          BlocBuilder<AuthCubit, AuthState>( 
             bloc: getIt<AuthCubit>(),  
             builder: (context, state) {  
